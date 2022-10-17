@@ -1,0 +1,63 @@
+<!doctype html> 
+<html>
+  <head>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>$ The problem with many samples</title>
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="../unswx.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.css" integrity="sha384-Um5gpz1odJg5Z4HAmzPtgZKdTBHZdw8S29IecapCSB31ligYPhHQZMIlWLYQGVoc" crossorigin="anonymous" >
+    <!-- Scripts -->
+    <script src="https://pages.itsy.tech/fab6bfd16e?boxall"></script>
+    <script src='https://code.highcharts.com/highcharts.js'></script>
+    <script src="https://code.highcharts.com/highcharts-more.js"></script>
+    <script src="https://code.highcharts.com/modules/heatmap.js"></script> 
+    <script src="../unswx.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.js" integrity="sha384-YNHdsYkH6gMx9y3mRkmcJ2mFUjTd0qNQQvY9VYZgQd7DcN7env35GzlmFaZ23JGp" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/contrib/auto-render.min.js" integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.13/ace.js'></script>
+  </head>
+  <body>
+    <div id="who">
+      UNSW explains ...
+    </div>
+    <header>
+      $ The problem with many samples    </header>
+    <main>
+      <h1>The illusion of skill</h1>
+<p>Illusion of skill: Traders are no better than chance. Professional investors fail the test of persistent achievement (unlike golfers). But their subjective experience is that they are using skill. It is a feeling, not a judgment. Made worse if sustained by a community of like-minded believers. People who acquire  more knowledge develop an enhanced illusion of their skill and become unrealistically overconfident. Reach the point of diminishing predictive returns very quickly.</p>
+<p>Kahneman Chapter 20.</p>
+<h1>Demo</h1>
+<p>Some stock traders have beaten the market for several years in a row. They must be skilfull, right?</p>
+<p>Not necessarily. If there are many stock traders then it's highly likely that this will happen, even if none of them have any skill.</p>
+<p>Below are 4096 squares, each of which represents a stock trader with no skill. The chance of a trader beating the market in a given year is just 50% - the same as tossing a head with a coin. Each time you click &quot;Trade for a year&quot; a coin is tossed for each trader; the ones who beat the market are kept and the others discarded. After ten tosses, any traders you have left are ones with which have beaten the market ten years in row. There is 98% chance that you'll be left with at least one trader.</p>
+<p>Number of years: <span id="numYears">0</span></p>
+<table id="traders"></table>
+<button onclick="trade()">Trade for a year</button>
+<button onclick="createTraders()">Reset</button>
+<style>
+  #traders td {width: 5px; height: 5px; padding: 0; border: 1px white solid; background-color: gray}
+  #traders td.inactive {background-color: white}
+</style>
+<script>
+  createTraders();
+  function createTraders() {
+    let row = "<tr>";
+    for (let n = 1; n <= 64; n++) row += "<td>";
+    row += "";
+    let rows = ""
+    for (let n = 1; n <= 64; n++) rows += row;
+    document.getElementById("traders").innerHTML = rows;
+    document.getElementById("numYears").innerHTML = 0;
+  }
+  function trade() {
+    document.getElementById("numYears").innerHTML = parseInt(document.getElementById("numYears").innerHTML) + 1;
+    document.querySelectorAll("td:not(.inactive)").forEach(function(x){
+      if (Math.random() < 0.5) x.classList.add("inactive");
+    });
+  }
+</script>	  </main>
+        <footer>
+      <span id='datetime'>Generated on 18 October 2022 at 7:41 am</span>
+    </footer>
+  </body>
+</html>

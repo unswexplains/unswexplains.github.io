@@ -1,0 +1,86 @@
+<!doctype html> 
+<html>
+  <head>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>What is data?</title>
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="../unswx.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.css" integrity="sha384-Um5gpz1odJg5Z4HAmzPtgZKdTBHZdw8S29IecapCSB31ligYPhHQZMIlWLYQGVoc" crossorigin="anonymous" >
+    <!-- Scripts -->
+    <script src="https://pages.itsy.tech/fab6bfd16e?boxall"></script>
+    <script src='https://code.highcharts.com/highcharts.js'></script>
+    <script src="https://code.highcharts.com/highcharts-more.js"></script>
+    <script src="https://code.highcharts.com/modules/heatmap.js"></script> 
+    <script src="../unswx.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.js" integrity="sha384-YNHdsYkH6gMx9y3mRkmcJ2mFUjTd0qNQQvY9VYZgQd7DcN7env35GzlmFaZ23JGp" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/contrib/auto-render.min.js" integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.13/ace.js'></script>
+  </head>
+  <body>
+    <div id="who">
+      UNSW explains ...
+    </div>
+    <header>
+      What is data?    </header>
+    <main>
+      <h1>Data</h1>
+<p>Data is what you get when you make measurements.</p>
+<p>Suppose you go to the parking lot of your local supermarket, and for each vehicle you record its registration, make, colour, and length (in metres). Suppose you end up with the following results:</p>
+<pre><code>Rego   Make    Colour Length
+------ ------  ------ ------
+ABR479 Audi    Red      4.65
+PTY456 Toyota  White    5.20
+XLM111 Hyundai Red      4.75
+etc.</code></pre>
+<p>You have thereby collected some <strong>data</strong>. You have selected some things (in this case: cars), and for each thing you have measured some of its properties (in this case: registration, make, colour, and length). These measurements are your data. The whole collection of measurements is often called a <strong>data set</strong> (or sometimes just &quot;dataset&quot; - one word).</p>
+<p>It's a little odd to talk about &quot;measuring&quot; the registration of a car, or its make, or its colour. But the term &quot;measure&quot; is used broadly here, to include any way that you might determine the value of a property. So it includes looking at a car to see its rego, or its colour, or its make.</p>
+<h1>Data can be mistaken</h1>
+<p>When we make measurements, we can make mistakes. When collecting your car data you might misread the registration of a car, or misrecord it, and you might make mistakes with the makes, colours, and lengths too. So data can be mistaken. This is a key fact about data that you should always keep in mind.</p>
+<h1>Cases and variables</h1>
+<p>The things whose properties you measure are called <strong>cases</strong>, or sometimes <strong>observations</strong>. In the example above, they are the cars in the parking lot. If you record your measurements in a table, then each case corresponds to a row. When the cases are humans we usually call them something less objectifying, such as &quot;participants&quot;. When they are non-human animals, it's common to call them &quot;subjects&quot;. </p>
+<p>We call each property you measure a <strong>variable</strong>. In the example above, there are four variables: registration, make, colour, and length. If you record your measurements in a table, then each variable corresponds to a column.</p>
+<p>We can picture the relationship between cases, variables, and values as follows:</p>
+<pre><code>      |variable|variable|variable|
+      |--------|--------|--------|
+case: |   value|   value|   value|
+case: |   value|   value|   value|
+case: |   value|   value|   value|
+etc.</code></pre>
+<p>For another illustration, suppose that a teacher has thirty students. She wants to know whether those who spend more time doing homework get better test results. So, for each student she measures how long the student spends doing homework, and how well the student does in the test. There are thirty cases: the thirty students. And there are two variables: time spent doing homework, and test result.</p>
+<h1>Univariate, bivariate, and multivariate data</h1>
+<p>You might sometimes hear these terms. Univariate data is data that has just one variable; bivariate data is data that has two variables; and multivariate data is data that has two or more variables (so bivariate data is a special case of multivariate data).</p>
+<p>Here's an example of univariate data. It has just one variable, so when it's put in a table there is just one column:</p>
+<pre><code>Rego   
+------
+ABR479
+PTY456
+XLM111
+etc.</code></pre>
+<p>Here's an example of bivariate data. It has two variables, so when it's put in a table there are two columns:</p>
+<pre><code>Rego   Colour
+------ ------
+ABR479 Red
+PTY456 White
+XLM111 Red
+etc.</code></pre>
+<h1>The terms &quot;data&quot; and &quot;datum&quot;</h1>
+<p>It's worth getting clear about these terms, because people can get a bit tangled up.</p>
+<p>Some time ago, we thought of data as things that could be counted, in the way that we think of chairs. We thus had the word &quot;datum&quot;, which we used to refer to one of these things, as in &quot;that's an interesting datum&quot;, or &quot;this datum is more accurate than that datum&quot;. And we had the word &quot;data&quot;, which we used to refer to several of them, as in &quot;I have many data&quot;, or &quot;these data are more interesting than those data&quot;. In technical terms, &quot;datum&quot; was a singular count noun (like &quot;chair&quot;), and &quot;data&quot; was a plural count noun (like &quot;chairs&quot;).</p>
+<p>Nowadays, we tend to think of data as stuff that can be measured, in the way that we think of water. We just have the one word &quot;data&quot;, which we use to refer to any amount of this stuff, as in &quot;I have lots of data&quot;, or &quot;this data is more interesting than that data&quot;. In technical terms, &quot;data&quot; is a mass noun (like &quot;water&quot;).</p>
+<p>You might hear people using &quot;data&quot; and &quot;datum&quot; the old way, but it's not very common.</p>
+<h1>Populations and samples</h1>
+<p>Sometimes we're interested in data about a group of things, but it's too hard or even impossible to measure everything in the group. We might be interested in the heights of everyone in a certain country, for example, but have no practical way of measuring everyone.</p>
+<p>In these cases, it's common to collect data about just some of them. We call this a <strong>sample</strong>. And we call the entire group the <strong>population</strong>. The hope is that the sample is representative of the population, and that we can use it to deduce things about the population as a whole. We measure facts about the sample, called <strong>sample statistics</strong>, and deduce facts about the population, called <strong>population parameters</strong>. This process is called <strong>inferential statistics</strong>.</p>
+<p>The word &quot;population&quot; might make you think of humans, but it applies to any kind of thing we're interested in. So we might have a population of mice, or cities, or products, and so on.</p>
+<h1>Measurements</h1>
+<p>When we're collecting data, the way we measure values can vary quite a bit, depending on what property we're measuring.</p>
+<p>Sometimes we measure by observation. This is how you might measure the registration, make, and colour of the cars in the supermarket car park. As mentioned above, it's a bit odd to use the term &quot;measurement&quot; for this, but it still counts as measurement.</p>
+<p>Sometimes we measure by using an instrument of some kind, such as a tape measure, or some scales, or a thermometer. This is how you might measure the lengths of the cars.</p>
+<p>Sometimes we measure by calculation. This is how you might measure the frequency of words in a document, for example.</p>
+<p>Sometimes we measure by asking questions and getting answers, via questionnaires. This is often how we measure people's beliefs and opinions, about such things as who the best election candidate is. The questionnaires can be delivered in a variety of ways, such as via the internet, or over the phone, or in a face-to-face interview.</p>
+<p>Measurement techniques are sometimes called <strong>measurement instruments</strong>. We usually apply the word &quot;instrument&quot; to scales and thermometers and the like, but here it's meant to include not just any equipment that you use, but the whole process of using it. And it's meant to include every kind of measurement, not just measurement that involves equipment.</p>	  </main>
+        <footer>
+      <span id='datetime'>Generated on 18 October 2022 at 7:41 am</span>
+    </footer>
+  </body>
+</html>

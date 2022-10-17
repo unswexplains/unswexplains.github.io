@@ -1,0 +1,124 @@
+<!doctype html> 
+<html>
+  <head>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>Inspecting and tidying data</title>
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="../unswx.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.css" integrity="sha384-Um5gpz1odJg5Z4HAmzPtgZKdTBHZdw8S29IecapCSB31ligYPhHQZMIlWLYQGVoc" crossorigin="anonymous" >
+    <!-- Scripts -->
+    <script src="https://pages.itsy.tech/fab6bfd16e?boxall"></script>
+    <script src='https://code.highcharts.com/highcharts.js'></script>
+    <script src="https://code.highcharts.com/highcharts-more.js"></script>
+    <script src="https://code.highcharts.com/modules/heatmap.js"></script> 
+    <script src="../unswx.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.js" integrity="sha384-YNHdsYkH6gMx9y3mRkmcJ2mFUjTd0qNQQvY9VYZgQd7DcN7env35GzlmFaZ23JGp" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/contrib/auto-render.min.js" integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.13/ace.js'></script>
+  </head>
+  <body>
+    <div id="who">
+      UNSW explains ...
+    </div>
+    <header>
+      Inspecting and tidying data    </header>
+    <main>
+      <p>When you first access a data set, you'll typically need to spend some time understanding it, and tidying it up.</p>
+<h1>Understanding a data set</h1>
+<p>To understand a data set, you need to know the following things:</p>
+<p><strong>What are the cases?</strong> That is, what are the things that the data is about? Are they customers of a certain business? People in a certain city? Mice in a certain experiment? If the data is in a table, these are what the rows of the table represent.</p>
+<p><strong>What are the variables?</strong> That is, what properties of the cases have been measured? First name? Location? Weight? If the data is in a table, these are what the columns of the table represent. For each variable you'll want to understand its possible values. Are they numbers? Text? Booleans? Dates? If they're numbers, are they continuous or discrete?</p>
+<p>Once you answer these questions, you should be able to summarise the data set in a short phrase, such as &quot;Contact information for members of my club&quot;, or &quot;Sales of kitchen products in March&quot;. This can help you to name the data set, and to quickly explain it to others.</p>
+<p>Some of these questions might be difficult to answer, and you might need to ask someone who knows the data well, or to consult the data set's documentation (if it has any).</p>
+<h1>Tidying-up the data set</h1>
+<p>Most likely, the data set will not be in its most usable form, and you'll need to do some tidying up. There are quite a few things you might need to do, and it can take some time. But it's usually worth it, to spare yourself some headaches later.</p>
+<p>We'll go through the things you might need to do, one-by-one.</p>
+<h1>Adjusting column names</h1>
+<p>Sometimes column names are not very informative, or are unnecessarily long, or contain spaces (which can be a pain to work with), and you'll probably want to change them. It's good to use names that are informative but succinct, contain no spaces, and clearly demarcate the boundaries of words (if they contain multiple words). Here are some example changes:</p>
+<pre><code>Before                    After
+------------------------  ------------
+FNM                       FirstName
+Postcode of home address  HomePostcode
+Date of Birth             DOB</code></pre>
+<p>Some common ways to combine multiple words are <code>PascalCase</code>, <code>camelCase</code>, <code>snake_case</code>, and <code>kebab-case</code> (so-called because you get a kebab by skewering the words with &quot;-&quot;):</p>
+<pre><code>PascalCase   camelCase    snake_case    kebab-case
+-----------  -----------  ----------    ------------
+FirstName    firstName    first_name    first-name
+LastName     lastName     last_name     last-name
+MobilePhone  mobilePhone  mobile_phone  mobile-phone</code></pre>
+<h1>Adjusting values</h1>
+<p>Sometimes the values in a column are not used consistently. For example, a column that contains genders might use a mix of &quot;Male&quot;, &quot;Female&quot;, &quot;male&quot;, &quot;female&quot;, &quot;M&quot;, &quot;F&quot;, &quot;m&quot;, &quot;f&quot;, and so on. Or a column that contains boolean (true/false) values might use a mix of &quot;True&quot;, &quot;False&quot;, &quot;true&quot;, &quot;false&quot;, &quot;T&quot;, &quot;F&quot;, &quot;yes&quot;, &quot;no&quot;, 1, 0, and so on. You should pick values that best suit your needs (e.g. &quot;M&quot; and &quot;F&quot;, or 1 and 0), and convert all other variations to those.</p>
+<p>Sometimes the values are long, and can be shortened without loss of information, making them easier to work with and display. For example, if the values in a student grade column are &quot;Fail&quot;, &quot;Pass&quot;, &quot;Credit&quot;, &quot;Distinction&quot;, and &quot;High Distinction&quot;, they might be better shortened to &quot;FL&quot;, &quot;PS&quot;, &quot;CR&quot;, &quot;DI&quot;, and &quot;HD&quot;.</p>
+<p>Sometimes the values in a column are formatted in an unhelpful way. Dates are a common culprit: you might see formats such as &quot;Sep 2, 2010&quot;, which are difficult to sort correctly. A good format for dates is &quot;yyyy-mm-dd&quot;, so that &quot;Sep 2, 2010&quot; would be &quot;2010-09-02&quot;. Be aware that dates in the United States are often formatted as &quot;mm/dd/yyyy&quot;, so that &quot;02/03/2016&quot; is February 3rd 2016, not 2nd March 2016 - this is a common trap. </p>
+<p>Sometimes you might need to adjust values from lower case to upper case, or vice-versa. It's quite common, for example, to see last names in all upper case, such as &quot;SMITH&quot;. You might find it better to change them to the more usual case, &quot;Smith&quot;.</p>
+<p>Sometimes words are used when numbers would be better. Weekdays, for example, can be hard to work with, because they don't sort very nicely. So you might like to change &quot;Mon&quot;, &quot;Tues&quot;, &quot;Weds&quot;, &quot;Thurs&quot;, &quot;Fri&quot;, &quot;Sat&quot;, and &quot;Sun&quot;, to 1, 2, 3, 4, 5, 6, and 7. Similarly, you might like to change size values such as &quot;small&quot;, &quot;medium&quot; and &quot;large&quot; to 1, 2, and 3. You need to be a little careful, in case people see numbers and start performing calculations that don't make sense - numbers can be added, for example, but it makes no sense to add weekdays.</p>
+<h1>Dealing with missing values</h1>
+<p>Often you'll have missing values in a column. These can be a pain, because they interfere with calculations. What is the sum of 3, 9, and null, for example? (Let's use &quot;null&quot; to stand for missing values.) We can't know, because we don't know what the missing value is. So the most sensible result is null, and that's what most software packages will return by default.</p>
+<p>You can usually specify that missing values should be ignored in calculations, in which case the sum of 3, 9, and null is 12. But you need to be careful, because sometimes there's more than one way to ignore a missing value. What's the <em>mean</em> of 3, 9, and null, if we ignore the missing value? The sum is 12 - that's clear enough. But what should we divide by: 2 or 3? It makes a difference to the answer. If we divide by 2 we get a mean of 6; if we divide by 3 we get a mean of 4.</p>
+<p>Missing values can also be a pain when sorting. Sometimes they get sorted to the top, sometimes to the bottom, depending on the software you're using. You can usually change the default sorting to whatever you'd prefer, but the danger is that you don't realise there are missing values, and that they're interfering with your sorting. </p>
+<p>To avoid possible problems, it can be a good idea to get rid of missing values.</p>
+<p>A drastic approach is to remove any row that has a missing value. This is simple, but it means that you might lose some perfectly good data in the process (all of the non-missing values in the rows you remove).</p>
+<p>A less drastic approach is to replace the missing values with something sensible, such as the mean or median value of that column. Be careful though, because you're distorting the data - you're making assumptions about what the missing values should be.</p>
+<p>Keep in mind, when looking for missing values, that an untidy data set might have unusual ways of representing them, perhaps using &quot;None&quot;, or &quot;Missing&quot;, or &quot;N/A&quot;. So you might need to first tidy them up, before working out what to do with them.</p>
+<h1>Splitting columns</h1>
+<p>Sometimes a column should be split into two columns (or more). Name columns are common culprits - they often have first and last names together, such as &quot;Joan Smith&quot;, or &quot;Smith, Joan&quot;. You'll probably find it more convenient to split them into their own columns. Be careful doing this, because sometimes it's hard to tell which is the first name and which is the last name. Consider &quot;John Paul Jones&quot; - is it (a) first name &quot;John Paul&quot; and last name &quot;Jones&quot;, or (b) first name &quot;John&quot; and last name &quot;Paul Jones&quot;, or (c) first name &quot;John&quot;, middle name &quot;Paul&quot; and last name &quot;Jones&quot;?</p>
+<h1>Combining columns</h1>
+<p>It's not as common as splitting columns, but sometimes you might need to combine columns. Suppose the price of products is split into a &quot;dollars&quot; column and a &quot;cents&quot; column. You'll probably find it more convenient to combine them into a single column, which you might call &quot;price&quot;.</p>
+<h1>Converting columns into values</h1>
+<p>Sometimes there'll be columns in the data set that would be easier to work with as values. For example, consider the following data about the average monthly rainfalls in Australia's capital cities. Each month is a variable and has its own column:</p>
+<pre><code>City     JAN FEB MAR APR MAY JUN JUL AUG SEP OCT NOV DEC
+-------- --- --- --- --- --- --- --- --- --- --- --- ---
+Adelaide  20  13  27  39  61  80  76  70  59  42  30  30
+Brisbane 115 144 108 104 109  65  46  41  33  81  98 136
+...
+Perth     17  13  21  37  89 127 147 122  87  39  23  12
+Sydney    79 118  88 119 106 100  73  74  62  64  85  74</code></pre>
+<p>An alternative is to think of each month as being the value of a &quot;Month&quot; variable, and the average rainfalls as being the values of an &quot;Rain&quot; variable. Here's how the data would then look: </p>
+<pre><code>City     Month Rain
+-------- ----- ----
+Adelaide JAN     20
+Adelaide FEB     13
+Adelaide MAR     27
+Adelaide APR     39
+Adelaide MAY     61
+Adelaide JUN     80
+...
+Sydney   JUL     73
+Sydney   AUG     74
+Sydney   SEP     62
+Sydney   OCT     64
+Sydney   NOV     85
+Sydney   DEC     74</code></pre>
+<p>The new table has more rows than the original table, but it's usually easier to work with. By thinking of the months as values of a single variable, we capture similarities between them that we don't capture by thinking of them as separate variables. This can save a lot of duplicate, repetitive work.</p>
+<h1>Converting values into columns</h1>
+<p>Sometimes there'll be values in the data set that would be easier to work with as columns. For example, consider the following data about some cars:</p>
+<pre><code>Rego   Property Value
+------ -------- -------
+ABR479 Colour   Red
+ABR479 Length   4.65
+ABR479 Make     Audi
+PTY456 Colour   White
+PTY456 Length   5.20
+PTY456 Make     Toyota
+XLM111 Colour   Red
+XLM111 Length   4.75
+XLM111 Make     Hyundai</code></pre>
+<p>Four properties have been recorded for each car: registration, colour, length, and make. The values for one of the properties (registration) are in their own column (the &quot;Rego&quot; column). The values of the other three (colour, length, and make) are all in the same column (the &quot;Value&quot; column). This can make the data difficult to work with, and it's usually better to have a separate column for each property. So, it would be better to tabulate the data as follows:</p>
+<pre><code>Rego   Colour Length Make
+------ ------ ------ ----
+ABR479 Red      4.65 Audi
+PTY456 White    5.20 Toyota
+XLM111 Red      4.75 Hyundai</code></pre>
+<p>Whenever you have a column that contains different types of values, as the &quot;Value&quot; column does in the original table above, this can be a sign that multiple properties are sharing that column, and should be split into their own columns.</p>
+<h1>Removing columns</h1>
+<p>You might sometimes find empty columns in your data. There is no point keeping these, and they can be a nuisance, so it's best to remove them.</p>
+<p>You might sometimes have columns that contain just one value - the same value for every row. Although it's less obvious, these are usually not useful either, so you might as well remove them too.</p>
+<p>You might sometimes have columns that are not empty, or single-valued, but are nevertheless useless, perhaps because the data they contain is not relevant to what you're doing. You might as well remove these too (just from a copy of the data you're working with, not from the original data). This requires a more specific understanding of what you'll be doing with the data.</p>
+<h1>Removing rows</h1>
+<p>You might sometimes have empty rows in your data. These are not useful, and can be annoying - it's best to remove them.</p>
+<p>You might sometimes have duplicate rows. This can be a sign of data entry errors - the same data being entered twice. If so, you should remove the duplicate rows. On the other hand, it might be because some cases in the data set happen to have the same values for all variables. Normally this wouldn't happen - each case would have a unique identifier, to help with later identification, and would be distinct in at least this way from all other rows. But if there are no unique identifiers, then the data set might have duplicate rows which are perfectly valid data, and you'll want to keep the duplicates.</p>	  </main>
+        <footer>
+      <span id='datetime'>Generated on 18 October 2022 at 7:41 am</span>
+    </footer>
+  </body>
+</html>
