@@ -1,3 +1,5 @@
+%% Measuring linear correlation %%
+
 # Planetary diameter and number of moons
 
 According to the National Aeronautics and Space Administration (NASA), these are the diameters (in kilometres) and number of moons for each of the eight planets in our solar system:

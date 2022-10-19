@@ -1,3 +1,5 @@
+%% Data formats %%
+
 When we collect data we typically store it, and when we store it we use some format. There are many formats, but most of the data you'll work with is stored using just a small number of them. We'll illustrate each of these common formats below.
 
 To help, imagine you've just collected the following data about two of your friends:

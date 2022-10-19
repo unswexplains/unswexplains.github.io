@@ -1,3 +1,5 @@
+%% Transforming data variables %%
+
 When analysing a table of data, it's often useful to create a new variable by transforming an existing one. Common transformations include:
 
 - Changing scales

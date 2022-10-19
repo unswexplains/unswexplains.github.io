@@ -1,3 +1,5 @@
+%% Visualising data with colour patches %%
+
 # Rainfall in Australia's capital cities
 
 According to the Australian Bureau of Meteorology, the mean monthly rainfall (in millimetres) in Australia's capital cities between 1859 and 2020 is as follows:

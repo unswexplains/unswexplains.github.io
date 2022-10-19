@@ -1,3 +1,5 @@
+%% Principles of data visualisation %%
+
 # The location and population of Australia's capital cities
 
 A large proportion of Australians live in the capital cities. How are they thus distributed geographically? The table below shows the location of each capital city (its latitude and longitude), along with its population at the end of June 2020, as estimated by the Australian Bureau of Statistics:

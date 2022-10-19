@@ -1,3 +1,5 @@
+%% Visualising data with boxes %%
+
 # The 2020 Tokyo Olympics women's marathon
 
 There were 73 finishers in the women's marathon at the 2020 Tokyo Summer Olympics. Here are their times, in minutes:

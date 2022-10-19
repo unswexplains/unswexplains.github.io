@@ -1,3 +1,5 @@
+%% The process of data analysis %%
+
 Suppose you have some data that you're ready to use - you understand what the cases and variables are, you've checked the data for trustworthiness, and you've done any necessary tidying of the columns and rows. How do you now use the data to get useful knowledge?
 
 # Exam data

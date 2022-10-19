@@ -1,3 +1,5 @@
+%% Why care about data? %%
+
 People are increasingly recognising the value of data, and putting more money and effort into getting and using it. Why? What's so good about data? 
 
 Essentially, this:

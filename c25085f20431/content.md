@@ -1,3 +1,5 @@
+%% $ The problem with small samples %%
+
 # Kidney cancer study
 
 A study of the incidence of kidney cancer in the 3,141 counties of the United States. Counties with the lowest rate of kidney cancer: mostly rural, sparsely populated. Why might that be?

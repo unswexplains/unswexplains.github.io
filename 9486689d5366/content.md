@@ -1,3 +1,5 @@
+%% Assessing data quality %%
+
 Before you use a data set, it's a good idea to check its quality, if you can. There are three main things to check:
 
 - **The sampling**. If the data is about a sample of a population, then ideally the sample should be representative, or else it can be misleading. So you should check that the sample was chosen in a way that makes it likely to be representative.

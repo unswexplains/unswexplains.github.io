@@ -1,3 +1,5 @@
+%% General data visualisation considerations %%
+
 Here are some things to keep in mind when you're creating data visualisations.
 
 # Sometimes text is all you need

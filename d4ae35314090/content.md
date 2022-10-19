@@ -1,3 +1,5 @@
+%% Tabulating frequencies %%
+
 # Hosts of the Summer Olympics
 
 By 2032, there will have been 32 Modern Summer Olympic Games, since they began in 1896. Here's a list of the host cities, with their country and region:

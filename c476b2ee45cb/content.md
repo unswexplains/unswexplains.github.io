@@ -1,3 +1,5 @@
+%% Visualising data with wedges %%
+
 # Summer Olympics Host Regions
 
 By 2032, there will have been 32 Modern Summer Olympic Games, since they began in 1896. Here are the number of times they will have been hosted in each of the world's major regions:

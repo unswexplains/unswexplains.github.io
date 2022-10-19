@@ -1,3 +1,5 @@
+%% Using data to determine causation %%
+
 Some of the most helpful knowledge we have is knowledge of what causes what. If we know that A causes B, and we'd like B to occur, then we know that doing A can help. This is why we might want to know whether a certain diet causes weight loss. On the other hand, if we'd like B *not* to occur, then we know we should avoid doing A. This is why we might like to know the side effects of a new drug. Knowing what causes what can be powerful knowledge. And we can use data to get it.
 
 # A causal question

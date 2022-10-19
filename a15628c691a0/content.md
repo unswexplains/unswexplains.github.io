@@ -1,3 +1,5 @@
+%% $ Responsibly presenting data %%
+
 Suck all the good stuff out of "How to lie with statistics".
 
 # Check that you have permission to share the data with the audience

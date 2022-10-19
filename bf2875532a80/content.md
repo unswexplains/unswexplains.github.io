@@ -1,3 +1,5 @@
+%% Analysing variation between variables %%
+
 Data sets often have multiple variables. That is, for each case there are measurements of multiple properties. For example, we might have data about the length and weight of some mice - that would be a data set with two variables. Or we might have some data about the age, gender, location, occupation, and activity of some customers - that would be a data set with five variables.
 
 When a data set has multiple variables, we're often interested in whether there are any relationships between them. Is the value of one variable systematically related to the value of some other variable? If so, in what way?

@@ -1,3 +1,5 @@
+%% Visualising data with bars %%
+
 # The population of Australia's states and territories
 
 According to the Australian Bureau of Statistics, the estimated populations of Australia's states and territories (let's call them "regions"), on 31 December 2020, were as follows:
