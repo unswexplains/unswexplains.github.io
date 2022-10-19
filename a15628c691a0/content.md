@@ -1,6 +1,14 @@
+---
+title: "$ Responsibly presenting data"
+---
+
 Suck all the good stuff out of "How to lie with statistics".
 
-# Check that you have permission to share it with the audience
+# Check that you have permission to share the data with the audience
+
+This is different from having permission to use it.
+
+# Be careful with personal data
 
 # Don't lie
 
@@ -20,7 +28,7 @@ The other reason is some people may want to learn more about the subject, and th
 
 For visualisations, a good way is to add a caption.
 
-# Don't cherry-pick the data
+# Don't cherry-pick your findings
 
 It is tempting, but it can lose you trust. E.g. positive comments from customers. Showing the negative data can actually make people *more* inclined to be persuaded.
 
@@ -44,11 +52,9 @@ They might give different values, and if so then you can choose the one to best 
 
 # Misleading with charts
 
-- Axis limits. Start y-axis at 0.
-- Axis gaps. Don't have gaps in the scales.
-- Scales
+x Axis. Don't have gaps in the scales.
 
-y-Axis limits:
+y-Axis limits. Should usually start at 0.
 
 Bar charts should nearly always start at 0. Because the height of the bars means something.
 
@@ -63,5 +69,3 @@ Scales with small multiples. Be careful when using different scales that might b
 # Further reading
 
 - How to lie with statistics
-
-# Be careful with personal data

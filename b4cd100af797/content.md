@@ -1,3 +1,7 @@
+---
+title: "$ The post hoc and cum hoc fallacies"
+---
+
 We have an insatiable appetite for causal explanations.
 
 This can mislead us when analysing data, and it can mislead our audiences when we are presenting data.

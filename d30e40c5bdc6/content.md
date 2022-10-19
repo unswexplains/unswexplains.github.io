@@ -1,3 +1,7 @@
+---
+title: "Filtering and grouping data"
+---
+
 Sometimes we have questions about our data that are best answered if we **filter** the data, which means selecting some subset of the rows and ignoring the rest. Other times we have questions that are best answered by **grouping** the data, which means putting the rows into groups and then combining each group into a single row. And sometimes we have questions that are best answered by *both* filtering and grouping. We'll illustrate these techniques with some examples.
 
 # The Tour de France

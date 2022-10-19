@@ -1,23 +1,49 @@
-# Check whether you have permission to use it
+---
+title: "$ Responsibly analysing data"
+---
+
+# Make sure you have permission to use the data
 
 # Check the quality of the data
 
-You should check whether your data is correct.
+Sampling, measurements, currency.
+
+Sometimes you can trust the source - BOM, ABS.
+
+Other times not.
 
 # Don't cherry-pick the data
 
-Beware of confirmation bias. Selectively interpreting data. We seek data that supports a theory, rather than data that violates it. When "fact checking" we natural look to confirm a story rather than checking the facts and looking for an alternative story.
+E.g. customer feedback. student feedback.
 
-# Don't jump to conclusions
+Beware of confirmation bias. Selectively interpreting data. We seek data that supports a theory, rather than data that violates it.
 
-Don’t jump to conclusions (e.g. correlation is not causation). We need to be sure that we are interpreting data accurately. It can be easy to draw conclusions from data which are not warranted.
+When "fact checking" we natural look to confirm a story rather than checking the facts and looking for an alternative story. Example: checking whether such-and-such happened.
 
-# Don't extrapolate
+# Don't draw inferences about the population
 
-The extension of a past trend into the future without any evidence that the trend will continue.
+Unless you know what you're doing.
 
-# Be careful about reinforcing biases
+It's okay to note things that suggest further investigation.
 
-Example: hiring data that reflects biased practices, or prejudices, or stereotypes.
+# Don't make predictions
 
-Just because there has been association between two variables so far, it doesn't follow that it is one that we want to continue.
+Unless you know what you're doing - use the right techniques.
+
+Traps.
+
+# Don't draw causal conclusions
+
+Don’t draw causal conclusions (e.g. correlation is not causation). We need to be sure that we are interpreting data accurately. It can be easy to draw conclusions from data which are not warranted.
+
+It's okay to note things for further investigation.
+
+# Take care
+
+With calculations - double check them.
+
+Other people might be relying on you.
+
+# Be transparent
+
+Make it possible for others to see what you've done. Or your future self. Using R helps with this.

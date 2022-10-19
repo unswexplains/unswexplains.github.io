@@ -1,26 +1,28 @@
-When you first access a data set, you'll typically need to spend some time understanding it, and tidying it up.
+---
+title: "Inspecting and tidying data"
+---
+
+Before you use a data set, you should make sure you understand it. You'll often need to tidy it up, as well.
 
 # Understanding a data set
 
-To understand a data set, you need to know the following things:
+To understand a data set, you need to be able to answer two questions:
 
 **What are the cases?** That is, what are the things that the data is about? Are they customers of a certain business? People in a certain city? Mice in a certain experiment? If the data is in a table, these are what the rows of the table represent.
 
 **What are the variables?** That is, what properties of the cases have been measured? First name? Location? Weight? If the data is in a table, these are what the columns of the table represent. For each variable you'll want to understand its possible values. Are they numbers? Text? Booleans? Dates? If they're numbers, are they continuous or discrete?
 
-Once you answer these questions, you should be able to summarise the data set in a short phrase, such as "Contact information for members of my club", or "Sales of kitchen products in March". This can help you to name the data set, and to quickly explain it to others.
+If you can answer these questions, you should be able to summarise the data set in a short phrase, such as "Contact information for members of my club", or "Sales of kitchen products in March". This can help you to name the data set, and to quickly explain it to others.
 
-Some of these questions might be difficult to answer, and you might need to ask someone who knows the data well, or to consult the data set's documentation (if it has any).
+The questions might be difficult to answer, and you might need to ask someone who knows the data well, or to consult the data set's documentation (if it has any).
 
 # Tidying-up the data set
 
-Most likely, the data set will not be in its most usable form, and you'll need to do some tidying up. There are quite a few things you might need to do, and it can take some time. But it's usually worth it, to spare yourself some headaches later.
-
-We'll go through the things you might need to do, one-by-one.
+Most likely, the data set will not be in its most usable form, and you'll need to do some tidying up. There are quite a few things you might need to do, and it can take some time. But it's usually worth it, to spare yourself some later headaches. We'll go through the things you often need to do, one-by-one.
 
 # Adjusting column names
 
-Sometimes column names are not very informative, or are unnecessarily long, or contain spaces (which can be a pain to work with), and you'll probably want to change them. It's good to use names that are informative but succinct, contain no spaces, and clearly demarcate the boundaries of words (if they contain multiple words). Here are some example changes:
+Sometimes column names are not informative, or are unnecessarily long, or contain spaces (which can be a pain to work with; you'll probably want to change them. It's good to use names that are informative but succinct, contain no spaces, and clearly demarcate the boundaries of words (if they contain multiple words). Here are some example changes:
 
 ```
 Before                    After
@@ -30,7 +32,7 @@ Postcode of home address  HomePostcode
 Date of Birth             DOB
 ```
 
-Some common ways to combine multiple words are `PascalCase`, `camelCase`, `snake_case`, and `kebab-case` (so-called because you get a kebab by skewering the words with "-"):
+Some common ways to combine multiple words are by using `PascalCase`, `camelCase`, `snake_case`, and `kebab-case` (so-called because you get a kebab by skewering the words with "-"):
 
 ```
 PascalCase   camelCase    snake_case    kebab-case
@@ -42,7 +44,7 @@ MobilePhone  mobilePhone  mobile_phone  mobile-phone
 
 # Adjusting values
 
-Sometimes the values in a column are not used consistently. For example, a column that contains genders might use a mix of "Male", "Female", "male", "female", "M", "F", "m", "f", and so on. Or a column that contains boolean (true/false) values might use a mix of "True", "False", "true", "false", "T", "F", "yes", "no", 1, 0, and so on. You should pick values that best suit your needs (e.g. "M" and "F", or 1 and 0), and convert all other variations to those.
+Sometimes the values in a column are not used consistently. For example, a column that contains genders might use a mix of "Male", "Female", "male", "female", "M", "F", "m", "f", and so on. Or a column that contains boolean values (true/false) might use a mix of "True", "False", "true", "false", "T", "F", "yes", "no", 1, 0, and so on. You should pick values that best suit your needs (e.g. "M" and "F", or 1 and 0), and convert all other variations to those.
 
 Sometimes the values are long, and can be shortened without loss of information, making them easier to work with and display. For example, if the values in a student grade column are "Fail", "Pass", "Credit", "Distinction", and "High Distinction", they might be better shortened to "FL", "PS", "CR", "DI", and "HD".
 
@@ -78,7 +80,7 @@ It's not as common as splitting columns, but sometimes you might need to combine
 
 # Converting columns into values
 
-Sometimes there'll be columns in the data set that would be easier to work with as values. For example, consider the following data about the average monthly rainfalls in Australia's capital cities. Each month is a variable and has its own column:
+Sometimes there are columns in the data set that would be easier to work with as values. For example, consider the following data about the average monthly rainfalls in Australia's capital cities. Each month is a variable and has its own column:
 
 ```
 City     JAN FEB MAR APR MAY JUN JUL AUG SEP OCT NOV DEC
@@ -114,7 +116,7 @@ The new table has more rows than the original table, but it's usually easier to 
 
 # Converting values into columns
 
-Sometimes there'll be values in the data set that would be easier to work with as columns. For example, consider the following data about some cars:
+Sometimes there are values in the data set that would be easier to work with as columns. For example, consider the following data about some cars:
 
 ```
 Rego   Property Value
@@ -144,7 +146,7 @@ Whenever you have a column that contains different types of values, as the "Valu
 
 # Removing columns
 
-You might sometimes find empty columns in your data. There is no point keeping these, and they can be a nuisance, so it's best to remove them.
+You might sometimes have empty columns in your data. There's no point keeping these, and they can be a nuisance, so it's best to remove them.
 
 You might sometimes have columns that contain just one value - the same value for every row. Although it's less obvious, these are usually not useful either, so you might as well remove them too.
 
@@ -154,4 +156,4 @@ You might sometimes have columns that are not empty, or single-valued, but are n
 
 You might sometimes have empty rows in your data. These are not useful, and can be annoying - it's best to remove them.
 
-You might sometimes have duplicate rows. This can be a sign of data entry errors - the same data being entered twice. If so, you should remove the duplicate rows. On the other hand, it might be because some cases in the data set happen to have the same values for all variables. Normally this wouldn't happen - each case would have a unique identifier, to help with later identification, and would be distinct in at least this way from all other rows. But if there are no unique identifiers, then the data set might have duplicate rows which are perfectly valid data, and you'll want to keep the duplicates.
+Alternatively, you might have duplicate rows. This can be a sign of data entry error - the same data being entered twice. If so, you should remove the duplicate rows. On the other hand, it might be because some cases in the data happen to have the same values for all variables. Normally this wouldn't happen - each case would have some kind of unique identifier, to help with later identification, and would be distinct in at least this way from all other rows. But if there's no unique identifier, then the data set might have duplicate rows which are perfectly valid data, and you'll want to keep those duplicates.

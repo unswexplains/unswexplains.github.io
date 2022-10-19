@@ -1,3 +1,7 @@
+---
+title: "Visualising data with points"
+---
+
 # Planet data
 
 Here is some data about the eight planets in our solar system, compiled by the National Aeronautics and Space Administration (NASA). For each planet, it shows the diameter (in kilometres), the density (in kilograms per cubic metre), the acceleration due to gravity (in metres per second squared), the escape velocity (in kilometres per second), the number of moons, and whether it has a system of rings.

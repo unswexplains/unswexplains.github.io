@@ -1,24 +1,34 @@
-Regression to the mean is a phenomenon that we typically fail to understand, and it leads us to another kind of fallacious causal reasoning. We infer causation when it's really just chance doing the work. We are overly keen to look for causal explanations.
+---
+title: "$ Regression to the mean"
+---
 
-Kahneman Chapter 17, "Regression to the mean".
+# Three phenomena
 
-# Example: Sports Illustrated
+Flight instuctors in the Israeli Air Force have found that when they praise flight cadets for performing a maneuver particularly well they usually do worse the next time, and when they criticise them for doing it particularly poorly they usually do better. Why might that be?
 
-The hot hand illusion.
+An athlete whose picture appears on the cover of Sports Illustrated tends to perform worse during the following season. The "Sports Illustrated jinx". Why might that be?
 
-# Example: Israeli flight instructors and praise and punishment
+Suppose you find that when people take a certain expensive medicine to relieve their arthritis symptoms their symptoms do indeed tend to improve. Why might that be?
 
-# Example: Arthritis treatments
+# Causal explanations
+
+In each case, your mind was eager to find some causal explanation.
+
+Punishment works and reward fails.
+
+Overconfidence and the pressure of meeting high expectations.
+
+The medicine works.
 
 # Regression to the mean
 
-Good (or just better than average) performances are typically followed by worse ones. It’s not causal, it’s statistical.
+The causal explanations *might* be correct. But there's a simpler explanation that probably didn't even occur to you.
 
-Expect RTM when correlation coefficient between two variables is less than perfect.
+Must have done exceptionally well, which required an amount of luck, and is bound to not be so lucky next time. Good (or just better than average) performances are typically followed by worse ones. It’s not causal, it’s statistical. Expect RTM when correlation coefficient between two variables is less than perfect.
 
 # Demo
 
-Consider someone who has a skill level of 10 units but whose performance each trial is affected by chance by up to 6 units (in either direction). The diagram below shows a simulation of her performance over 50 trials. Performances that are followed by better ones are shown in green, ones that are followed by worse ones are shown in red, and ones that are followed by equal ones are shown in black.
+Consider a professional golfer who plays off scratch. Generally gets par, but performance is affected by chance by up to 6 strokes (in either direction). The diagram below shows a simulation of her performance over 50 rounds of golf. Performances that are followed by better ones are shown in green, ones that are followed by worse ones are shown in red, and ones that are followed by equal ones are shown in black.
 
 Note that good performances are mostly followed by worse performances (they are red) and bad performances are mostly followd by better performances (they are green). This illustrates the phenomenon of <b>regression to the mean</b>.
 
@@ -62,3 +72,11 @@ Note that good performances are mostly followed by worse performances (they are 
   	}
   }
 </script>
+
+# The moral
+
+Regression effects are ubiquitous. But regression to the mean is a phenomenon that we typically fail to understand, and thus overlook. We look for causal explanations, and overlook the possibility that it might be just chance doing the work. Even it we're savy enough not to automatically accept the causal explanations, it's still a problem if we don't realise that RTM is a possibility.
+
+# Further reading
+
+Kahneman Chapter 17, "Regression to the mean".

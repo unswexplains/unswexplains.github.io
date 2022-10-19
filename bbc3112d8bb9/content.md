@@ -1,3 +1,7 @@
+---
+title: "Five number summary of a variable"
+---
+
 A common way to summarise the spread of values of a numeric variable is to calculate what's called its **five number summary**. This is a commonly used statistical description of a variable.
 
 # The 2020 Tokyo Olympics women's marathon

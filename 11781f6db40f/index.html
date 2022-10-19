@@ -23,8 +23,8 @@
     <header>
       Data formats    </header>
     <main>
-      <p>When we collect data we typically store it, and when we store it we use some format. There are many formats; in what follows we describe some of the most commonly used ones.</p>
-<p>To help illustrate them, imagine you've just collected the following data about two of your friends:</p>
+      <p>When we collect data we typically store it, and when we store it we use some format. There are many formats, but most of the data you'll work with is stored using just a small number of them. We'll illustrate each of these common formats below.</p>
+<p>To help, imagine you've just collected the following data about two of your friends:</p>
 <ul>
 <li>Jane Johnson was born on 24 June 1968, and her email address is jane34@readymail.com.</li>
 <li>Peter Simons was born on 1 October 1989, and his email address is p.simons@goget.com.au.</li>
@@ -32,32 +32,39 @@
 <p>We'll show how you might store this data using each of the formats.</p>
 <h1>Human memory</h1>
 <p>You might simply remember the data.</p>
-<p>This has many drawbacks: you might forget it, or misremember it; other people can have trouble accessing it; and computers can't work with it at all.</p>
-<p>But it has advantages too. For one, it's convenient for short-term storage. For another, if the data is sensitive, then its inaccessibility provides a security advantage. You no doubt store much of your password data this way, in your human memory, precisely because it's hard for anyone else to access.</p>
+<p>This has many drawbacks: you might misremember it, or completely forget it; other people will have trouble accessing it; and computers won't be able to work with it at all.</p>
+<p>But it does have some advantages. For one, it's quick and easy, which makes it convenient for short-term storage. For another, its inaccessibility can be a strength - if the data is sensitive, then being inaccessible provides a security advantage. No doubt you store much of your password data this way, in your human memory, precisely because it's hard for anyone else to access.</p>
 <h1>An audio file</h1>
-<p>You might make an audio recording of the data, perhaps a voice note on your phone. This is more reliable than human memory, and is still relatively quick and easy. But it's hard to work with systematically using a computer - you'd need to use some kind of voice recognition software. Nevertheless, for short-term storage it can be very convenient.</p>
+<p>You might make an audio recording of the data, perhaps a voice note on your phone.</p>
+<p>This is more reliable than human memory, and is still relatively quick and easy. But it's hard to work with systematically using a computer - you'd need to use some kind of voice recognition software. Nevertheless, for short-term storage it can be convenient.</p>
 <h1>A photo</h1>
-<p>If the data is given to you in some kind of visual way, then you could take a photo of it. This kind of storage is becoming increasingly common. Suppose you find a shirt that you like while shopping, and you want to remember it for later. You might take a photo of the tag. You'd thereby be storing data in a photo.</p>
+<p>If the data is given to you in some kind of visual way, then you could take a photo of it.</p>
+<p>This kind of storage is becoming increasingly common. Suppose you find a shirt that you like while shopping, and you want to remember it for later. You might take a photo of the tag. You'd thereby be storing data in a photo.</p>
 <h1>Hand written notes</h1>
-<p>Of course, much of our data is stored as hand written notes, at least to begin with. They're easy to create, but difficult to work with in any systematic way.</p>
+<p>You could write the data on a piece of paper.</p>
+<p>Much of our data is stored this way, at least to begin with. Notes are quick and easy, and more reliable than human memory. And they're still inaccessible enough to provide some security benefits. But they're difficult to work with in any systematic way.</p>
 <h1>A text file</h1>
-<p>Writing things in a text file is another very common way that we store data. A text file is easier to work with systematically than a hand written note, but it's still challenging.</p>
+<p>You could type the data into a text file.</p>
+<p>This is another very common way that we store data. Text files are easier to work with systematically than hand written notes.</p>
 <h1>A CSV file</h1>
-<p>None of the formats we've considered so far impose much structure on the data being stored. The remaining formats all do. This makes it harder to store the data in these formats, but once it's stored it's easier and more reliable to work with.</p>
-<p>CSV (Comma Separated Values) format is one such structured way of storing data. The cases of the data set (the observations) are separated by line breaks (i.e. each case starts on a new line). Within each line, the variable values are separated by commas. The first row is optionally used to store the names of the variables - this is usually called a &quot;header row&quot;. Here's the data about your friends, in CSV format, with a header row: </p>
+<p>You could enter the data into a CSV (Comma Separated Values) file.</p>
+<p>A CSV file is like a regular text file, but it imposes more structure on the data. The cases of the data (the observations) are separated by line breaks (so each case starts on a new line). Within each line, the variable values are separated by commas. Optionally, the first row is used to store the names of the variables, in which case its called a <strong>header row</strong>. Here's the data about your friends, in CSV format, with a header row: </p>
 <pre><code>firstName,lastName,dob,email
 Jane,Johnson,1968-06-24,jane34@readymail.com
 Peter,Simons,1989-10-01,p.simons@goget.com.au</code></pre>
-<p>Line breaks and commas have special meaning in this format - they're used to identify the structure of your data. If a value contains a comma (one or more) then the value needs to be <em>escaped</em>, and the convention is to enclose it in double quotes. So the value <code>Hello, world</code> would be stored as <code>"Hello, world"</code>. This convention means that double quotes also have special meaning in CSV format. If a value contains a double quote then it must also be escaped, and the convention is to do so by replacing it with two double quotes. So the value <code>aka "Big John"</code> would be stored as <code>aka ""Big John""</code>.</p>
-<p>A variant of the CSV format is the TSV (Tab Separated Values) format. It's very similar to CSV, except that values in a line are separated by tabs rather than by commas. Here's the friend data in TSV format (where <code>&gt;&gt;</code> represents a tab):</p>
+<p>Line breaks and commas have special meaning in this format - they're used to identify the structure of the data. If a value contains a comma (one or more) then the value needs to be <strong>escaped</strong>, and the convention is to enclose it in double quotes. So the value <code>Hello, world</code> would be stored as <code>"Hello, world"</code> (note that double quotes have been added at the beginning and end). This convention means that double quotes also have special meaning in CSV format. If a value contains a double quote, then that double quote must also be escaped, and the convention is to replace it with two double quotes. So the value <code>aka "Big John"</code> would be stored as <code>aka ""Big John""</code> (note that each double quote has been replaced by two double quotes).</p>
+<p>A variant of CSV format is TSV (Tab Separated Values) format. It's the same as CSV, except that values in a line are separated by tabs rather than commas. Here's the data about your friends in TSV format (where <code>&gt;&gt;</code> represents a tab):</p>
 <pre><code>firstName&gt;&gt;lastName&gt;&gt;dob&gt;&gt;email
 Jane&gt;&gt;Johnson&gt;&gt;1968-06-24&gt;&gt;jane34@readymail.com
 Peter&gt;&gt;Simons&gt;&gt;1989-10-01&gt;&gt;p.simons@goget.com.au</code></pre>
 <p>Tabs have special meaning in this format, so any value that contains a tab (one or more) must be escaped, and the convention again is to use double quotes. Commas don't have special meaning, so they don't need to be escaped; double quotes are escaped in the same way as for CSV.</p>
+<p>Because CSV and TSV formats impose more structure on the data than a regular text file, they are more difficult to create. But once created, they're easier and more reliable to work with.</p>
 <h1>A spreadsheet file</h1>
-<p>A spreadsheet file, such as a Microsoft Excel file or a Google Sheets file, is like a CSV file, but it can contain additional information about how to present the data (how to align columns, how to shade cells, which rows to hide, and so on), how to calculate a column from other columns, and a vast range of other things. As you'll be aware, this is a very commonly used format for storing data - organisations tend to rely heavily on Excel spreadsheets.</p>
+<p>You could enter the data into a spreadsheet file, such as a Microsoft Excel file or a Google Sheets file.</p>
+<p>A spreadheet file is like a CSV file, but it contains lots of additional metadata (data about the data). This includes instructions for how to present the data - how to align columns, how to shade cells, which rows to hide, and so on. And instructions for how to calculate columns from other columns. And a vast range of other things. As you'll be aware, this is a very commonly used format for storing data - organisations tend to rely heavily on Excel spreadsheets.</p>
 <h1>A relational database</h1>
-<p>In a relational database, data is stored in a set of tables. Each table has a predefined set of columns, and only data that fits into those columns can be stored. In this way, tight control can be maintained over the integrity of the data. Here is the data about your friends, stored in a relational database (it's a simple database - it only requires one table):</p>
+<p>You could add the data to a relational database.</p>
+<p>In a relational database, data is stored in a set of tables. Each table has a predefined set of columns, and only data that fits into those columns can be stored. In this way, tight control is maintained over the integrity of the data. Here is the data about your friends, stored in a relational database (it's a simple database - it only has one table):</p>
 <table>
 <thead>
 <tr>
@@ -83,8 +90,8 @@ Peter&gt;&gt;Simons&gt;&gt;1989-10-01&gt;&gt;p.simons@goget.com.au</code></pre>
 </tbody>
 </table>
 <h1>A JSON file</h1>
-<p>In the last few formats (CSV file, spreadsheet file, and relational database) data is arranged into &quot;rectangles&quot; of rows and columns, and because of this they're sometimes called <strong>rectangular</strong> formats.</p>
-<p>A JSON (JavaScript Object Notation) file is not rectangular - data is stored in a structure that looks more like a tree. Here is the data about your friends, stored in JSON format:</p>
+<p>You could store the data in a JSON (JavaScript Object Notation) file.</p>
+<p>A JSON file is like a CSV file, spreadsheet file, or relational database, in that it imposes structure on the data. But it differs from them in one significant way. In a CSV file, a spreadsheet file, and a relational database, the data is arranged into &quot;rectangles&quot; of rows and columns. Because of this, they're sometimes called <strong>rectangular</strong> formats. A JSON file is not rectangular - data is stored in a structure that looks more like a tree. Here is the data about your friends, stored in JSON format:</p>
 <pre><code>[
   {
     "firstName": "Jane",
@@ -118,7 +125,8 @@ Peter&gt;&gt;Simons&gt;&gt;1989-10-01&gt;&gt;p.simons@goget.com.au</code></pre>
   }
 ]</code></pre>
 <h1>A YAML file</h1>
-<p>YAML (pronounced &quot;yammil&quot;) is another non-rectangular format, similar to JSON. Initially &quot;YAML&quot; was an acronym for &quot;Yet Another Markup Language&quot;, but now it's an acronym for &quot;YAML is not A Markup Language&quot;, to emphasise the fact that it's more data-focused than many markup languages. (Curiously, this makes it a self-referential acronym.) Here is the data about your friends in YAML format (including Jane's second email address):</p>
+<p>You could store the data in a YAML file.</p>
+<p>YAML (pronounced &quot;yammil&quot;) is another non-rectangular format, similar to JSON. Initially &quot;YAML&quot; was an acronym for &quot;Yet Another Markup Language&quot;, but now it's an acronym for &quot;YAML is not A Markup Language&quot;, to emphasise the fact that it's more data-focused than many markup languages. (Curiously, this makes it a self-referential acronym.) Here's the data about your friends (including Jane's second email address), stored in YAML format:</p>
 <pre><code>- firstName: Jane
   lastName: Johnson
   dob: 1968-06-24
@@ -130,7 +138,8 @@ Peter&gt;&gt;Simons&gt;&gt;1989-10-01&gt;&gt;p.simons@goget.com.au</code></pre>
   dob: 1989-10-01
   email: p.simons@goget.com.au</code></pre>
 <h1>An XML file</h1>
-<p>XML (Extensible Markup Language) is a third type of non-rectangular format. It's similar to JSON and YAML, but rather than using square brackets <code>[ ]</code>, curly brackets <code>{ }</code>, colons <code>:</code>, and dashes <code>-</code> to demarcate parts of the data, it uses customisable opening and closing tags. It is thus a more verbose format - it contains more formatting language. If you know what HTML is, you can think of XML as being a more general version of HTML. Here's the data about your friends, stored in XML format (including Jane's second email address):</p>
+<p>You could store the data in an XML (Extensible Markup Language) file.</p>
+<p>XML is a third type of non-rectangular format. It's similar to JSON and YAML, but rather than demarcating parts of the data using square brackets <code>[ ]</code>, curly brackets <code>{ }</code>, colons <code>:</code>, and dashes <code>-</code>, it uses customisable opening and closing tags. It's thus a more verbose format - it contains more formatting language. If you know what HTML is, you can think of XML as being a more general version of HTML. Here's the data about your friends (including Jane's second email address), stored in XML format:</p>
 <pre><code>&lt;xml&gt;
   &lt;person&gt;
     &lt;firstName&gt;Jane&lt;/firstName&gt;
@@ -151,7 +160,7 @@ Peter&gt;&gt;Simons&gt;&gt;1989-10-01&gt;&gt;p.simons@goget.com.au</code></pre>
   &lt;/person&gt;
 &lt;/xml&gt;</code></pre>	  </main>
         <footer>
-      <span id='datetime'>Generated on 18 October 2022 at 7:41 am</span>
+      <span id='datetime'>Generated on 20 October 2022 at 8:15 am</span>
     </footer>
   </body>
 </html>

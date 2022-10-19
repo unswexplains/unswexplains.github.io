@@ -23,12 +23,11 @@
     <header>
       Using data for inference    </header>
     <main>
-      <p>Sometimes we'd like to know things about a certain population, but don't have the time or resources to find and measure everything in the whole population. We can take a sample instead, and use data about the sample to infer facts about the population.</p>
+      <p>Sometimes we'd like to know things about a certain population, but don't have the time or resources to find and measure everything in the whole population. Fortunately, we can take a sample instead, and use data about the sample to infer facts about the population.</p>
 <h1>A new town pool?</h1>
 <p>Suppose you work for your town council. There's a proposal to build a new public swimming pool, and you've been asked to find out what proportion of people in town are in favour of it.</p>
-<p>Ideally, you'd ask <em>everyone</em> their opinion. Then you'd know exactly what the proportion is (setting aside errors that can arise when you ask for opinions).</p>
-<p>But suppose, as is often the case, that you can't ask everyone, because it would take too long, and cost too much.</p>
-<p>Fortunately, there's something you can do instead - you can ask a sample of people, and use the sample to make inferences about the whole town. The hope is that the sample is <strong>representative</strong> of the town, which means that the proportion of people in the sample who are in favour of a new pool, is the same as the proportion of people in the whole town who are in favour. Then you can measure the proportion of the sample, and that gives you the proportion of the town.</p>
+<p>Ideally, you'd ask <em>everyone</em> their opinion. Then you'd know exactly what the proportion is (setting aside errors that can arise when you ask for opinions). But suppose, as is often the case, that you can't ask everyone, because it would take too long, and cost too much.</p>
+<p>There's something you can do instead - you can ask a sample of people, and use the sample to make inferences about the whole town. The hope is that the sample is <strong>representative</strong> of the town, which means that the proportion of people in the sample who are in favour of a new pool, is the same as the proportion of people in the whole town. Then you can measure the proportion of the sample, and that gives you the proportion of the town.</p>
 <p>Using a sample in this way simplifies your task considerably, but it depends upon the sample being representative. How do you ensure that it is?</p>
 <p>Unfortunately, you can't. When you choose a sample of the town, there's always a chance that the proportion of the sample in favour of a new pool is different from the proportion of the whole town (except in extreme circumstances, such as when <em>everyone</em> in town has the same opinion).</p>
 <p>Nevertheless, there are two things you can do to maximise the likelihood that the sample is representative:</p>
@@ -44,7 +43,7 @@
 <p>It can be difficult to choose a sample without bias, and people often get it wrong.</p>
 <h1>Choosing a large enough sample</h1>
 <p>As well as choosing the sample of people without bias, you also need to choose a large enough sample.</p>
-<p>We can see this by considering an extreme case - a sample of just one person. Suppose the actual proportion of town people in favour of a new pool is 50% (i.e. half the town). Suppose you choose one person from town at random, without bias. The proportion of the sample in favour of a new pool is either 100% (if this person is in favour) or 0% (if this person is not in favour), neither of which is the same as the proportion of the town. So your sample is not representative of the town, even though you chose the sample without bias. It doesn't matter who you choose - the proportion of the sample will be either 100% or 0%. So a sample of one person will never be representative (even if it's chosen without bias).</p>
+<p>We can see this by considering an extreme case - a sample of just one person. Suppose the actual proportion of town in favour of a new pool is 50% (i.e. half the town). Suppose you choose one person from town at random, without bias. The proportion of the sample in favour of a new pool is either 100% (if this person is in favour) or 0% (if this person is not in favour), neither of which is the same as the proportion of the town. So your sample is not representative of the town, even though you chose the sample without bias. It doesn't matter who you choose - the proportion of the sample will be either 100% or 0%. So a sample of one person will never be representative (even if it's chosen without bias).</p>
 <p>What if you choose two people at random? Then you'll either get two people in favour, which is a proportion of 100%, or two people not in favour, which is a proportion of 0%, or one of each, which is a proportion of 50%. Here are the possibilities in a table:</p>
 <pre><code>Person1       Person2       Proportion
 ------------- ------------- ----------
@@ -53,29 +52,28 @@ In favour     Not in favour        50%
 Not in favour In favour            50%
 Not in favour Not in favour         0%</code></pre>
 <p>You <em>might</em> end up with a representative sample in this case, so it's better than choosing just one person. But you're just as likely not to.</p>
-<p>It turns out that the bigger the sample, the more likely it is to have the same proportion as the population. This is a mathematical fact, known as <strong>the law of large numbers</strong>. What it means is that you can increase the likelihood of your sample being representative by increasing its size.</p>
+<p>It turns out that the bigger the sample, the more likely it is to have the same proportion as the population. This is a mathematical fact, known as <strong>the law of large numbers</strong>. What it means is that you can increase the likelihood of your sample being representative by increasing its size (as long as your sampling method is not biased).</p>
 <p>Doesn't that go against the whole point of sampling, which is to save us the time, effort and money involved in asking a lot of people? Yes. So it's a tradeoff - you want a sample that is small enough to be feasible, but large enough to be likely to be representative. </p>
-<p>How large is large enough? There are carefully worked out ways to calculate this, developed by statisticians over hundreds of years. But, as a rule of thumb, if you're sampling without bias, then once you reach a sample size of 1000, you can be quite confident that the sample is representative of the population, and increasing the sample size further is unlikely to be worth the effort.</p>
-<p>Be aware that getting a large sample is not enough by itself - you also need to use an unbiased selection method. If your selection method is biased, then it might be impossible to get a representative sample, no matter how large the sample is. We can illustrate this fact using an extreme example. Return to your survey about the new town pool. Suppose, you conduct your survey by asking people at a rally against the new pool, all of whom are against it. Then no matter how many people you ask, your sample proportion will be 0% in favour, which is not the same as the town proportion of 50%. So, no matter how large your sample is, it will not be representative of the town.</p>
-<p>We need the sample to be <em>both</em> unbiased and large; either by itself is not enough:</p>
+<p>How large is large enough? There are carefully worked out ways to calculate this, developed by statisticians over hundreds of years. But, as a rule of thumb, if you're sampling without bias, then once you reach a sample size of 1000 you can be quite confident that the sample is representative, and increasing the sample size further is unlikely to be worth the effort.</p>
+<p>Be aware that getting a large sample is not enough by itself - you also need to use an unbiased selection method. If your selection method is biased, then it might be impossible to get a representative sample, no matter how large it is. We can illustrate this fact using an extreme example. Return to your survey about the new town pool. Suppose you conduct your survey by asking people at a rally against the new pool, all of whom are against it. Then no matter how many people you ask, your sample proportion will be 0% in favour, which is not the same as the town proportion of 50%. So, no matter how large your sample is, it will not be representative. We need the sample to be <em>both</em> large enough <em>and</em> selected without bias; either by itself is not enough:</p>
 <table>
 <thead>
 <tr>
 <th></th>
-<th>Small</th>
-<th>Large</th>
+<th>Large enough</th>
+<th>Not large enough</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Biased</td>
-<td>&#128545;</td>
+<td>Selected without bias</td>
+<td>&#128512;</td>
 <td>&#128545;</td>
 </tr>
 <tr>
-<td>Unbiased</td>
+<td>Selected with bias</td>
 <td>&#128545;</td>
-<td>&#128512;</td>
+<td>&#128545;</td>
 </tr>
 </tbody>
 </table>
@@ -85,7 +83,7 @@ Not in favour Not in favour         0%</code></pre>
 <p>You might find the following article interesting. It's by the Gallup organisation, and describes how they conduct their opinion polls.</p>
 <p><a href="https://media.gallup.com/PDF/FAQ/HowArePolls.pdf">How are polls conducted?</a></p>	  </main>
         <footer>
-      <span id='datetime'>Generated on 18 October 2022 at 7:41 am</span>
+      <span id='datetime'>Generated on 20 October 2022 at 8:15 am</span>
     </footer>
   </body>
 </html>

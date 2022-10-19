@@ -23,17 +23,20 @@
     <header>
       $ Regression to the mean    </header>
     <main>
-      <p>Regression to the mean is a phenomenon that we typically fail to understand, and it leads us to another kind of fallacious causal reasoning. We infer causation when it's really just chance doing the work. We are overly keen to look for causal explanations.</p>
-<p>Kahneman Chapter 17, &quot;Regression to the mean&quot;.</p>
-<h1>Example: Sports Illustrated</h1>
-<p>The hot hand illusion.</p>
-<h1>Example: Israeli flight instructors and praise and punishment</h1>
-<h1>Example: Arthritis treatments</h1>
+      <h1>Three phenomena</h1>
+<p>Flight instuctors in the Israeli Air Force have found that when they praise flight cadets for performing a maneuver particularly well they usually do worse the next time, and when they criticise them for doing it particularly poorly they usually do better. Why might that be?</p>
+<p>An athlete whose picture appears on the cover of Sports Illustrated tends to perform worse during the following season. The &quot;Sports Illustrated jinx&quot;. Why might that be?</p>
+<p>Suppose you find that when people take a certain expensive medicine to relieve their arthritis symptoms their symptoms do indeed tend to improve. Why might that be?</p>
+<h1>Causal explanations</h1>
+<p>In each case, your mind was eager to find some causal explanation.</p>
+<p>Punishment works and reward fails.</p>
+<p>Overconfidence and the pressure of meeting high expectations.</p>
+<p>The medicine works.</p>
 <h1>Regression to the mean</h1>
-<p>Good (or just better than average) performances are typically followed by worse ones. It’s not causal, it’s statistical.</p>
-<p>Expect RTM when correlation coefficient between two variables is less than perfect.</p>
+<p>The causal explanations <em>might</em> be correct. But there's a simpler explanation that probably didn't even occur to you.</p>
+<p>Must have done exceptionally well, which required an amount of luck, and is bound to not be so lucky next time. Good (or just better than average) performances are typically followed by worse ones. It’s not causal, it’s statistical. Expect RTM when correlation coefficient between two variables is less than perfect.</p>
 <h1>Demo</h1>
-<p>Consider someone who has a skill level of 10 units but whose performance each trial is affected by chance by up to 6 units (in either direction). The diagram below shows a simulation of her performance over 50 trials. Performances that are followed by better ones are shown in green, ones that are followed by worse ones are shown in red, and ones that are followed by equal ones are shown in black.</p>
+<p>Consider a professional golfer who plays off scratch. Generally gets par, but performance is affected by chance by up to 6 strokes (in either direction). The diagram below shows a simulation of her performance over 50 rounds of golf. Performances that are followed by better ones are shown in green, ones that are followed by worse ones are shown in red, and ones that are followed by equal ones are shown in black.</p>
 <p>Note that good performances are mostly followed by worse performances (they are red) and bad performances are mostly followd by better performances (they are green). This illustrates the phenomenon of <b>regression to the mean</b>.</p>
 <button onclick="populate()">Re-run the simulation</button>
 <table id="results"></table>
@@ -74,9 +77,13 @@
       return skillLevel + Math.round((2*Math.random() - 1)*chanceLevel);
     }
   }
-</script>	  </main>
+</script>
+<h1>The moral</h1>
+<p>Regression effects are ubiquitous. But regression to the mean is a phenomenon that we typically fail to understand, and thus overlook. We look for causal explanations, and overlook the possibility that it might be just chance doing the work. Even it we're savy enough not to automatically accept the causal explanations, it's still a problem if we don't realise that RTM is a possibility.</p>
+<h1>Further reading</h1>
+<p>Kahneman Chapter 17, &quot;Regression to the mean&quot;.</p>	  </main>
         <footer>
-      <span id='datetime'>Generated on 18 October 2022 at 7:41 am</span>
+      <span id='datetime'>Generated on 20 October 2022 at 8:15 am</span>
     </footer>
   </body>
 </html>

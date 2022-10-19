@@ -1,3 +1,7 @@
+---
+title: "Visualising data with lines"
+---
+
 # Sydney's monthly maximum temperatures
 
 The Australian Bureau of Meteorology has been measuring the temperature in Sydney each day since 1859, at Observatory Hill (in The Rocks). Between 1859 and 2020, the mean maximum temperatures (in degrees Celsius) for each month, were are as follows:

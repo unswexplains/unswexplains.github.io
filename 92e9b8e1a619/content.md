@@ -1,3 +1,7 @@
+---
+title: "Variance and standard deviation"
+---
+
 When we have a numeric variable, it can be helpful to know how spread its values are. One measure of a variable's spread is its range. Another measure is its interquartile range. Here we consider what are perhaps the two most commonly used measures - variance, and standard deviation.
 
 # Definition of variance
