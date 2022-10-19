@@ -1,7 +1,3 @@
----
-title: "Using data to make predictions"
----
-
 Sometimes we'd like to be able to make predictions. We might want to predict, for example, whether an applicant to a program will successfully complete it. Or we might want to predict which customers will like a certain new product.
 
 We can use data to help with this. By finding relationships between things we've observed (i.e. in a sample), and inferring that they hold more generally (i.e. in the whole population), we can use them to make predictions about things that we haven't yet observed.
