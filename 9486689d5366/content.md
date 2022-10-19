@@ -77,4 +77,4 @@ VIC   2020-12-31  6,661,700
 WA    2020-12-31  2,670,200
 ```
 
-Once it's clear when these populations are for, you can judge whether the data is useful. Are populations at the end of 2020 current enough for your purposes? If not, you'll need to get data that is more current.
+Once it's clear when these populations are for, you can judge whether the data is useful. Are populations at the end of 2020 current enough for your purposes? If not, you'll need to get data that is more current
