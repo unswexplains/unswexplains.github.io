@@ -1,7 +1,3 @@
----
-title: "Data values"
----
-
 # Scales
 
 When we collect data, we measure properties of things, such as their heights, temperatures, colours, or opinions. To measure a property we use a **scale**, which sets the possible values we can measure. To measure temperature, for example, we might use the Celsius scale, according to which the temperature at which water freezes is the number 0, and the temperature at which water boils is the number 100.

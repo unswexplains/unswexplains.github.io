@@ -1,7 +1,3 @@
----
-title: "Using data for inference"
----
-
 Sometimes we'd like to know things about a certain population, but don't have the time or resources to find and measure everything in the whole population. Fortunately, we can take a sample instead, and use data about the sample to infer facts about the population.
 
 # A new town pool?

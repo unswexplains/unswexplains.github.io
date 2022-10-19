@@ -1,7 +1,3 @@
----
-title: "$ Responsibly analysing data"
----
-
 # Make sure you have permission to use the data
 
 # Check the quality of the data

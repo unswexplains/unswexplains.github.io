@@ -1,7 +1,3 @@
----
-title: "$ The problem with biased samples"
----
-
 Sometimes we use a sample to learn things about a larger population. The hope is that the sample is representative of the population, which means that summary facts about the sample are the same as the corresponding summary facts about the population. If so, then we can use summary facts about the sample to learn things about the population. Because of random fluctuations, we can't be sure that a sample is representative of its population. But there are two things we can do to maximise the likelihood that the sample is representative:
 
 - Choose the sample without bias

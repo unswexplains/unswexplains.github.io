@@ -1,7 +1,3 @@
----
-title: "$ Respecting data ownership"
----
-
 Data can be owned. If it is, and if you are not the owner, then you need to make sure you have permission to use it. It's the same as with other things that are owned.
 
 # Data ownership

@@ -1,7 +1,3 @@
----
-title: "Inspecting and tidying data"
----
-
 Before you use a data set, you should make sure you understand it. You'll often need to tidy it up, as well.
 
 # Understanding a data set

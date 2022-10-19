@@ -1,7 +1,3 @@
----
-title: "Why visualise data?"
----
-
 # Olympic marathon times
 
 At the 2020 Tokyo Summer Olympics, there were 76 finishers in the men's marathon, and 73 finishers in the women's. Here is a sample of their finishing times (in minutes), combined into one table:

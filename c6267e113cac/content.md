@@ -1,7 +1,3 @@
----
-title: "What is data?"
----
-
 # Data
 
 Data is what you get when you make measurements.

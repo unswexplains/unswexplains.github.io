@@ -1,7 +1,3 @@
----
-title: "$ The problem with many samples"
----
-
 # A phenomenon
 
 Suppose someone manages to correctly predict, every election for the previous ten elections, whether the Republican or Democrat candidate will be elected to president. What do you conclude?

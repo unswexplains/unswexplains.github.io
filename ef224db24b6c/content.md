@@ -1,7 +1,3 @@
----
-title: "$ Regression to the mean"
----
-
 # Three phenomena
 
 Flight instuctors in the Israeli Air Force have found that when they praise flight cadets for performing a maneuver particularly well they usually do worse the next time, and when they criticise them for doing it particularly poorly they usually do better. Why might that be?

@@ -1,7 +1,3 @@
----
-title: "Basic summary of a variable"
----
-
 For variables that have numeric values, there are some basic summaries that can be quite informative.
 
 # 100m results
