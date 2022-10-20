@@ -1,11 +1,78 @@
 <!doctype html>
 <html>
   <head>
-    <link rel="stylesheet" href="style.css">
+    <style>
+      #topics a {display: block; padding: 0.25em 0; cursor: pointer;}
+      #view {position: fixed; top: 0; bottom: 0; height: 100%; right: 0; width: 75%; border: thin lightgray solid; box-sizing: border-box;}
+      #results td {background-color: whitesmoke}
+      #results em {font-style: normal; font-weight: bold;}
+    </style>
   </head>
   <body>
     <h1>UNSW Explains</h1>
-    <h2>To help people understand</h2>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum..</p>
+    <div id="topics"></div>
+    <iframe id="view"></iframe>
+    <p>Search for: <input type="text" id="searchText" onkeypress="search()" autofocus/></p>
+    <table id="results"></table>
+    <script>
+      let ids = [];
+      listTopics();
+      function view(id) {
+        document.getElementById("view").src = `https://unswx.github.io/${id}`;
+        /*
+        let url = `https://unswx.github.io/${id}/index.html`;
+        fetch(url)
+          .then(response => response.text())
+          .then(text => {
+            text = text.replaceAll("../unswx.js", "https://unswx.github.io/unswx.js");
+            text = text.replaceAll("../unswx.css", "https://unswx.github.io/unswx.css");
+            document.getElementById("view").srcdoc = text;
+            console.log(document.getElementById("view").contentWindow.document.body.innerText.trim().split(/\s+/).length)+ " words";
+          });
+        */
+      }
+      async function listTopics() {
+        document.getElementById("topics").innerHTML = "";
+        let response = await fetch("https://unswx.github.io/topics.json");
+        let json = await response.text();
+        ids = JSON.parse(json);
+        for (id of ids) {
+          //document.getElementById("topics").innerHTML += `<a id="${id}" href="https://unswx.github.io/${id}" target="${id}">${id}</a>`;
+          document.getElementById("topics").innerHTML += `<a id="${id}" onclick=view("${id}")>${id}</a>`;
+          getTopicName(id);
+          async function getTopicName(id) {
+            let url = `https://unswx.github.io/${id}/content.md`;
+            let response = await fetch(url);
+            let text = await response.text();
+            text = text.trim();
+            let name = id;
+            if (text.startsWith("%%")) name = text.split("%%", 2)[1].trim();
+            document.getElementById(id).textContent = name;
+          }
+        }
+      }
+      function search() {
+        if (event.key === "Enter") {
+          let searchText = document.getElementById("searchText").value;
+          if (!searchText) return;
+          document.getElementById("searchText").select();
+          let results = document.getElementById("results");
+          results.innerHTML = "";
+          for (id of ids) check(id);
+          async function check(id) {
+            let url = `https://unswx.github.io/${id}/content.md`;
+            let response = await fetch(url);
+            let text = await response.text();
+            let indices = [...text.matchAll(new RegExp(searchText, 'gi'))].map(x => x.index);
+            if (indices.length > 0) {
+              let show = `<h1>${document.getElementById(id).innerText}</h1>`;
+              for (let index of indices) show += `<p>...${text.substring(index-50, index+50)}...</p>`;
+              show = show.replaceAll(searchText, `<em>${searchText}</em>`);
+              results.innerHTML += `<tr><td>${show}</td><td><a href="https://unswx.github.io/${id}" target="${id}">View</a></td></tr>`
+            }
+          }
+        }
+      }
+    </script>
   </body>
 </html>
