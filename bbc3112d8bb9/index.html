@@ -4,14 +4,14 @@
     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
     <title>Five number summary of a variable</title>
     <!-- Stylesheets -->
-    <link rel="stylesheet" href="../unswx.css">
+    <link rel="stylesheet" href="../default.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.css" integrity="sha384-Um5gpz1odJg5Z4HAmzPtgZKdTBHZdw8S29IecapCSB31ligYPhHQZMIlWLYQGVoc" crossorigin="anonymous" >
     <!-- Scripts -->
     <script src="https://pages.itsy.tech/fab6bfd16e?boxall"></script>
     <script src='https://code.highcharts.com/highcharts.js'></script>
     <script src="https://code.highcharts.com/highcharts-more.js"></script>
     <script src="https://code.highcharts.com/modules/heatmap.js"></script> 
-    <script src="../unswx.js"></script>
+    <script src="../default.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.js" integrity="sha384-YNHdsYkH6gMx9y3mRkmcJ2mFUjTd0qNQQvY9VYZgQd7DcN7env35GzlmFaZ23JGp" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/contrib/auto-render.min.js" integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.13/ace.js'></script>
@@ -23,9 +23,9 @@
     <header>
       Five number summary of a variable    </header>
     <main>
-      <p>A common way to summarise the spread of values of a numeric variable is to calculate what's called its <strong>five number summary</strong>. This is a commonly used statistical description of a variable.</p>
-<h1>The 2020 Tokyo Olympics women's marathon</h1>
-<p>We'll illustrate the five number summary of a variable using the results of the women's marathon at the 2020 Tokyo Olympics. Here's the data (the times are in minutes):</p>
+      <p>A common way to summarise the spread of values of a numeric variable is to calculate what's called its &quot;five number summary&quot;.</p>
+<h1>The women's marathon</h1>
+<p>We'll illustrate the five number summary using the following data. It shows the results of the women's marathon at the 2020 Tokyo Olympics (the times are in minutes):</p>
 <pre><code>Pos Name                    Time
 --- --------------------- ------
   1 Peres JEPCHIRCHIR     147.33
@@ -51,12 +51,12 @@
 <p>We'll explain each of these one-by-one.</p>
 <h1>The minimum value</h1>
 <p>The <strong>minimum</strong> value of a variable is its smallest value.</p>
-<p>We can often just observe the minimum value, by sorting the variable's values from smallest to largest (or from largest to smallest). The marathon results above are already sorted, from smallest time to largest time, and we can just observe the minimum time: 147.33 minutes.</p>
+<p>We can often just observe the minimum value by sorting the values, either from smallest to largest, or from largest to smallest. The marathon results above are already sorted, from smallest time to largest time, and we can just observe the minimum time: it's 147.33 minutes.</p>
 <h1>The first quartile value (Q1)</h1>
 <p>The <strong>first quartile</strong> value of a variable is the value which is one-quarter of the way along the values, when they're sorted from smallest to largest. It's often abbreviated to &quot;Q1&quot;.</p>
 <p>The concept is fairly straightforward, but it can be tricky to implement. Here's how we do it:</p>
 <blockquote>
-<p>We subtract 1 from the total number of values, multiple by 1/4, then add 1. If that gives a whole number, such as 8, then Q1 is the 8th value of the variable (when they're sorted from smallest to largest). If it gives a fractional number, such as 8.75, then Q1 is the mean of the 8th and 9th values. (There's a slightly more complicated version, but this method is already complicated enough, and serves most purposes.)</p>
+<p>We subtract 1 from the total number of values, multiple by 1/4, then add 1. If that gives a whole number, such as 8, then Q1 is the 8th value of the variable (when they're sorted from smallest to largest). If it gives a fractional number, such as 8.75, then Q1 is the mean of the 8th and 9th values. (There's a slightly more complicated version, but this method is already complicated enough, and serves well for most purposes.)</p>
 </blockquote>
 <p>Let's do this for the time variable of the marathon data:</p>
 <blockquote>
@@ -80,13 +80,13 @@
 </blockquote>
 <h1>The maximum value</h1>
 <p>The <strong>maximum</strong> value of a variable is its largest value.</p>
-<p>We can often just observe the maximum value, by sorting the variable's values from smallest to largest (or from largest to smallest). The marathon results above are already sorted, from smallest time to largest time, and we can just observe the maximum time: 183.17 minutes.</p>
+<p>We can often just observe the maximum value by sorting the values, either from smallest to largest, or from largest to smallest. The marathon results above are already sorted, from smallest time to largest time, and we can just observe the maximum time: it's 183.17 minutes.</p>
 <h1>Displaying with a table</h1>
 <p>It's common to display the five number summary of a variable using a table, which has one row and five columns (a column for each of the five numbers). Here it is for the time variable of the marathon data:</p>
 <pre><code>Minimum     Q1 Median     Q3 Maximum
 ------- ------ ------ ------ -------
  147.33 153.23 155.65 160.07  183.17</code></pre>
-<h1>Visualing with a box</h1>
+<h1>Visualising with a box</h1>
 <p>A common way to visualise the five number summary of a variable is to use a box, which is a geometrical object custom-made for the task. It's a good way to compactly show the distribution of values of a variable. The box can be displayed either vertically or horizontally. Here it is, for the time variable of the marathon data, displayed horizontally:</p>
 <div id="chart"></div>
 <script src="https://code.highcharts.com/highcharts-more.js"></script>
@@ -117,11 +117,11 @@
 <p>It's typically abbreviated to &quot;IQR&quot;.</p>
 <p>In the case of the time variable of the marathon data:</p>
 <p>$$ \text{Interquartile range} = 160.07 - 153.23 = 6.84 $$</p>
-<p>The interquartile range is a measure of how spread out the values of a variable are. It's an alternative to using the range of the variable, which is the difference between the maximum value and the minimum value:</p>
+<p>The interquartile range is a measure of spread of a variable's values. It's an alternative to the <em>range</em> of the variable, which is the difference between the variable's maximum and minimum values:</p>
 <p>$$ \text{Range} = \text{Maximum} - \text{Minimum} $$</p>
-<p>Sometimes the interquartile range gives a better indication of spread than the range. The range is effected by how small the minimum value is, and how large the maxiumum value is. If one or both of these is unusually extreme, then the range might not be very indicative of the spread of values. The interquartile range, on the other hand, is not effected by the minimum or maximum values - it's determined by the first and third quartiles instead. So, if one or both of the minimum and maximum values are unusually extreme, then the interquartile range might give a better indication of spread.</p>
+<p>Sometimes the interquartile range gives a better indication of spread than the range. The range is affected by how small the minimum value is, and how large the maximum value is. If one or both of these is unusually extreme, then the range might not be very indicative of the spread of values. The interquartile range, on the other hand, is not affected by the minimum or maximum values - it's determined by the first and third quartiles instead. So, if one or both of the minimum and maximum values are unusually extreme, then the interquartile range might give a better indication of spread.</p>
 <h1>Distinguishing outliers</h1>
-<p>Sometimes it's better to exclude the most extreme values when visualising the five number summary. These are called &quot;outliers&quot;.</p>
+<p>Sometimes it's better to exclude the most extreme values when visualising the five number summary. These extreme values are called &quot;outliers&quot;.</p>
 <p>There's a formula that's often used to quantify what counts as an outlier.</p>
 <p>First, we define the <strong>lower fence</strong> and <strong>upper fence</strong> for the variable, in terms of the first quartile value (Q1), the third quartile value (Q3), and the interquartile range (IQR). They're defined as follows:</p>
 <p>$$ \begin{align*}
@@ -139,14 +139,14 @@
 &amp;= 160.07 + (1.5 \times IQR) \\
 &amp;= 170.33 \\
 \end{align*} $$</p>
-<p>Next, we find the outliers. In this case, an outlier is any value that is either less than 142.97, or greater than 170.33. There are no values less than 142.97, but there are six values greater than 170.33. These are the outliers:</p>
+<p>Next, we find the outliers. In this case, an outlier is any value that is either less than 142.97, or greater than 170.33. There are no values less than 142.97, but there are six values greater than 170.33. So there are six outliers:</p>
 <pre><code>173.43
 173.67
 175.02
 175.65
 182.17
 183.17</code></pre>
-<p>To show outliers when visualising the five number summary, we place the whiskers at the fences, rather than at the minimum and maximum values. And we show the outliers as separate points. Here's what we get:</p>
+<p>To show outliers when visualising the five number summary, we place the whiskers at the fences, rather than at the minimum and maximum values. And we show the outliers as separate points. Here's what we get for the marathon data:</p>
 <div id="outliers"></div>
 <script src="https://code.highcharts.com/highcharts-more.js"></script>
 <script>
@@ -166,7 +166,7 @@
   });
 </script>	  </main>
         <footer>
-      <span id='datetime'>Generated on 20 October 2022 at 9:23 am</span>
+      <span id='datetime'>Generated on 24 October 2022 at 6:52 am</span>
     </footer>
   </body>
 </html>

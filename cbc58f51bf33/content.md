@@ -10,7 +10,7 @@ Suppose you run a muffin shop. You've noticed that the demand for muffins varies
 
 # A correlation
 
-You also happen to be interested in the northern lights (Aurora Borealis), and you've noticed something curious: the demand for muffins seems to be related to how active the northern lights are in the preceding two days. You discovered this by rating the demand for muffins on each day for the last two weeks, on a scale from 0 to 10, and rating the activity of the northern lights in the preceding two days, also on a scale from 0 to 10, and plotting them together in a scatter plot. Here's what you got (there are 14 points, one for each day of the last two weeks):
+You also happen to be interested in the northern lights (Aurora Borealis), and you've noticed something curious: the demand for muffins seems to be related to how active the northern lights are in the preceding two days. You discovered this by rating the demand for muffins on each day for the past two weeks, on a scale from 0 to 10, and rating the activity of the northern lights in the preceding two days, also on a scale from 0 to 10, and plotting them together in a scatter plot. Here's what you got (there are 14 points, one for each day of the past two weeks):
 
 <div id="points"></div>
 <script>
@@ -71,7 +71,7 @@ So, is there a real relationship? There are statistical techniques that can help
 
 So, you've found what's likely to be a real relationship between muffin demand and northern lights activity, and you have an equation for it.
 
-You can use this equation to make predictions - you can predict the demand for muffins on a given day (on your scale from 0 to 10) from the activity of the northern lights during the preceding two days (on your scale from 0 to 10). Suppose that during the last two days the level of northern lights activity has been 6.5. Then you can predict what the demand for muffins will be tomorrow:
+You can use this equation to make predictions - you can predict the demand for muffins on a given day (on your scale from 0 to 10) from the activity of the northern lights during the preceding two days (on your scale from 0 to 10). Suppose that during the past two days the level of northern lights activity has been 6.5. Then you can predict what the demand for muffins will be tomorrow:
 
 $$ \begin{align*}
 \text{Demand} &= 1.6 + 0.7 \times \text{Activity} \\
@@ -79,7 +79,7 @@ $$ \begin{align*}
               &= 6.15
 \end{align*} $$
 
-This prediction is unlikely to be perfect, because of random fluctuations in muffin demand and northern lights activity. These fluctuations effected the equation that you found - if you'd used a different sample of days, the fluctuations would likely have been different, and so too would the equation. They effect the quality of your predictions too - even if your equation is perfect, the fluctuations mean that its predictions won't be. Nevertheless, using the equation to make predictions is better than what you were previously doing, which was basically just guessing.    
+This prediction is unlikely to be perfect, because of random fluctuations in muffin demand and northern lights activity. These fluctuations affected the equation that you found - if you'd used a different sample of days, the fluctuations would likely have been different, and so too would the equation. They affect the quality of your predictions too - even if your equation is perfect, the fluctuations mean that its predictions won't be. Nevertheless, using the equation to make predictions is better than what you were previously doing, which was basically just guessing.    
 
 You can actually calculate what are called **confidence intervals** for your predictions, which are ranges of values, rather than single values. Suppose you'd like to be 95% confident in your prediction (that is: you'd like there to be 95% chance that it's correct). Using statistical techniques, you can calculate a range of values, between which the real value is 95% likely to be. It might, for example, be the interval 5.9-6.7. If this is your 95% confidence interval, then you can be 95% confident that muffin demand will be between 5.9 and 6.7.
 

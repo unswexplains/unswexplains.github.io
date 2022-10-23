@@ -32,13 +32,13 @@ You know what *did* happen when you played the slower music - the customers stay
 
 Here's how it works. There are three possibilities for what would have happened if you'd played the usual music:
 
-1. They would have stayed less long.
-1. They would have stayed equally long.
-1. They would have stayed longer.
+1. They would have stayed less long
+1. They would have stayed equally long
+1. They would have stayed longer
 
 And here are the answers to your causal question in each case:
 
-1. The slower music caused them to stay longer.
+1. The slower music caused them to stay longer
 1. The slower music had no causal effect
 1. The slower music caused them to leave sooner
 
@@ -75,7 +75,7 @@ Unfortunately, this is not ideal. There will be differences between these "contr
 
 But we have a way to help with this problem. We repeat this process many times - with many test circumstances (these form a "test group"), and many control circumstances (these form a "control group"). And we choose at random which circumstances to use as test circumstances, and which to use as control circumstances. In every test circumstance, the slower music is played. In every control circumstance, the usual music is played. There will be many other differences between the test and control circumstances, but by using enough of them, and by randomly choosing whether they are test or control, all of these other differences will hopefully even out. So, on average, all going well, the average test group will be the same as the average control group, apart from the type of music. This allows us to compare the average customer stay-time in the test group (i.e. in all of the test circumstances), with the average customer stay-time in the control group (i.e. in all of the control circumstances), and attribute any differences to the music that is played.
 
-This process of randomly forming test and control groups, and comparing their averages, is called a **controlled experiment** (or sometimes, "A/B testing").
+This process of randomly forming test and control groups, and comparing their averages, is called a **controlled experiment** (or sometimes "A/B testing").
 
 It's still not ideal, because we can never be sure that all the non-music differences even out, so we can never be sure of the real cause of any stay-time differences. But if we use a large number of circumstances, and assign them randomly to the control and test groups, then we can be quite confident (and there are ways to calculate exactly how confident).
 

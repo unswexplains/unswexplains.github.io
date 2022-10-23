@@ -4,14 +4,14 @@
     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
     <title>Using data to make predictions</title>
     <!-- Stylesheets -->
-    <link rel="stylesheet" href="../unswx.css">
+    <link rel="stylesheet" href="../default.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.css" integrity="sha384-Um5gpz1odJg5Z4HAmzPtgZKdTBHZdw8S29IecapCSB31ligYPhHQZMIlWLYQGVoc" crossorigin="anonymous" >
     <!-- Scripts -->
     <script src="https://pages.itsy.tech/fab6bfd16e?boxall"></script>
     <script src='https://code.highcharts.com/highcharts.js'></script>
     <script src="https://code.highcharts.com/highcharts-more.js"></script>
     <script src="https://code.highcharts.com/modules/heatmap.js"></script> 
-    <script src="../unswx.js"></script>
+    <script src="../default.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.js" integrity="sha384-YNHdsYkH6gMx9y3mRkmcJ2mFUjTd0qNQQvY9VYZgQd7DcN7env35GzlmFaZ23JGp" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/contrib/auto-render.min.js" integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.13/ace.js'></script>
@@ -28,7 +28,7 @@
 <h1>A muffin shop problem</h1>
 <p>Suppose you run a muffin shop. You've noticed that the demand for muffins varies quite a bit from day to day, for no obvious reason. It doesn't seem to be connected to the day of the week, or the weather, or anything else. You'd love to be able to predict what the demand is going to be, at least a day in advance, because you're losing money by making too few or too many muffins.</p>
 <h1>A correlation</h1>
-<p>You also happen to be interested in the northern lights (Aurora Borealis), and you've noticed something curious: the demand for muffins seems to be related to how active the northern lights are in the preceding two days. You discovered this by rating the demand for muffins on each day for the last two weeks, on a scale from 0 to 10, and rating the activity of the northern lights in the preceding two days, also on a scale from 0 to 10, and plotting them together in a scatter plot. Here's what you got (there are 14 points, one for each day of the last two weeks):</p>
+<p>You also happen to be interested in the northern lights (Aurora Borealis), and you've noticed something curious: the demand for muffins seems to be related to how active the northern lights are in the preceding two days. You discovered this by rating the demand for muffins on each day for the past two weeks, on a scale from 0 to 10, and rating the activity of the northern lights in the preceding two days, also on a scale from 0 to 10, and plotting them together in a scatter plot. Here's what you got (there are 14 points, one for each day of the past two weeks):</p>
 <div id="points"></div>
 <script>
   Highcharts.chart("points", {
@@ -75,13 +75,13 @@
 <p>So, is there a real relationship? There are statistical techniques that can help answer this question. They can tell you how likely it is to get this correlation in your sample, just as a matter of chance. You apply these techniques to your sample, and you find that it's very unlikely. In technical terms, you've found that the correlation is <strong>statistically significant</strong>. You conclude that there's very likely to be a real relationship between muffin demand and northern lights activity, one that holds every day, and is described by the equation you've found.</p>
 <h1>Making predictions</h1>
 <p>So, you've found what's likely to be a real relationship between muffin demand and northern lights activity, and you have an equation for it.</p>
-<p>You can use this equation to make predictions - you can predict the demand for muffins on a given day (on your scale from 0 to 10) from the activity of the northern lights during the preceding two days (on your scale from 0 to 10). Suppose that during the last two days the level of northern lights activity has been 6.5. Then you can predict what the demand for muffins will be tomorrow:</p>
+<p>You can use this equation to make predictions - you can predict the demand for muffins on a given day (on your scale from 0 to 10) from the activity of the northern lights during the preceding two days (on your scale from 0 to 10). Suppose that during the past two days the level of northern lights activity has been 6.5. Then you can predict what the demand for muffins will be tomorrow:</p>
 <p>$$ \begin{align*}
 \text{Demand} &amp;= 1.6 + 0.7 \times \text{Activity} \\
 &amp;= 1.6 + 0.7 \times 6.5 \\
 &amp;= 6.15
 \end{align*} $$</p>
-<p>This prediction is unlikely to be perfect, because of random fluctuations in muffin demand and northern lights activity. These fluctuations effected the equation that you found - if you'd used a different sample of days, the fluctuations would likely have been different, and so too would the equation. They effect the quality of your predictions too - even if your equation is perfect, the fluctuations mean that its predictions won't be. Nevertheless, using the equation to make predictions is better than what you were previously doing, which was basically just guessing.    </p>
+<p>This prediction is unlikely to be perfect, because of random fluctuations in muffin demand and northern lights activity. These fluctuations affected the equation that you found - if you'd used a different sample of days, the fluctuations would likely have been different, and so too would the equation. They affect the quality of your predictions too - even if your equation is perfect, the fluctuations mean that its predictions won't be. Nevertheless, using the equation to make predictions is better than what you were previously doing, which was basically just guessing.    </p>
 <p>You can actually calculate what are called <strong>confidence intervals</strong> for your predictions, which are ranges of values, rather than single values. Suppose you'd like to be 95% confident in your prediction (that is: you'd like there to be 95% chance that it's correct). Using statistical techniques, you can calculate a range of values, between which the real value is 95% likely to be. It might, for example, be the interval 5.9-6.7. If this is your 95% confidence interval, then you can be 95% confident that muffin demand will be between 5.9 and 6.7.</p>
 <h1>Some terminology</h1>
 <p>The equation you've found, between muffin demand and northern lights activity, is called a <strong>model</strong>.</p>
@@ -104,7 +104,7 @@
 <p>The second involves Target using sales data to predict pregnancies:</p>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/XH1wQEgROg4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>	  </main>
         <footer>
-      <span id='datetime'>Generated on 20 October 2022 at 9:23 am</span>
+      <span id='datetime'>Generated on 24 October 2022 at 6:52 am</span>
     </footer>
   </body>
 </html>

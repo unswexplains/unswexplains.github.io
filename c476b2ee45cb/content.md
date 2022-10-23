@@ -1,8 +1,8 @@
 %% Visualising data with wedges %%
 
-# Summer Olympics Host Regions
+# Summer Olympics
 
-By 2032, there will have been 32 Modern Summer Olympic Games, since they began in 1896. Here are the number of times they will have been hosted in each of the world's major regions:
+The Modern Summer Olympics were first held in 1896. By 2032, they will have been held 32 times. Here are the number of times they will have been held in each of the world's major regions:
 
 ```
 Region        Frequency
@@ -17,7 +17,7 @@ Africa                0
 
 # Visualising the data with wedges
 
-One way we might visualise this data is using wedges, to form what's called a **pie chart**. Each row of the data is mapped to a wedge of the pie. Each wedge has an angle, and the frequency variable is mapped to that angle.
+One way we might visualise this data is using wedges, to form what's called a **pie chart**. Each row is mapped to a wedge of the pie. Each wedge has an angle, and the frequency variable is mapped to that angle.
 
 <div id="pie1"></div>
 <script>
@@ -71,19 +71,19 @@ Rather than using wedges, we might visualise the data using points, lines, or ba
   });
 </script>
 
-You'll probably agree that points are not the right choice for this data. Apart from being difficult to see, points don't give the impression that frequency is a quantity, which is one advantage that pies and bars both have (we can think of frequency as being a quantity of hostings).
+You'll probably agree that for this data, points are not the right choice. Apart from being difficult to see, points don't give the impression that frequency is a quantity, which is one advantage that pies and bars both have (we can think of frequency as being a quantity of hostings).
 
 You'll probably also agree that lines are not the right choice either. Like points, they fail to give the impression that frequency is a quantity. Also, they misleadingly suggest that frequencies change continuously from one region to the next, which is not so - each region has its own discrete frequency, and there are no intermediate values.
 
-You'll probably agree that bars are quite a good alternative. Like wedges, they're easy to see, they give the impression that frequency is a quantity, and they don't give the impression that frequency changes continuously from one region to the next. One advantage that bars have over wedges is that we can see the difference between the heights of bars more easily than we can see the difference between the angles of wedges. So, if there are close values that you'd like your audience to distinguish, it's probably better to use bars.
+You'll probably agree that bars are quite a good alternative. Like wedges, they're easy to see, they give the impression that frequency is a quantity, and they don't give the impression that frequency changes continuously from one region to the next. Bars even have one advantage over wedges: we can see the difference between the heights of bars more easily than we can see the difference between the angles of wedges. So, if there are close values that you'd like your audience to distinguish, it's probably better to use bars rather than wedges.
 
-Wedges have a couple of advantages over bars, though. One is that because the wedges form a complete circle, as they usually do in a pie chart, it makes it clear that the region values are *exhaustive* - all possible values of the region variable are shown. Bars don't do that. 
+Wedges have a couple of advantages over bars, though. One advantage is that wedges form a complete circle, which makes it clear that the region values are *exhaustive* - all possible values of the region variable are shown. Bars don't do that.
 
-Another advantage is that bars are so common (for good reason), and you might like to use a pie chart instead to add some variety, or to make this particular visualisation stand out from the rest. But only do so if a pie chart still communicates what you'd like to communicate.
+Another advantage is that bars are so common (for good reason), that you might like to use a pie chart instead, to add some variety, or to make a visualisation stand out from the rest. But only do so if a pie chart still communicates what you'd like to communicate.
 
 # Another alternative: stacked bars
 
-Rather than using wedges that are wrapped into a circle, we could visualise this data using bars that are stacked into a column. We could display the column either vertically, or horizontally - try it yourself to see the difference:
+Rather than using wedges that are wrapped into a circle, we could visualise the Olympics data using bars that are stacked into a column. We could display the column either vertically or horizontally - try it yourself to see the difference:
 
 <label><input type="radio" name="stack" onclick="stack.update({chart: {inverted: false}})" checked />Vertical</label>
 <label><input type="radio" name="stack" onclick="stack.update({chart: {inverted: true}})" />Horizontal</label>
@@ -108,11 +108,11 @@ Rather than using wedges that are wrapped into a circle, we could visualise this
   });
 </script>
 
-A stack of bars is not as good as a pie of wedges in one respect: it fails to convey that the region values are exhaustive.
+There's one respect in which a stack of bars is not as good as a pie of wedges: it fails to convey that the region values are exhaustive.
 
-But a stack of bars can still be useful. In particular, multiple stacks of bars can be easier to compare than multiple pies of wedges.
+Nevertheless, a stack of bars can still be useful. In particular, multiple stacks of bars can be easier to compare than multiple pies of wedges.
 
-Suppose you're running a workshop about public speaking, with 20 participants. Before the workshop, you ask them to rate how confident they feel about public speaking, on the scale "Low", "Medium", and "High". After the workshop, you ask them again. Here are the results:
+To illustrate, suppose you're running a workshop about public speaking, with 20 participants. Before the workshop, you ask them to rate how confident they feel about public speaking, on the scale "Low", "Medium", and "High". After the workshop, you ask them again. Here are the results:
 
 ```
 Stage  Rating Frequency
@@ -204,7 +204,7 @@ It would be misleading to visualise these numbers using the following pie chart,
 
 # The problem of small differences
 
-The human visual system is not good at detecting small differences in angles. So, wedges are not a good way to visualise data that requires the audience to do this.
+The human visual system is not good at detecting small differences in angles. So wedges are not a good way to visualise data that requires the audience to do this.
 
 To illustrate, here's a visualisation of Sydney's monthly maximum temperatures between 1859 and 2020. Do you find it hard to judge the differences?
 

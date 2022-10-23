@@ -4,14 +4,14 @@
     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
     <title>Visualising data with wedges</title>
     <!-- Stylesheets -->
-    <link rel="stylesheet" href="../unswx.css">
+    <link rel="stylesheet" href="../default.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.css" integrity="sha384-Um5gpz1odJg5Z4HAmzPtgZKdTBHZdw8S29IecapCSB31ligYPhHQZMIlWLYQGVoc" crossorigin="anonymous" >
     <!-- Scripts -->
     <script src="https://pages.itsy.tech/fab6bfd16e?boxall"></script>
     <script src='https://code.highcharts.com/highcharts.js'></script>
     <script src="https://code.highcharts.com/highcharts-more.js"></script>
     <script src="https://code.highcharts.com/modules/heatmap.js"></script> 
-    <script src="../unswx.js"></script>
+    <script src="../default.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.js" integrity="sha384-YNHdsYkH6gMx9y3mRkmcJ2mFUjTd0qNQQvY9VYZgQd7DcN7env35GzlmFaZ23JGp" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/contrib/auto-render.min.js" integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.13/ace.js'></script>
@@ -23,8 +23,8 @@
     <header>
       Visualising data with wedges    </header>
     <main>
-      <h1>Summer Olympics Host Regions</h1>
-<p>By 2032, there will have been 32 Modern Summer Olympic Games, since they began in 1896. Here are the number of times they will have been hosted in each of the world's major regions:</p>
+      <h1>Summer Olympics</h1>
+<p>The Modern Summer Olympics were first held in 1896. By 2032, they will have been held 32 times. Here are the number of times they will have been held in each of the world's major regions:</p>
 <pre><code>Region        Frequency
 ------------- ---------
 Europe               17
@@ -34,7 +34,7 @@ Oceania               3
 South America         1
 Africa                0</code></pre>
 <h1>Visualising the data with wedges</h1>
-<p>One way we might visualise this data is using wedges, to form what's called a <strong>pie chart</strong>. Each row of the data is mapped to a wedge of the pie. Each wedge has an angle, and the frequency variable is mapped to that angle.</p>
+<p>One way we might visualise this data is using wedges, to form what's called a <strong>pie chart</strong>. Each row is mapped to a wedge of the pie. Each wedge has an angle, and the frequency variable is mapped to that angle.</p>
 <div id="pie1"></div>
 <script>
   let pie1 = Highcharts.chart("pie1", {
@@ -82,13 +82,13 @@ Africa                0</code></pre>
     }]
   });
 </script>
-<p>You'll probably agree that points are not the right choice for this data. Apart from being difficult to see, points don't give the impression that frequency is a quantity, which is one advantage that pies and bars both have (we can think of frequency as being a quantity of hostings).</p>
+<p>You'll probably agree that for this data, points are not the right choice. Apart from being difficult to see, points don't give the impression that frequency is a quantity, which is one advantage that pies and bars both have (we can think of frequency as being a quantity of hostings).</p>
 <p>You'll probably also agree that lines are not the right choice either. Like points, they fail to give the impression that frequency is a quantity. Also, they misleadingly suggest that frequencies change continuously from one region to the next, which is not so - each region has its own discrete frequency, and there are no intermediate values.</p>
-<p>You'll probably agree that bars are quite a good alternative. Like wedges, they're easy to see, they give the impression that frequency is a quantity, and they don't give the impression that frequency changes continuously from one region to the next. One advantage that bars have over wedges is that we can see the difference between the heights of bars more easily than we can see the difference between the angles of wedges. So, if there are close values that you'd like your audience to distinguish, it's probably better to use bars.</p>
-<p>Wedges have a couple of advantages over bars, though. One is that because the wedges form a complete circle, as they usually do in a pie chart, it makes it clear that the region values are <em>exhaustive</em> - all possible values of the region variable are shown. Bars don't do that. </p>
-<p>Another advantage is that bars are so common (for good reason), and you might like to use a pie chart instead to add some variety, or to make this particular visualisation stand out from the rest. But only do so if a pie chart still communicates what you'd like to communicate.</p>
+<p>You'll probably agree that bars are quite a good alternative. Like wedges, they're easy to see, they give the impression that frequency is a quantity, and they don't give the impression that frequency changes continuously from one region to the next. Bars even have one advantage over wedges: we can see the difference between the heights of bars more easily than we can see the difference between the angles of wedges. So, if there are close values that you'd like your audience to distinguish, it's probably better to use bars rather than wedges.</p>
+<p>Wedges have a couple of advantages over bars, though. One advantage is that wedges form a complete circle, which makes it clear that the region values are <em>exhaustive</em> - all possible values of the region variable are shown. Bars don't do that.</p>
+<p>Another advantage is that bars are so common (for good reason), that you might like to use a pie chart instead, to add some variety, or to make a visualisation stand out from the rest. But only do so if a pie chart still communicates what you'd like to communicate.</p>
 <h1>Another alternative: stacked bars</h1>
-<p>Rather than using wedges that are wrapped into a circle, we could visualise this data using bars that are stacked into a column. We could display the column either vertically, or horizontally - try it yourself to see the difference:</p>
+<p>Rather than using wedges that are wrapped into a circle, we could visualise the Olympics data using bars that are stacked into a column. We could display the column either vertically or horizontally - try it yourself to see the difference:</p>
 <label><input type="radio" name="stack" onclick="stack.update({chart: {inverted: false}})" checked>Vertical</label>
 <label><input type="radio" name="stack" onclick="stack.update({chart: {inverted: true}})">Horizontal</label>
 <div id="stack"></div>
@@ -111,9 +111,9 @@ Africa                0</code></pre>
     ],
   });
 </script>
-<p>A stack of bars is not as good as a pie of wedges in one respect: it fails to convey that the region values are exhaustive.</p>
-<p>But a stack of bars can still be useful. In particular, multiple stacks of bars can be easier to compare than multiple pies of wedges.</p>
-<p>Suppose you're running a workshop about public speaking, with 20 participants. Before the workshop, you ask them to rate how confident they feel about public speaking, on the scale &quot;Low&quot;, &quot;Medium&quot;, and &quot;High&quot;. After the workshop, you ask them again. Here are the results:</p>
+<p>There's one respect in which a stack of bars is not as good as a pie of wedges: it fails to convey that the region values are exhaustive.</p>
+<p>Nevertheless, a stack of bars can still be useful. In particular, multiple stacks of bars can be easier to compare than multiple pies of wedges.</p>
+<p>To illustrate, suppose you're running a workshop about public speaking, with 20 participants. Before the workshop, you ask them to rate how confident they feel about public speaking, on the scale &quot;Low&quot;, &quot;Medium&quot;, and &quot;High&quot;. After the workshop, you ask them again. Here are the results:</p>
 <pre><code>Stage  Rating Frequency
 ------ ------ ---------
 Before Low           12
@@ -189,7 +189,7 @@ English      372,900,000</code></pre>
   });
 </script>
 <h1>The problem of small differences</h1>
-<p>The human visual system is not good at detecting small differences in angles. So, wedges are not a good way to visualise data that requires the audience to do this.</p>
+<p>The human visual system is not good at detecting small differences in angles. So wedges are not a good way to visualise data that requires the audience to do this.</p>
 <p>To illustrate, here's a visualisation of Sydney's monthly maximum temperatures between 1859 and 2020. Do you find it hard to judge the differences?</p>
 <div id="rain"></div>
 <script>
@@ -257,7 +257,7 @@ English      372,900,000</code></pre>
 </script>
 <p>Mapping the month variable to the angle of the wedge is effective here, because the months of the year are cyclic - after December we return to January again, back to where we started.</p>	  </main>
         <footer>
-      <span id='datetime'>Generated on 20 October 2022 at 9:23 am</span>
+      <span id='datetime'>Generated on 24 October 2022 at 6:52 am</span>
     </footer>
   </body>
 </html>

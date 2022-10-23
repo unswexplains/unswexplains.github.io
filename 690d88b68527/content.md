@@ -2,7 +2,7 @@
 
 # Planet data
 
-Here is some data about the eight planets in our solar system, compiled by the National Aeronautics and Space Administration (NASA). For each planet, it shows the diameter (in kilometres), the density (in kilograms per cubic metre), the acceleration due to gravity (in metres per second squared), the escape velocity (in kilometres per second), the number of moons, and whether it has a system of rings.
+Here's some data about the eight planets in our solar system, compiled by the National Aeronautics and Space Administration (NASA). For each planet, it shows the diameter (in kilometres), the density (in kilograms per cubic metre), the acceleration due to gravity (in metres per second squared), the escape velocity (in kilometres per second), the number of moons, and whether the planet has a system of rings.
 
 ```
 Planet   Diameter Density Gravity Velocity Moons Rings
@@ -17,11 +17,11 @@ Uranus     51,118   1,270     8.7     21.3    27 Yes
 Neptune    49,528   1,683    11.0     23.5    14 Yes
 ```
 
-This data raises various interesting questions. Consider the number of moons, for example. Why do some planets have many moons, while others have very few, or none? It seems to be related to diameter - planets with larger diameters have more moons, while planets with smaller diameters have fewer moons. Rather than looking at the raw numbers, it's easier to check if we visualise the data.
+This data raises many interesting questions. Consider the number of moons, for example. Why do some planets have many moons, while others have very few, or none? It seems to be related to diameter - planets with larger diameters have more moons, while planets with smaller diameters have fewer moons. Rather than looking at the raw numbers, it's easier to check if we visualise the data.
 
 # Visualising the data with points
 
-A good way to see whether there's a relationship between diameter and number of moons is to visualise the data using points. Each row of data is mapped to a point. The diameter variable is mapped to the horizontal position of the point. The moons variable is mapped to the vertical position of the point. The result is what we call a **scatter plot**:
+A good way to see whether there's a relationship between diameter and number of moons is to visualise the data using points. Each row of data is mapped to a point. The diameter variable is mapped to the horizontal position of a point, and the moons variable is mapped to its vertical position. The result is what we call a **scatter plot**:
 
 <div id="points"></div>
 <script>
@@ -54,7 +54,7 @@ This scatter plot makes it easy to see that there's a relationship between diame
 
 # Adding a line of best fit
 
-When visualising data using points, you'll often be looking for a *linear* relationship between the two variables you're mapping to the position of the points. To help see any such relationship, it's good to add a **line of best fit**. There are various ways of defining "best fit", but it's common to use the "least squares" definition: the best fitting line is the one that minimises the sum of the squares of the distances between the points and the line. Your software should be able to find this line for you, and add it to your visualisation. Here's what we get in the case above:
+When visualising data using points, you'll often be looking for a *linear* relationship between the two variables you're mapping. To help see any such relationship, it's good to add a **line of best fit**. There are various ways of defining "best fit", but it's common to use the "least squares" definition: the best fitting line is the one that minimises the sum of the squares of the distances between the points and the line. Your software should be able to find this line for you, and add it to your visualisation. Here's what we get in our case:
 
 <div id="withline"></div>
 <script>
@@ -88,16 +88,16 @@ When visualising data using points, you'll often be looking for a *linear* relat
 
 # Which variable for which position?
 
-It doesn't matter which variable you map to the horizontal position of a point, and which you map to the vertical position. It doesn't effect any pattern there might be in the points - it just changes their overall orientation. Try it for yourself, to see what difference it makes to the visualisation above:
+It doesn't matter which variable you map to the horizontal position of a point, and which you map to the vertical position. It doesn't affect any pattern there might be in the points - it just changes their overall orientation. Try it for yourself, to see what difference it makes to the visualisation above:
 
 <label onclick="withline.update({chart: {inverted: false}})"><input type="radio" name="withline" checked/>Map diameter to the horizontal position</label>
 <label onclick="withline.update({chart: {inverted: true}, xAxis: {reversed: false}})"><input type="radio" name="withline" />Map diameter to the vertical position</label>
 
-That said, sometimes one of the mappings is more natural. If we suspect that one variable might be causing the other, for example, then it's often more natural to map the causing variable to the horizontal position, and the other variable to the vertical position. This is the case in the example above: if there's any causal relationship between the diameter of a planet and its number of moons, then it's the diameter that causally influences the number of moons, not the other way around. Because of this, you might find it more natural to map diameter to the horizontal position. Is that what you found?
+That said, sometimes one mapping is more natural. If we suspect that one variable might be causing the other, for example, then it's often more natural to map the causing variable to the horizontal position, and the other variable to the vertical position. This is the case in the example above: if there's any causal relationship between the diameter of a planet and its number of moons, then it's the diameter that causally influences the number of moons, not the other way around. Because of this, you might find it more natural to map diameter to the horizontal position. Is that what you found?
 
 This is not a hard-and-fast rule. Sometimes it's more natural to ignore direction of causation. Time variables, for example, are usually best mapped to the horizontal position, regardless of any causation there might be - we're used to thinking of time as flowing from left to right, rather than up or down. Similarly, altitude is usually best mapped to the vertical position, to match physical reality.
 
-To illustrate this point about altitude, here's a scatter plot of the temperature of the Earth's atmosphere at various altitudes. (Actually, it's a line plot - the visualisation is more effective if we join the points with lines.) You can use the options to try both orientations. Do you agree that mapping altitude to the vertical position is more natural than mapping it to the horizontal position? This is despite any causation there might be, which would be altitude causally influencing temperature, rather than vice-versa. 
+To illustrate this point about altitude, here's a scatter plot of the temperature of the Earth's atmosphere at various altitudes. (Actually, it's a line plot - the visualisation is more effective if we join the points with lines.) You can use the options to try both orientations. Do you agree that mapping altitude to the vertical position is more natural than mapping it to the horizontal position? This is despite any causation there might be, which would be altitude causally influencing temperature, rather than vice versa. 
 
 <div id="temps"></div>
 <script>
@@ -188,7 +188,7 @@ A common technique is to use colour to distinguish the points. The moon data con
   });
 </script>
 
-Notice that the visualisation now has a legend. The legend shows the details of the third mapping - which variable is mapped to colour, and which data values are mapped to which colours.
+Notice that the visualisation now has a legend. The legend shows the details of the third mapping - which variable is being mapped to colour, and which data values are being mapped to which colours.
 
 # Mapping to size
 
@@ -200,7 +200,7 @@ This gives us another way to visualise the relationship between diameter and num
 <script>
   let bubble = Highcharts.chart("bubble", {
     chart: {type: "bubble"},
-    title: {text: "Number of Moons versus Diameter"},
+    title: {text: "Planet Diameter and Number of Moons"},
     caption: {text: "Source: NASA"},
     xAxis: {type: "category", title: {enabled: true, text: ""}, gridLineWidth: 1, tickmarkPlacement: "on"},
     yAxis: {title: {text: ""}, labels: {enabled: false}},

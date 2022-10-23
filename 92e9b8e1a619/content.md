@@ -1,22 +1,22 @@
 %% Variance and standard deviation %%
 
-When we have a numeric variable, it can be helpful to know how spread its values are. One measure of a variable's spread is its range. Another measure is its interquartile range. Here we consider what are perhaps the two most commonly used measures - variance, and standard deviation.
+When we have a numeric variable, it can be interesting to know how widely spread its values are. There are several commonly used measures of spread. One is the *range* of the variable - the difference between its maximum and minimum values. Another is its *interquartile range* - the difference between its third and first quartile values. Here we consider what are perhaps the two most commonly used measures of spread - variance, and standard deviation.
 
-# Definition of variance
+# Variance
 
-Suppose we have a variable with $n$ values, call them $x_1, ..., x_n$. You might recall that the variable has a mean, which is defined as follows:
+Suppose we have a numeric variable with n values, call them $v_1, ..., v_n$. You might recall that the variable has a mean, which is defined as follows:
 
-$$ \text{Mean} = \frac{x_1 + \cdots + x_n}{n} $$
+$$ \text{Mean} = \frac{v_1 + \cdots + v_n}{n} $$
 
-We define the variance of the variable as follows:
+We define the **variance** of the variable as follows:
 
-$$ \text{Variance} = \frac{(x_1 - \text{Mean})^2 + \cdots + (x_n - \text{Mean})^2}{n} $$
+$$ \text{Variance} = \frac{(v_1 - \text{Mean})^2 + \cdots + (v_n - \text{Mean})^2}{n} $$
 
-So, to calculate its variance, we find the deviation of each value from the mean, square the deviations, then find the mean of the squared deviations. The variance is sometimes described as, "the mean squared deviation from the mean".
+So, to calculate its variance, we find the deviation of each value from the mean, square the deviations, then find the mean of the squared deviations. Because of the way it's defined, variance is sometimes called, "mean squared deviation from the mean".
 
 # An example
 
-An example will help to make this definition clear. Here's some data about the number of moons belonging to each planet in our solar system (courtesy of NASA):
+An example will help to make this definition clear. Here's some data about the number of moons belonging to each of the eight planets in our solar system (courtesy of NASA):
 
 ```
 Planet   Moons
@@ -60,19 +60,17 @@ $$ \begin{align*}
                 &= 1080.3 \\
 \end{align*} $$
 
-# Definition of standard deviation
+# Standard deviation
 
-The standard deviation of a variable is closely related to its variance. It's defined as follows:
+The **standard deviation** of a variable is closely related to its variance. It's defined as follows:
 
 $$ \text{Standard deviation} = \sqrt{\text{Variance}} $$
-
-The variance is sometimes described as, "the root mean squared deviation from the mean".
-
-# An example
 
 In the case of the moons variable:
 
 $$ \text{Standard deviation} = \sqrt{1080.3} = 32.9 $$
+
+Because of the way it's defined, and the way that variance is defined, standard deviation is sometimes called, "root mean squared deviation from the mean".
 
 # Which to use?
 
@@ -80,11 +78,11 @@ Variance and standard deviation are both measures of the spread of a variable. W
 
 Standard deviation has one advantage over variance: it's easier to interpret, because it's on the same scale as the variable; variance, in contrast, is on a much larger scale (the square of the scale of the variable), and this makes it difficult to interpret.
 
-To illustrate the issue, consider the moons variable. Its variance is 1080.3, which is vastly larger than any value of the variable. How could this be a good measure of the spread, given that the values of the variable range between 0 and 82? Shouldn't any measure of the variable's spread be no more than 82? It's standard deviation, on the other hand, is 32.9, which is the kind of measure of spread we would expect.
+To illustrate the issue, consider the moons variable. Its variance is 1080.3, which is vastly larger than any value of the variable. How could this be a good measure of the spread, given that the values of the variable range between 0 and 82? Shouldn't any measure of the variable's spread be no more than 82? Its standard deviation, on the other hand, is 32.9, which is the kind of measure of spread we would expect.
 
-So why would we ever use variance, rather than standard deviation, as the measure of spread?
+So why would we ever use variance as the measure of spread, rather than standard deviation?
 
-Two reasons.
+For two reasons.
 
 First, it's easier to work with mathematically. We can't go into the details here, but it's basically because calculating standard deviations involves taking square roots.
 

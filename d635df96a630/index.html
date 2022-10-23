@@ -4,14 +4,14 @@
     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
     <title>Visualising data with boxes</title>
     <!-- Stylesheets -->
-    <link rel="stylesheet" href="../unswx.css">
+    <link rel="stylesheet" href="../default.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.css" integrity="sha384-Um5gpz1odJg5Z4HAmzPtgZKdTBHZdw8S29IecapCSB31ligYPhHQZMIlWLYQGVoc" crossorigin="anonymous" >
     <!-- Scripts -->
     <script src="https://pages.itsy.tech/fab6bfd16e?boxall"></script>
     <script src='https://code.highcharts.com/highcharts.js'></script>
     <script src="https://code.highcharts.com/highcharts-more.js"></script>
     <script src="https://code.highcharts.com/modules/heatmap.js"></script> 
-    <script src="../unswx.js"></script>
+    <script src="../default.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.js" integrity="sha384-YNHdsYkH6gMx9y3mRkmcJ2mFUjTd0qNQQvY9VYZgQd7DcN7env35GzlmFaZ23JGp" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/contrib/auto-render.min.js" integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.13/ace.js'></script>
@@ -23,8 +23,8 @@
     <header>
       Visualising data with boxes    </header>
     <main>
-      <h1>The 2020 Tokyo Olympics women's marathon</h1>
-<p>There were 73 finishers in the women's marathon at the 2020 Tokyo Summer Olympics. Here are their times, in minutes:</p>
+      <h1>The women's marathon</h1>
+<p>There were 73 finishers in the women's marathon at the 2020 Tokyo Olympics. Here's a selection of their times, in minutes:</p>
 <pre><code>Pos Name                    Time
 --- --------------------- ------
   1 Peres JEPCHIRCHIR     147.33
@@ -38,9 +38,9 @@
  71 Jess PIASECKI         175.65
  72 Sharon FIRISUA        182.17
  73 Dayna PIDHORESKY      183.17</code></pre>
-<p>How are their times spread?</p>
+<p>How are their times distributed? Are the evenly distributed from first to last? Do they cluster in the middle? Do they cluster towards one of the ends? Are there two or more clusters?</p>
 <h1>Their five number summary</h1>
-<p>One way to see is to calculate their so-called &quot;five number summary&quot;. This is a commonly used statistical description of a set of values. It includes: </p>
+<p>One way to gauge the distribution of the times is to calculate their so-called &quot;five number summary&quot;. This is a commonly used statistical description of a set of values. It includes: </p>
 <ul>
 <li>
 <p>The minimum value. This is the smallest (fastest) time, which is 147.33 minutes.</p>
@@ -62,8 +62,8 @@
 <pre><code>Minimum     Q1 Median     Q3 Maximum
 ------- ------ ------ ------ -------
  147.33 153.23 155.65 160.07  183.17</code></pre>
-<h1>Visualing using a box</h1>
-<p>This table of numbers gives us some idea of the spread of the times, but we can see the spread more vividly by visualising them using a <strong>box</strong>. When the x-axis starts at 0, the box is a bit hard to see - you can use the options below the visualisation to zoom in and out. </p>
+<h1>Visualising using a box</h1>
+<p>This table of numbers gives us some idea of the distribution of the times, but we can see it more vividly by visualising them using a <strong>box</strong>. When the x-axis starts at 0, the box is a bit hard to see - you can use the options below the visualisation to zoom in and out. </p>
 <div id="chart"></div>
 <script src="https://code.highcharts.com/highcharts-more.js"></script>
 <script>
@@ -78,9 +78,9 @@
     }]
   });
 </script>
-<label onclick="chart.update({yAxis: {min: 0, max: 200}})"><input type="radio" name="chart" checked>Full</label>
+<label onclick="chart.update({yAxis: {min: 0, max: 200}})"><input type="radio" name="chart" checked>Unzoomed</label>
 <label onclick="chart.update({yAxis: {min: 140, max: 190}})"><input type="radio" name="chart">Zoomed</label>
-<p>This is called a <strong>box plot</strong> (or a &quot;box and whisker plot&quot;). It has the following five visual properties: </p>
+<p>This is called a <strong>box plot</strong> (or a &quot;box and whisker plot&quot;). The box has the following five visual properties: </p>
 <ul>
 <li>Position of the left/bottom whisker</li>
 <li>Position of the left/bottom of the box</li>
@@ -91,18 +91,18 @@
 <p>The left/bottom whisker extends to the lowest value, and the right/top whisker extends to the highest value. The box represents the middle 50% of rows, with the left/bottom end of the box at the first quartile (Q1), and the right/top end of the box at the third quartile (Q3). The line in the middle of the box represents the median.</p>
 <p>Boxes are a good way to show the distribution of values of a variable in a compact way.</p>
 <h1>Distinguishing outliers</h1>
-<p>Sometimes it's better to exclude the most extreme values when visualising the five number summary. These are called &quot;outliers&quot;.</p>
+<p>Sometimes it's better to exclude the most extreme values when visualising the five number summary. These extreme values are called &quot;outliers&quot;.</p>
 <p>There's a formula that's often used to quantify what counts as an outlier.</p>
-<p>First, we calculate the distance between Q1 and Q3 (i.e. Q3 - Q1), which is called the <strong>interquartile range</strong> and given the symbol IQR. In this case, IQR is 160.07 - 153.23, which is 6.84.</p>
-<p>Next, we define an outlier to be any value that is more than 1.5 IQRs below Q1, or any value that is more than 1.5 IQRs above Q3. In this case, that means any value that is below 142.97, or any value that is above 170.33.</p>
-<p>This gives us the following outliers:</p>
+<p>First, we calculate the distance between Q1 and Q3, which is Q3 - Q1. This is called the <strong>interquartile range</strong>, often abbreviated to IQR. In this case, IQR is 160.07 - 153.23, which is 6.84.</p>
+<p>Next, we define an outlier to be any value that is either more than 1.5 IQRs below Q1, or more than 1.5 IQRs above Q3. In this case, that means any value that is either below 142.97, or above 170.33.</p>
+<p>There are no values below 142.97, but there are six values above 170.33. So there are six outliers:</p>
 <pre><code>173.43
 173.67
 175.02
 175.65
 182.17
 183.17</code></pre>
-<p>We stop the whiskers of the box before they get to the outliers, and we show the outliers as separate points. Here's what we get:</p>
+<p>We stop the whiskers of the box before they get to the outliers, and we show the outliers as separate points. Here's what we get (zoomed in):</p>
 <div id="outliers"></div>
 <script src="https://code.highcharts.com/highcharts-more.js"></script>
 <script>
@@ -123,21 +123,21 @@
 </script>
 <h1>Using multiple boxes</h1>
 <p>Boxes are especially useful for showing multiple distibutions in one visualisation, where space can be at a premium.</p>
-<p>There were 76 finishers in the men's marathon at the 2020 Tokyo Summer Olympics. Here are their times:</p>
-<pre><code>Pos Name                     Time Minutes
---- --------------------- ------- -------
-  1 Eliud KIPCHOGE        2:08:38  128.63
-  2 Abdi NAGEEYE          2:09:58  129.97
-  3 Bashir ABDI           2:10:00  130.00
-  4 Lawrence CHERONO      2:10:02  130.03
-  5 Ayad LAMDASSEM        2:10:16  130.27
+<p>There were 76 finishers in the men's marathon at the 2020 Tokyo Olympics. Here's a selection of their times (in minutes):</p>
+<pre><code>Pos Name                   Time
+--- -------------------- ------
+  1 Eliud KIPCHOGE       128.63
+  2 Abdi NAGEEYE         129.97
+  3 Bashir ABDI          130.00
+  4 Lawrence CHERONO     130.03
+  5 Ayad LAMDASSEM       130.27
 ...
- 72 Cameron LEVINS        2:28:43  148.72
- 73 Yuma HATTORI          2:30:08  150.13
- 74 Jesus ARTURO ESPARZA  2:31:51  151.85
- 75 Jorge CASTELBLANCO    2:33:22  153.37
- 76 Ivan ZARCO            2:44:36  164.60</code></pre>
-<p>Here is their five number summary:</p>
+ 72 Cameron LEVINS       148.72
+ 73 Yuma HATTORI         150.13
+ 74 Jesus ARTURO ESPARZA 151.85
+ 75 Jorge CASTELBLANCO   153.37
+ 76 Ivan ZARCO           164.60</code></pre>
+<p>Here's their five number summary:</p>
 <pre><code>Minimum     Q1 Median     Q3 Maximum
 ------- ------ ------ ------ -------
  128.63 135.13 137.53 141.63  164.60</code></pre>
@@ -145,7 +145,7 @@
 <pre><code>151.85
 153.37
 164.60</code></pre>
-<p>And here's what we get when we visualise the women and men together:</p>
+<p>And here's what we get when we visualise the women and men together. Notice that it shows clearly how the two distributions compare:</p>
 <div id="both"></div>
 <script src="https://code.highcharts.com/highcharts-more.js"></script>
 <script>
@@ -170,7 +170,7 @@
   });
 </script>	  </main>
         <footer>
-      <span id='datetime'>Generated on 20 October 2022 at 9:23 am</span>
+      <span id='datetime'>Generated on 24 October 2022 at 6:52 am</span>
     </footer>
   </body>
 </html>

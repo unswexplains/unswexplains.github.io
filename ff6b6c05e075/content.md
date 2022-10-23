@@ -1,6 +1,6 @@
 %% Transforming data variables %%
 
-When analysing a table of data, it's often useful to create a new variable by transforming an existing one. Common transformations include:
+When analysing a data set, it's often useful to transform one or more variables. Common transformations include:
 
 - Changing scales
 - Calculating ratios
@@ -12,41 +12,34 @@ When analysing a table of data, it's often useful to create a new variable by tr
 Suppose your data set contains a variable called "Temperature", whose values are temperatures in Fahrenheit:
 
 ```
-... Temperature ...
-    -----------
-           42.5
-           38.1
-           46.0
-           51.1
-    etc.
+Temperature
+-----------
+       42.5
+       38.1
+       46.0
+       51.1
+       41.3
 ```
 
 Suppose you'd rather work with temperatures in Celsius. Then you'll want to convert the values of the temperature variable from the Fahrenheit scale to the Celsius scale.
 
-There are different ways you might do this. You could keep the same variable, and change its values. Or you could create a new variable, and give it the converted values. In the latter case, you could either keep the original variable, or remove it from the data. Whatever you do, you should make sure that the resulting variable or variables have appropriate names.
+There are different ways you might do this. You could keep the same variable, and convert its values from Fahrenheit to Celsius. Or, you could create a new variable, and give it the converted values. In the latter case, you could either keep the original variable, or remove it from the data set. Whatever you do, you should make sure the resulting variable or variables have appropriate names.
 
-Suppose you decide to create a new variable, called "TempC", and keep the existing variable but rename it to "TempF". Then your data will end up like this:
+Suppose you decide to create a new variable, called "TempC", and to keep the existing variable but rename it "TempF". Then your data will end up like this:
 
 ```
-... TempF TempC...
-    ----- -----
-     42.5   5.8
-     38.1   3.4
-     46.0   7.8
-     51.1  10.6
-    etc.
+TempF TempC
+----- -----
+ 42.5   5.8
+ 38.1   3.4
+ 46.0   7.8
+ 51.1  10.6
+ 41.3   5.2
 ```
-
-Other common scale conversions include:
-
-- Pounds to kilograms
-- Inches to millimetres
-- Miles per gallon to litres per 100km
-- And so on...
 
 # Calculating ratios
 
-Here are the Olympic records for women's running events, as of the end of the 2020 Tokyo Olympics:
+Here are the Olympic records for women's running events, as of the end of the 2020 Tokyo Olympics (distances are in metres, times are formatted as "h:mm:ss.ss"):
 
 ```
 Distance       Time
@@ -62,7 +55,7 @@ Distance       Time
    42125 2:23:07.--
 ```
 
-As we'd expect, time increases with distance. But what about speed? We'd expect it to *decrease* - as races get longer, athletes need to run more slowly to last the distance. Is this borne out by the data? To check, we need to calculate speeds.
+We can see from this data that time increases with distance, as we'd expect. What about speed? We'd expect it to *decrease* - as races get longer, athletes need to run more slowly to last the distance. But we can't see whether this is so with the data as it is. We need to create a speed variable.
 
 By "speed" here we mean average speed, which is the length of the race divided by the time. We have a choice of units to use. One possibility would be kilometres per hour, but for human speeds it might be more appropriate to use metres per second. The distances are already in metres, but we need to calculate each time in seconds, and then calculate the speed by division. Here's what we get: 
 
@@ -102,7 +95,7 @@ We can now see from this extended table of data that speed does indeed decrease 
   });
 </script>
 
-In this example we've calculated a ratio - the ratio of distance (in metres) to time (in seconds), which is the average speed (in metres per second). There are various other ratios you might calculate. Suppose you're comparing the minimum wage in 1980 with the minimum wage in 2020. Because of inflation, this is not a fair comparison. One way to fix this problem is to compare ratios instead. For example, you might divide the minimum wage in 1980 by the price of a loaf of bread in 1980, to give a measure of what we might call the "buying power" of the minimum wage in 1980. And so too for the minimum wage in 2020. Comparing the two buying powers might be a better way to compare the minimum wages across those 40 years.
+In this example we've calculated a ratio - the ratio of distance (in metres) to time (in seconds), which is the average speed (in metres per second). There are various other ratios you might calculate. Suppose you're comparing the minimum wage in 1980 with the minimum wage in 2020. Because of inflation, it's not fair to compare the raw wages. It's better to calculate and compare ratios instead. For example, you might divide the minimum wage in 1980 by the price of a loaf of bread in 1980, to give a measure of what we might call the "buying power" of the minimum wage in 1980. And so too for the minimum wage in 2020. Comparing the two buying powers might be a better way to compare the minimum wages separated by those 40 years.
 
 # Calculating rankings
 
@@ -123,7 +116,7 @@ Score
 8.310
 ```
 
-Who came first, second, and so on? We need to calculate the **rank** of each score, which is its position in the scores when they're sorted from best to worst. Here they are, in a new column called "Rank", with the rows sorted by this new column:
+Who came first? Who came second? Third? We need to calculate the **rank** of each score, which is its position in the scores when they're sorted from best to worst. Here they are, in a new column called "Rank", with the rows sorted by this new column:
 
 ```
 Score Rank
@@ -161,17 +154,17 @@ Score Rank Rank2 Rank3
 8.295   10     7    10
 ```
 
-One final thing to note. Rankings always go from better values to worse values, but what counts as "better" depends on the variable. In the case of scores on the parallel bars, higher values are better; in the case of times in a marathon, lower values are better.
+Note. Rankings always go from better values to worse values, but what counts as "better" depends on the variable. In the case of scores on the parallel bars, higher values are better; but in the case of times in a marathon, for example, lower values are better.
 
 # Calculating standardised scores
 
-Suppose that Toshi is a Japanese man who's 176cm tall, and that Anders is a Norwegian man who's 182cm. Who is taller?
+Suppose that Toshi is a Japanese man who's 176cm tall, and that Anders is a Norwegian man who's 182cm tall. Who is taller?
 
-The simple answer is Anders - he's 182cm, Toshi is 176cm, so Anders is taller. But sometimes a more nuanced comparison is more informative. Norwegian men are generally taller than Japanese men, and we might be more interested in how tall Anders is *for a Norwegian man*, compared to how tall Toshi is *for a Japanese man*.
+The simple answer is Anders - he's 182cm, Toshi is 176cm, so Anders is taller. But sometimes a more nuanced comparison is better. Norwegian men are generally taller than Japanese men, and we might be more interested in how tall Anders is *for a Norwegian man*, compared to how tall Toshi is *for a Japanese man*.
 
 A common way to make this more nuanced comparison is to calculate their **standardised** heights. We standardise a height by calculating how many standard deviations it is from the mean height. That is: 
 
-$$ \text{Standardised height} = \frac{\text{Height - Mean}}{\text{Standard deviation}} $$
+$$ \text{Standardised height} = \frac{\text{Height - Mean height}}{\text{Standard deviation}} $$
 
 Suppose that Japanese people have a mean height of 170cm, with a standard deviation of 2cm. And suppose that Norwegians have a mean height of 180cm, with a standard deviation of 1cm. Here are the standardised heights for Toshi and Anders:
 

@@ -154,7 +154,7 @@ We can simulate your survey. Suppose you select 100 people. As you go, you recor
 
 <button onclick="prop=document.getElementById('prop').value;tosses=[];toss()">Choose the sample</button>
 <div id="tosser"></div>
-<p>Actual proportion in favour: 0%<input id="prop" type="range" min="0" max="1" step="0.01" value="0.5" />100%</p>
+<p>Actual proportion in favour: 0%<input id="prop" type="range" min="0" max="1" step="0.01" value="0.5" oninput="adjust()"/>100%</p>
 <script>
   let tosses = [];
   let prop = 0.5;
@@ -163,7 +163,11 @@ We can simulate your survey. Suppose you select 100 people. As you go, you recor
     tosses.push(Math.random() <= prop ? 1 : 0);
     plot();
     if (tosses.length < 101) setTimeout(toss, 5);
-    else document.getElementById("tossButton").disabled = false;
+  }
+  function adjust() {
+    prop = document.getElementById('prop').value;
+    tosses = [];
+    plot();
   }
   function plot() {
     let averages = [];

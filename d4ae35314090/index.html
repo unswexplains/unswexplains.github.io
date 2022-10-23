@@ -4,14 +4,14 @@
     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
     <title>Tabulating frequencies</title>
     <!-- Stylesheets -->
-    <link rel="stylesheet" href="../unswx.css">
+    <link rel="stylesheet" href="../default.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.css" integrity="sha384-Um5gpz1odJg5Z4HAmzPtgZKdTBHZdw8S29IecapCSB31ligYPhHQZMIlWLYQGVoc" crossorigin="anonymous" >
     <!-- Scripts -->
     <script src="https://pages.itsy.tech/fab6bfd16e?boxall"></script>
     <script src='https://code.highcharts.com/highcharts.js'></script>
     <script src="https://code.highcharts.com/highcharts-more.js"></script>
     <script src="https://code.highcharts.com/modules/heatmap.js"></script> 
-    <script src="../unswx.js"></script>
+    <script src="../default.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.js" integrity="sha384-YNHdsYkH6gMx9y3mRkmcJ2mFUjTd0qNQQvY9VYZgQd7DcN7env35GzlmFaZ23JGp" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/contrib/auto-render.min.js" integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.13/ace.js'></script>
@@ -23,8 +23,8 @@
     <header>
       Tabulating frequencies    </header>
     <main>
-      <h1>Hosts of the Summer Olympics</h1>
-<p>By 2032, there will have been 32 Modern Summer Olympic Games, since they began in 1896. Here's a list of the host cities, with their country and region:</p>
+      <h1>Olympic hosts</h1>
+<p>The Modern Summer Olympic Games were first held in 1896, and by 2032 they will have been held 32 times. Here's a sample of the host cities, with their country and region:</p>
 <pre><code>Year City           Country   Region
 ---- -------------- --------- -------------
 1896 Athens         Greece    Europe
@@ -39,9 +39,9 @@
 2028 Los Angeles    USA       North America
 2032 Brisbane       Australia Oceania</code></pre>
 <p>This data raises many interesting questions. By 2032, which cities will have hosted the games more than once? How frequently will each country have hosted them? What about the regions?</p>
-<p>The answers to all these questions are there in the raw data, but they're difficult to see without some analysis. One helpful kind of analysis is to transform the data into <strong>frequency tables</strong>.</p>
+<p>The answers to all of these questions are there in the raw data, but they're difficult to see without some analysis. One helpful kind of analysis is to transform the data into one or more <strong>frequency tables</strong>.</p>
 <h1>Frequency tables</h1>
-<p>We can create a frequency table for any of the variables. First, we choose a variable. Then, we create a table with two columns. In the first column we have the different values of the variable. In the second column we have the frequency of each value - the number of times it occurs. Optionally, we can add a total row at the end of the table.</p>
+<p>We can create a frequency table for any variable in the data set. First, we choose a variable. Then, we create a table with two columns. In the first column we list the different values of the variable. In the second column we list the frequency of each value - the number of times it occurs. Optionally, we can add a total row at the end.</p>
 <p>Here's the frequency table for the region variable of the Olympics data, with a total row added:</p>
 <pre><code>Region        Frequency
 ------------- ---------
@@ -53,10 +53,10 @@ South America         1
 Africa                0
 ------------- ---------
 Total                32</code></pre>
-<p>There are two columns. In the first column we have the different values of the region variable. In the second column we have the frequency of each value.</p>
-<p>There are various ways we might sort the rows of a frequency table. In the table above, we've sorted them by frequency (from highest to lowest). It's common to sort the rows this way, by frequency, either from highest to lowest, or from lowest to highest. This allows us to easily see the most frequent and least frequent values, which is often what we're interested in. We might also sort the rows by the values of the variable. That can be useful, especially if we're using the table to lookup the frequency of any given value - they're easiest to find when they're in order.</p>
+<p>Notice that the table has two columns. In the first column are the different values of the region variable, and in the second column are the frequencies of each value.</p>
+<p>There are various ways we might sort the rows of a frequency table. In the table above, we've sorted them by frequency, from highest to lowest. It's common to sort the rows by frequency in this way, either from highest to lowest, or from lowest to highest. This allows us to easily see the most frequent and least frequent values, which is often what we're interested in. We might also sort the rows by the values of the variable. This can be useful too, for instance if we're using the table to look up the frequency of any given value - the values are easiest to find when they're in order.</p>
 <h1>Visualising frequency tables</h1>
-<p>As well as inspecting it, we often visualise the data in a frequency table too - this makes it more vivid.</p>
+<p>As well as inspecting a frequency table, we often visualise it too - this makes the data in the table more vivid.</p>
 <p>Here's a visualisation of the frequency table above, using bars:</p>
 <div id="bars"></div>
 <script>
@@ -73,7 +73,7 @@ Total                32</code></pre>
     }]
   });
 </script>
-<p>When we visualise the frequency table of a variable using bars, as we have done here, the result is said to be a <strong>frequency histogram</strong> of the variable.</p>
+<p>When we visualise the frequency table of a variable using bars, as we've done here, the result is said to be a <strong>frequency histogram</strong> of the variable.</p>
 <p>If there aren't many values of the variable, and they're sufficiently different, you might also visualise the frequency table using wedges, to get a pie chart. Here's a pie chart for the frequency table above:</p>
 <div id="wedges"></div>
 <script>
@@ -92,8 +92,8 @@ Total                32</code></pre>
 <p>Sometimes there are two or more values with the highest frequency. In that case, the variable has <strong>modal values</strong>, or <strong>modes</strong>, and we say that the variable is <strong>multimodal</strong>. If it has exactly two modes, we call it <strong>bimodal</strong>.</p>
 <p>There's no special terminology for the value (or values) of a variable with the lowest frequency.</p>
 <h1>Relative frequencies</h1>
-<p>Sometimes we're interested, not in the frequency of each value of a variable, but in its <strong>relative frequency</strong>. The relative frequency of a value is the frequency of the value, divided by the sum of all the frequencies.</p>
-<p>Here's how we calculate the relative frequency of the value Europe of the region variable above:</p>
+<p>Sometimes we're interested, not in the <em>frequency</em> of each value of a variable, but in its <strong>relative frequency</strong>. The relative frequency of a value is the frequency of the value, divided by the sum of all the frequencies.</p>
+<p>Here's how we calculate the relative frequency of the value &quot;Europe&quot; for the region variable above:</p>
 <p>$$ \begin{align*}
 \text{Relative frequency of Europe} &amp;= \frac{\text{Frequency of Europe}}{\text{Sum of all frequencies}} \\
 &amp;= \frac{17}{17 + 7 + 4 + 3 + 1 + 0} \\
@@ -101,7 +101,7 @@ Total                32</code></pre>
 &amp;= 0.53 \\
 \end{align*} $$</p>
 <p>The result is always a fraction between 0 and 1, inclusive (can you see why?). Like any fraction, we can express it as a percentage. In the example above, the fraction is 0.53, which is 53%. It's common to express relative frequencies using percentages.</p>
-<p>Here is our frequency table, with the relative frequencies included, and also the totals. Note that the relative frequencies total to 100%, which they always should (again, can you see why?).</p>
+<p>Here is our frequency table, with the relative frequencies included, and also the totals. Note that the relative frequencies add to 100%, which they always should (again, can you see why?).</p>
 <pre><code>Region        Frequency Relative Frequency
 ------------- --------- ------------------
 Europe               17        17/32 = 53%
@@ -113,7 +113,7 @@ Africa                0         0/32 =  0%
 ------------- --------- ------------------
 Total                32               100%</code></pre>
 <h1>Using bins</h1>
-<p>If a variable has a large number of values, each of which has a low frequency, then its frequency table is probably not very illuminating.</p>
+<p>If a variable has a large number of values, each of which has a low frequency, then its frequency table tends to not be very illuminating.</p>
 <p>Consider, for example, the finishing times (in minutes) in the men's marathon at the 2020 Tokyo Olympics:</p>
 <pre><code>Place   Time
 ----- ------
@@ -141,14 +141,14 @@ Total         76</code></pre>
 <p>Here's how the frequency table of the time variable looks, if we use bins as indicated in the first column:</p>
 <pre><code>Time Bin Frequency
 -------- ---------
-125-130          2
-130-135         17
-135-140         29
-140-145         18
-145-150          6
-150-155          3
-155-160          0
-160-165          1
+ 125-130         2
+ 130-135        17
+ 135-140        29
+ 140-145        18
+ 145-150         6
+ 150-155         3
+ 155-160         0
+ 160-165         1
 ------- ----------
 Total           76</code></pre>
 <p>It's standard to use bins of the same size, otherwise it can distort the results. What size should they be? Whatever size is the most informative. This can take some trial and error to figure out - you'll probably need to experiment. You can use the slider below to see the effect of different bin sizes (by adjusting the number of bins). Would you say that one particular size is more illuminating than the others? </p>
@@ -178,7 +178,7 @@ Total           76</code></pre>
   }
 </script>	  </main>
         <footer>
-      <span id='datetime'>Generated on 20 October 2022 at 9:23 am</span>
+      <span id='datetime'>Generated on 24 October 2022 at 6:52 am</span>
     </footer>
   </body>
 </html>

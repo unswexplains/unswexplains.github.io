@@ -1,0 +1,92 @@
+<!doctype html> 
+<html>
+  <head>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>Filtering and grouping data</title>
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="../default.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.css" integrity="sha384-Um5gpz1odJg5Z4HAmzPtgZKdTBHZdw8S29IecapCSB31ligYPhHQZMIlWLYQGVoc" crossorigin="anonymous" >
+    <!-- Scripts -->
+    <script src="https://pages.itsy.tech/fab6bfd16e?boxall"></script>
+    <script src='https://code.highcharts.com/highcharts.js'></script>
+    <script src="https://code.highcharts.com/highcharts-more.js"></script>
+    <script src="https://code.highcharts.com/modules/heatmap.js"></script> 
+    <script src="../default.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.js" integrity="sha384-YNHdsYkH6gMx9y3mRkmcJ2mFUjTd0qNQQvY9VYZgQd7DcN7env35GzlmFaZ23JGp" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/contrib/auto-render.min.js" integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.13/ace.js'></script>
+  </head>
+  <body>
+    <div id="who">
+      UNSW explains ...
+    </div>
+    <header>
+      Filtering and grouping data    </header>
+    <main>
+      <p>Sometimes we have questions about our data that are best answered if we <strong>filter</strong> the data, which means selecting some subset of the rows and ignoring the rest. Other times we have questions that are best answered by <strong>grouping</strong> the data, which means putting the rows into groups and then combining each group into a single row. Sometimes we have questions that are best answered by <em>both</em> filtering and grouping. We'll illustrate these techniques with some examples.</p>
+<h1>The Tour de France</h1>
+<p>The Tour de France is one of the world's most gruelling cycling races, and is widely regarded as the most prestigious. It was first held in 1903, and has since been held every year, except during the two world wars. For the races held between 1999 and 2005 (inclusive) there is no recognised winner, because there was later discovered to have been widespread abuse of performance-enhancing drugs during those years.</p>
+<p>Taking into account the wars and the drug abuse, between 1903 and 2022 the race has been won 102 times. Here is some data about those wins. It includes the year, the winning cyclist, the winning cyclist's country, the total distance cycled (in kilometres), and the number of stages that the winner won during the race. </p>
+<pre><code>Year Cyclist             Country       Distance Stages
+---- ------------------- -------       -------- ------
+1903 Maurice Garin       France            2428      3
+1904 Henri Cornet        France            2428      1
+1905 Louis Trousselier   France            2994      5
+1906 René Pottier        France            4637      5
+1907 Lucien Petit-Breton France            4488      2
+...
+2018 Geraint Thomas      Great Britain     3349      2
+2019 Egan Bernal         Colombia          3366      0
+2020 Tadej Pogacar       Slovenia          3484      3
+2021 Tadej Pogacar       Slovenia          3414      3
+2022 Jonas Vingegaard    Denmark           3328      2</code></pre>
+<p>You might like to download the complete data set, and do some of the analyses described below.</p>
+<p><a href="77bdba6c2f.csv">Download the data</a></p>
+<h1>Without filtering or grouping</h1>
+<p>There are various questions about this data that we can answer without doing any filtering or grouping. We just need to inspect the data, perhaps after sorting it, and perhaps after calculating a summary statistic for a column. For example:</p>
+<p><strong>How many races have had winners?</strong> We can answer this by getting the count of the rows.</p>
+<p><strong>How many distinct winners have there been?</strong> We can answer this by getting the count of the distinct values of the cyclist variable.</p>
+<p><strong>How many distinct countries have had winners?</strong> We can answer this by getting the count of the distinct values of the country variable.</p>
+<p><strong>How long have the shortest and longest races been?</strong> We can answer this by getting the minimum and maximum values of the distance variable (which we could do by sorting).</p>
+<p><strong>Who won the longest race?</strong> We can answer this by sorting the longest race to the top, and inspecting the name of the winning cyclist.</p>
+<p><strong>How many times did Miguel Indurain win?</strong> We can answer this by sorting the rows by cyclist, finding the ones for Miguel Indurain, and counting them manually.</p>
+<h1>With filtering</h1>
+<p>Some questions are best answered if we filter the data first. For example:</p>
+<p><strong>How many times has a French cyclist won?</strong> We <em>could</em> do this without filtering, by sorting the rows by country, finding the French rows, and counting them manually. But if there are many of them (and there are), then this is laborious. It's better to filter the rows to just those where the country is France, and then get the count of the rows.</p>
+<p><strong>What's the mean length of the races won by French cyclists?</strong> This question is even harder to answer without filtering. You would need to sort the rows by country, find the French rows, count them manually, sum the distances manually, and calculate the mean distance. It's much better to filter the rows to just those where the country is France, and then get the mean of the distance column.</p>
+<h1>With grouping</h1>
+<p>Some questions are difficult to answer with or without filtering, and are best answered by grouping the data. For example:</p>
+<p><strong>Which cyclist (or cyclists) have won the most often?</strong> We <em>could</em> answer this without grouping. We could sort the rows by cyclist, manually count the number of wins for each, then see who's won the most often. Or, we could filter the rows by cyclist, one-by-one, get a total row count for each cyclist, and then see which one has the most rows. But both of these methods would be slow and tedious (and error prone). It's better to group the rows by cyclist, and get the count of the rows in each group. Here's what we get, sorted by decreasing count:</p>
+<pre><code>Cyclist          Count
+---------------- -----
+Jacques Anquetil     5
+Eddy Merckx          5
+Bernard Hinault      5
+Miguel Indurain      5
+Chris Froome         4
+Philippe Thys        3
+Louison Bobet        3
+Greg LeMond          3
+etc.</code></pre>
+<p><strong>Which cyclist (or cyclists) have had the most stage wins during winning races?</strong> This question is similar to the previous, and is also best answered by grouping. We could group the rows by cyclist, get the sum of the stages variable for each group, and sort them by decreasing sum. Here's what we get:</p>
+<pre><code>Cyclist                Sum
+---------------- ---------
+Eddy Merckx             32
+Bernard Hinault         21
+Jacques Anquetil        16
+Miguel Indurain         10
+Gino Bartali             9
+André Leducq             8
+Fausto Coppi             8
+Nicolas Frantz           8
+Ottavio Bottecchia       8
+etc.</code></pre>
+<h1>With both filtering and grouping</h1>
+<p>Some questions are best answered using a combination of filtering and grouping. For example:</p>
+<p><strong>Among the wins in which the winner had two or more stage wins, who had the most wins?</strong> To answer this question, we need to first filter the rows to just those in which the winner had two or more stage wins. Then we need to group by the cyclist variable. Then, for each group, get the count of the rows. Then sort the results by count.</p>
+<p>Perhaps you might try this?</p>	  </main>
+        <footer>
+      <span id='datetime'>Generated on 24 October 2022 at 6:52 am</span>
+    </footer>
+  </body>
+</html>

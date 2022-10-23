@@ -1,6 +1,6 @@
 %% Inspecting and tidying data %%
 
-Before you use a data set, you should make sure you understand it. You'll often need to tidy it up, as well.
+Before you use a data set, you should make sure you understand it. You'll often need to tidy it, as well.
 
 # Understanding a data set
 
@@ -14,9 +14,9 @@ If you can answer these questions, you should be able to summarise the data set 
 
 The questions might be difficult to answer, and you might need to ask someone who knows the data well, or to consult the data set's documentation (if it has any).
 
-# Tidying-up the data set
+# Tidying the data set
 
-Most likely, the data set will not be in its most usable form, and you'll need to do some tidying up. There are quite a few things you might need to do, and it can take some time. But it's usually worth it, to spare yourself some later headaches. We'll go through the things you often need to do, one-by-one.
+Most likely, the data set will not be in its most usable form, and you'll need to do some tidying. There are quite a few things you might need to do, and it can take some time. But it's usually worth it, to spare yourself some later headaches. We'll go through the things you often need to do, one-by-one.
 
 # Adjusting column names
 
@@ -42,13 +42,13 @@ MobilePhone  mobilePhone  mobile_phone  mobile-phone
 
 # Adjusting values
 
-Sometimes the values in a column are not used consistently. For example, a column that contains genders might use a mix of "Male", "Female", "male", "female", "M", "F", "m", "f", and so on. Or a column that contains boolean values (true/false) might use a mix of "True", "False", "true", "false", "T", "F", "yes", "no", 1, 0, and so on. You should pick values that best suit your needs (e.g. "M" and "F", or 1 and 0), and convert all other variations to those.
+Sometimes the values in a column are not used consistently. For example, a column that contains genders might use a mix of "Male", "Female", "male", "female", "M", "F", "m", "f", and so on. Or a column that contains Boolean values (true/false) might use a mix of "True", "False", "true", "false", "T", "F", "yes", "no", 1, 0, and so on. You should pick values that best suit your needs (e.g. "M" and "F", or 1 and 0), and convert all other variations to those.
 
 Sometimes the values are long, and can be shortened without loss of information, making them easier to work with and display. For example, if the values in a student grade column are "Fail", "Pass", "Credit", "Distinction", and "High Distinction", they might be better shortened to "FL", "PS", "CR", "DI", and "HD".
 
 Sometimes the values in a column are formatted in an unhelpful way. Dates are a common culprit: you might see formats such as "Sep 2, 2010", which are difficult to sort correctly. A good format for dates is "yyyy-mm-dd", so that "Sep 2, 2010" would be "2010-09-02". Be aware that dates in the United States are often formatted as "mm/dd/yyyy", so that "02/03/2016" is February 3rd 2016, not 2nd March 2016 - this is a common trap. 
 
-Sometimes you might need to adjust values from lower case to upper case, or vice-versa. It's quite common, for example, to see last names in all upper case, such as "SMITH". You might find it better to change them to the more usual case, "Smith".
+Sometimes you might need to adjust values from lower case to upper case, or vice versa. It's quite common, for example, to see last names in all upper case, such as "SMITH". You might find it better to change them to the more usual case, "Smith".
 
 Sometimes words are used when numbers would be better. Weekdays, for example, can be hard to work with, because they don't sort very nicely. So you might like to change "Mon", "Tues", "Weds", "Thurs", "Fri", "Sat", and "Sun", to 1, 2, 3, 4, 5, 6, and 7. Similarly, you might like to change size values such as "small", "medium" and "large" to 1, 2, and 3. You need to be a little careful, in case people see numbers and start performing calculations that don't make sense - numbers can be added, for example, but it makes no sense to add weekdays.
 
@@ -90,7 +90,7 @@ Perth     17  13  21  37  89 127 147 122  87  39  23  12
 Sydney    79 118  88 119 106 100  73  74  62  64  85  74
 ```
 
-An alternative is to think of each month as being the value of a "Month" variable, and the average rainfalls as being the values of an "Rain" variable. Here's how the data would then look: 
+An alternative is to think of each month as being the value of a "Month" variable, and the average rainfalls as being the values of a "Rain" variable. Here's how the data would then look: 
 
 ```
 City     Month Rain
@@ -130,7 +130,7 @@ XLM111 Length   4.75
 XLM111 Make     Hyundai
 ```
 
-Four properties have been recorded for each car: registration, colour, length, and make. The values for one of the properties (registration) are in their own column (the "Rego" column). The values of the other three (colour, length, and make) are all in the same column (the "Value" column). This can make the data difficult to work with, and it's usually better to have a separate column for each property. So, it would be better to tabulate the data as follows:
+Four properties have been recorded for each car: registration, colour, length (in metres), and make. The values for one of the properties (registration) are in their own column (the "Rego" column). The values of the other three (colour, length, and make) are all in the same column (the "Value" column). This can make the data difficult to work with, and it's usually better to have a separate column for each property. So, it would be better to tabulate the data as follows:
 
 ```
 Rego   Colour Length Make

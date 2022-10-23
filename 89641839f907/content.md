@@ -4,7 +4,7 @@ People are increasingly recognising the value of data, and putting more money an
 
 Essentially, this:
 
-> Data gives us useful knowledge
+> Data gives us useful knowledge.
 
 Well, it *can* give us useful knowledge. It depends on two things.
 
@@ -83,7 +83,7 @@ Here's a more serious example. Gerd Gigerenzer analysed driving fatalities in th
 
 Most people choose the second option. But this cannot be correct: being a bank teller and active in the feminist movement is more specific than being a bank teller, and the probability of being the more specific thing cannot be greater than the probability of being the more general thing. Why do we get it wrong? Because we employ a "representativeness heuristic" - we use representativeness as a proxy for probability. Linda is more representative of a bank teller who is active in the feminist movement than a general bank teller, so we judge it to be more probable that she's bank teller who is active in the feminist movement. Our stereotypes lead us astray. (For more details, see Chapter 15 of "Thinking, fast and slow", by Daniel Kahneman.)
 
-Relying on stereotypes to make judgements is a risky business - it leaves us prone to making false assumptions about humans and other things. We're better off relying on actual data.
+Relying on stereotypes to make judgments is a risky business - it leaves us prone to making false assumptions about humans and other things. We're better off relying on actual data.
 
 # Data is even more useful today
 

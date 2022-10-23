@@ -1,8 +1,8 @@
 %% Why visualise data? %%
 
-# Olympic marathon times
+# Marathon times
 
-At the 2020 Tokyo Summer Olympics, there were 76 finishers in the men's marathon, and 73 finishers in the women's. Here is a sample of their finishing times (in minutes), combined into one table:
+At the 2020 Tokyo Olympics, there were 76 finishers in the men's marathon, and 73 finishers in the women's. Here's a sample of their finishing times (in minutes), combined into one table:
 
 ```
 Gender   Time
@@ -23,9 +23,9 @@ Female 182.17
 Female 183.17
 ```
 
-How do the men's times compare with each other? How do the women's times compare with each other? How do the men's times compare with the women's times?
+How do the men's times compare with each other? How about the women's times? And how do the men's times compare with the women's?
 
-By sorting the rows, we can see the fastest and slowest times for each gender, and compare them, but it's difficult to see how the times are distributed.
+By sorting the rows, we can see the fastest and slowest times for each gender, and compare them, but that doesn't tell us much about how they're all distributed.
 
 It helps to calculate the so-called "five number summary" for each gender. Here they are, together in a table:
 
@@ -36,9 +36,9 @@ Male    128.63 135.13 137.53 141.63  164.60
 Female  147.33 153.23 155.65 160.07  183.17
 ```
 
-The five number summary is a commonly used statistical description of a set of values. It includes the minimum value, the first quartile value (Q1) (the value below which 25% of the values lie), the median value (the middle value, or the value below which 50% of the values lie), the third quartile value (Q3) (the value below which 75% of the values lie), and the maximum value.
+The five number summary of a variable is a commonly used statistical description of its values. It includes the minimum value, the first quartile value (Q1) (the value below which 25% of the values lie), the median value (the middle value, or the value below which 50% of the values lie), the third quartile value (Q3) (the value below which 75% of the values lie), and the maximum value.
 
-From these five number summaries we can see that the fastest man was faster than the fastest woman, that some men were slower than some women, and so on. But it takes of bit of time and mental effort to process them, and it's still hard to get a sense of how the times are distributed.
+From these five number summaries we can see that the fastest man was faster than the fastest woman, that some men were slower than some women, and so on. But it takes a bit of time and mental effort to process them, and it's still hard to get a sense of how the times are distributed.
 
 # Two visualisations
 
@@ -65,7 +65,7 @@ We can get a much better sense of what the five number summaries are telling us,
 
 There's a box for each gender, and it shows the five number summary for that gender: the minimum time, the first quartile time, the median time, the third quartile time, and the maximum time. We can see at a glance from these boxes, with hardly any effort, that the men were generally faster than the women, but also that there is overlap, so that the fastest women were faster than the slowest men.
 
-We can also see quite a bit about the distributions of times by visualising the raw data directly. Here's one way, using what's called a "scatter plot":
+We can also see quite a bit about the distributions by visualising the raw data directly. Here's one way, using what's called a "scatter plot":
 
 <div id="points"></div>
 <script>
@@ -90,39 +90,33 @@ We can also see quite a bit about the distributions of times by visualising the 
 
 Each of the 76 male finishers, and 73 female finishers, is represented by a point that shows their finishing time. This scatter plot allows us to see many of the same general features that the boxplots do.
 
-Our brains can process information much more quickly and easily when it's presented visually in these ways, rather than as a set of raw numbers.
+Our brains can process information much more quickly and easily when it's presented visually in these ways, rather than as raw numbers.
 
 # Some other examples
 
-There are many illustrations of the power of visualising data available on the internet. Here are a few. Notice, in each case, how visualisation makes it quick and easy to comprehend a large amount of complex data.
+There are many websites that illustrate the effectiveness of visualising data. Here are some especially good ones. Notice, in each case, how the visualisations make it quick and easy to comprehend a large amount of complex data.
 
-[Australian temperature trend](http://www.bom.gov.au/climate/history/temperature/)
+[112 years of Australian temperatures](http://www.bom.gov.au/climate/history/temperature/)
 
-[Why do cats and dogs ...?](https://whydocatsanddogs.com/)
+[Why do cats & dogs ...?](https://whydocatsanddogs.com/)
 
-[Poppy field](https://www.poppyfield.org/)
+[The Great War](https://www.poppyfield.org/)
 
 [Drone strikes in Pakistan](https://drones.pitchinteractive.com/)
 
 [Population densities around the world](https://www.visualcapitalist.com/3d-mapping-the-worlds-largest-population-densities/)
 
-There is also a famous TED talk by Hans Rosling. If you haven't already seen it, you might like to watch it some time (it's about 20 minutes).
+There's also a TED talk by Hans Rosling, famous for its use of data visualisation. If you haven't already seen it, you might like to watch it some time (it goes for about 20 minutes).
 
 <iframe width="560" height="315" src="https://embed.ted.com/talks/lang/en/hans_rosling_the_best_stats_you_ve_ever_seen" frameborder="0" allowfullscreen></iframe>
 
-<!--
-<div style="max-width:854px"><div style="position:relative;height:0;padding-bottom:56.25%"><iframe src="https://embed.ted.com/talks/lang/en/hans_rosling_the_best_stats_you_ve_ever_seen" width="854" height="480" style="position:absolute;left:0;top:0;width:100%;height:100%" frameborder="0" scrolling="no" allowfullscreen></iframe></div></div>
--->
-
 # The lesson of Anscombe's quartet
 
-Not only can visualisations make it quick and easy to comprehend raw data, they can help prevent us being misled by that data, especially numerical summaries of it.
-
-There is a nice illustration of this fact, created in 1973 by the statistician Francis Anscombe.
+As we've seen, visualisations can make it quick and easy to comprehend raw data. They can also prevent us from being misled by that data, especially numerical summaries of it. There's a nice illustration of this fact, created in 1973 by the statistician Francis Anscombe.
 
 # Anscombe's four data sets
 
-Anscombe invented four data sets, each of which contains 11 observations of two variables, x and y. Here they are, combined into a single table:
+Anscombe created four data sets, each of which has eleven cases and two variables, called "x" and "y". Here are the four data sets, combined into a single table:
 
 ```
     Set 1      Set 2      Set 3      Set 4
@@ -142,24 +136,22 @@ Anscombe invented four data sets, each of which contains 11 observations of two 
 
 # Their numerical summaries
 
-The four data sets have nearly identical numerical summaries. (Don't worry if you don't understand all of these summaries - the point is that they are the same, or nearly the same, for all four data sets).
-
-Their x variables have the same mean (9) and the same variance (11). Their y variables have the same mean (7.50) and almost the same variance (approximately 4.125). Their x and y variables are correlated to almost the same degree (approximately 0.8163). And the lines of best fit between their x and y variables have the same intercept (approximately 3.00), and the same slope (approximately 0.500), and thus the same equation (y = 3.00 + 0.500x).
+The four data sets have nearly identical numerical summaries. Their x variables have the same mean (9) and the same variance (11). Their y variables have the same mean (7.50) and almost the same variance (approximately 4.125). Their x and y variables are correlated to almost the same degree (approximately 0.8163). And the lines of best fit between their x and y variables have the same intercept (approximately 3.00), the same slope (approximately 0.500), and thus the same equation (y = 3.00 + 0.500x). (You don't need to fully understand these summaries - just notice that they're the same, or nearly the same, for all four data sets).
 
 ```
-                             Set 1  Set 2  Set 3  Set 4
-Mean of x:                       9      9      9      9
-Variance of x:                  11     11     11     11
-Mean of y:                    7.50   7.50   7.50   7.50
-Variance of y:               4.127  4.128  4.123  4.123
-Correlation between x and y: 0.816  0.816  0.816  0.817
-
+                              Set 1  Set 2  Set 3  Set 4
+Mean of x:                        9      9      9      9
+Variance of x:                   11     11     11     11
+Mean of y:                     7.50   7.50   7.50   7.50
+Variance of y:                4.127  4.128  4.123  4.123
+Correlation between x and y:  0.816  0.816  0.816  0.817
+----
 Line of best fit in each case: y = 3.00 + 0.500x
 ```
 
 # Their visualisations
 
-Nevertheless, they have very different distributions, as you can see from the following visualisations:
+Despite having nearly identical numerical summaries, the four data sets have very different distributions, as you can see from the following visualisations:
 
 ```r
 svg()
@@ -169,14 +161,3 @@ plot(anscombe$x2, anscombe$y2, xlim=c(0,20), ylim=c(0,14), main="Data set 2", xl
 plot(anscombe$x3, anscombe$y3, xlim=c(0,20), ylim=c(0,14), main="Data set 3", xlab="x", ylab="y")
 plot(anscombe$x4, anscombe$y4, xlim=c(0,20), ylim=c(0,14), main="Data set 4", xlab="x", ylab="y")
 ```
-
-# Questions
-
-[[[ Take a look at the visualisation here (link). Answer this question about it.
-]]]
-
-[[[ We have senses other that sight. Hearing, for example. Can you think of some data that it might be helpful to auditorise?
-]]]
-
-[[[ What is the lesson of Anscombe's quartet?
-]]]

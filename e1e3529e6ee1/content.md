@@ -1,10 +1,10 @@
 %% The process of data analysis %%
 
-Suppose you have some data that you're ready to use - you understand what the cases and variables are, you've checked the data for trustworthiness, and you've done any necessary tidying of the columns and rows. How do you now use the data to get useful knowledge?
+Suppose you have some data that you're ready to use - you understand what the cases and variables are, you've checked that the data is trustworthy, and you've done any necessary tidying of the columns and rows. How do you now use the data to get useful knowledge?
 
 # Exam data
 
-To make things concrete, we'll do some analysis of an example data set. Suppose you're the Year 10 coordinator at your local high school. The end of year exams have just been held, and you have the results of the mathematics exam. There are 75 students spread across 3 classes, 10A, 10B, and 10C, and the exam was out of 100. Here are the results: 
+To make things concrete, we'll analyse an example data set. Suppose you're the Year 10 coordinator at your local high school. The end of year exams have just been held, and you've got the results of the mathematics exam. There are 75 students spread across 3 classes, 10A, 10B, and 10C, and the exam was out of 100. Here's a sample of the results: 
 
 ```
 Class Mark
@@ -18,7 +18,7 @@ Class Mark
 etc
 ```
 
-What interesting or useful knowledge might we get out of these results, and how?
+What interesting or useful knowledge can we get from these results, and how?
 
 # What we're looking for
 
@@ -28,11 +28,13 @@ We're hoping to learn things that are interesting, or useful, or both. There are
 - How the distribution of values of a variable compares between two or more subsets of cases
 - Whether and how two variables are related
 
+We'll illustrate each of these, and then reflect upon the process as a whole.
+
 # The distribution of values of a variable
 
-Consider the mark variable of the exam data. What are its distinct values? How frequently does each occur? Which value is the most frequent? Which value is the least frequent? Is there anything interesting or unusual about their distribution? Are there any unusually high or low values?
+Consider the mark variable of the exam data. What are its distinct values? How frequently does each occur? Which value is the most frequent? Which value is the least frequent? Is there anything interesting or unusual about their distribution?
 
-Because the mark variable has many possible values (101 of them, from 0 to 100), it's more interesting to create a new variable which groups them, and examine the distribution of this new variable instead. Suppose your school has a standard way of grouping marks, into grades. The conversion goes like this: E = 0-49, D = 50-64, C = 65-74, B = 75-84, and A = 85-100. Here's the exam data, with the grade variable added: 
+Because the mark variable has many possible values (101 of them, from 0 to 100), it's more interesting to create a new variable which groups them, and to examine the distribution of this new variable instead. Suppose your school has a way of grouping marks into grades, that goes as follows: E = 0-49, D = 50-64, C = 65-74, B = 75-84, and A = 85-100. Here's the exam data, with the grades calculated and added as a new variable called "grade": 
 
 ```
 Class Mark Grade
@@ -46,7 +48,9 @@ Class Mark Grade
 etc
 ```
 
-The questions we started with, about distribution, are difficult to answer from the data in this form - it needs some transformation. One helpful transformation is to create a frequency table for the grade variable. It has two columns. In the first column are the distinct values of the variable; in the second column are the frequencies of each value (the number of times it occurs). Here is the result of this transformation, a new table of data:
+The questions we started with, about the distribution of the mark variable, can also be asked about the grade variable. They're difficult to answer with the data in this form - it needs some transformation.
+
+One helpful transformation is to create a frequency table for the variable. It has two columns. In the first column are the distinct values of the variable; in the second column are the frequencies of each value (the number of times each occurs). Here is the result of this transformation - it's a new table of data:
 
 ```
 Grade Frequency
@@ -58,7 +62,7 @@ D             8
 E             2
 ```
 
-This frequency table allows us to answer many of our questions about the distribution of the grade variable. What are its distinct values? A, B, C, D, and E. How frequently does each value occur? A: 10 times, B: 23 times, and so on. Which value is the most frequent? C. Which value is the least frequent? E. Is there anything interesting or unusual about their distribution? For this last question it helps to visualise the data, and a good way is to use bars:
+This frequency table allows us to answer many of our questions about the distribution of the grade variable. What are its distinct values? A, B, C, D, and E. How frequently does each value occur? A: 10 times, B: 23 times, and so on. Which value is the most frequent? C. Which value is the least frequent? E. Is there anything interesting or unusual about their distribution? For this last question, it helps to visualise the data, and a good way is to use bars:
 
 <div id="bars"></div>
 <script>
@@ -75,9 +79,9 @@ This frequency table allows us to answer many of our questions about the distrib
   });
 </script>
 
-Visualising the distribution this way reveals a distinct jump in frequencies from D to C. Why such a big difference between these two grades? Perhaps some of the questions of middle difficulty need to be made more difficult for next time. Or perhaps something else is going on. The main thing is, by analysing and visualising the distribution of grades we've spotted a potential problem.
+Visualising the distribution in this way reveals a distinct jump in frequencies from D to C. Why such a big difference between the two grades? Perhaps some of the questions of middle difficulty were too easy? Or perhaps something else is going on? The main thing is, that by analysing and visualising the distribution of grades we've spotted a potential problem.
 
-# Comparing the distribution of two or more subsets
+# The distribution for two or more subsets
 
 How do the distributions of grades in each class compare to each other? This question involves considering three subsets of the data: the rows for 10A, the rows for 10B, and the rows for 10C. For each subset we can figure out the distribution, and then compare them.
 
@@ -165,7 +169,7 @@ It can be difficult to compare frequency tables, even if we visualise them in ei
 - **First quartile (Q1)**: the middle of the lower half of values.
 - **Third quartile (Q3)**: the middle of the upper half of values.
 - **Interquartile range (IQR)**: the difference between the third and first quartiles.
-- **Variance**: the mean squared deviation of values from the mean.
+- **Variance**: the mean squared deviation of values from their mean.
 - **Standard deviation**: the square root of the variance.
 
 Calculating these summary statistics for each class gives us a new data set:
@@ -184,7 +188,7 @@ This table of data is easier to comprehend if we visualise it. A common way is t
 <script>
   Highcharts.chart("boxes", {
     chart: {type: "boxplot"},
-    title: {text: "Comparison of Class Results"},
+    title: {text: "Distribution of Marks"},
     legend: {enabled: false},
     xAxis: {type: "category", title: {text: ""}},
     yAxis: {min: 0, max: 100, title: {text: "Mark"}, tickInterval: 5},
@@ -231,11 +235,11 @@ Class Maths Science
 10C      64      64
 etc
 ```
-A quick glance at this extended data suggests there might be a relationship between a student's mark in maths and her mark in science - students with higher marks in maths seem to have higher marks in science, and vice-versa. Is there such a relationship?
+A quick glance at this extended data set suggests there might be a relationship between a student's mark in maths and her mark in science - students with higher marks in maths seem to have higher marks in science, and students with lower marks in maths seem to have lower marks in science. Is there such a relationship?
 
-This is a different kind of question from the previous ones. Previously, we considered just one variable. We looked at the distribution of its values overall, and also compared the distribution of its values for each class. In this case, we're considering *two* variables, and wondering whether and how the values of one vary with the values of the other.
+This is a different kind of question from the previous ones. Previously, we considered just one variable. We looked at the distribution of its values overall, and also compared the distribution of its values for each class. In this case, we're considering *two* variables, and wondering whether and how the values of one variable vary with the values of the other.
 
-A good way to answer this question is to visualise the data using points. We map one variable to the horizontal position of a point, and the other variable to the vertical position. Here's what we get. As you can see, this visualisation shows quite clearly that the two scores are indeed related:
+A good way to answer this question is to visualise the data using points. We map one variable to the horizontal position of a point, and the other variable to its vertical position. Here's what we get. As you can see, this visualisation shows quite clearly that the maths and science scores are indeed related:
 
 <div id="corr"></div>
 <script>
@@ -265,4 +269,4 @@ $$ \begin{matrix}
 \text{Transform} & \Longleftarrow  & \text{Visualise} \\
 \end{matrix} $$
 
-The process typically involves a lot of trial and error, and many dead-ends. So don't be surprised or dismayed if this happens to you; actually, you can expect it to.
+The process typically involves a lot of trial and error, and many dead-ends. So don't be surprised or dismayed if this happens; you should expect it to.

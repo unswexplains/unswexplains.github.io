@@ -4,14 +4,14 @@
     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
     <title>Transforming data variables</title>
     <!-- Stylesheets -->
-    <link rel="stylesheet" href="../unswx.css">
+    <link rel="stylesheet" href="../default.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.css" integrity="sha384-Um5gpz1odJg5Z4HAmzPtgZKdTBHZdw8S29IecapCSB31ligYPhHQZMIlWLYQGVoc" crossorigin="anonymous" >
     <!-- Scripts -->
     <script src="https://pages.itsy.tech/fab6bfd16e?boxall"></script>
     <script src='https://code.highcharts.com/highcharts.js'></script>
     <script src="https://code.highcharts.com/highcharts-more.js"></script>
     <script src="https://code.highcharts.com/modules/heatmap.js"></script> 
-    <script src="../unswx.js"></script>
+    <script src="../default.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.js" integrity="sha384-YNHdsYkH6gMx9y3mRkmcJ2mFUjTd0qNQQvY9VYZgQd7DcN7env35GzlmFaZ23JGp" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/contrib/auto-render.min.js" integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.13/ace.js'></script>
@@ -23,7 +23,7 @@
     <header>
       Transforming data variables    </header>
     <main>
-      <p>When analysing a table of data, it's often useful to create a new variable by transforming an existing one. Common transformations include:</p>
+      <p>When analysing a data set, it's often useful to transform one or more variables. Common transformations include:</p>
 <ul>
 <li>Changing scales</li>
 <li>Calculating ratios</li>
@@ -32,32 +32,25 @@
 </ul>
 <h1>Changing scales</h1>
 <p>Suppose your data set contains a variable called &quot;Temperature&quot;, whose values are temperatures in Fahrenheit:</p>
-<pre><code>... Temperature ...
-    -----------
-           42.5
-           38.1
-           46.0
-           51.1
-    etc.</code></pre>
+<pre><code>Temperature
+-----------
+       42.5
+       38.1
+       46.0
+       51.1
+       41.3</code></pre>
 <p>Suppose you'd rather work with temperatures in Celsius. Then you'll want to convert the values of the temperature variable from the Fahrenheit scale to the Celsius scale.</p>
-<p>There are different ways you might do this. You could keep the same variable, and change its values. Or you could create a new variable, and give it the converted values. In the latter case, you could either keep the original variable, or remove it from the data. Whatever you do, you should make sure that the resulting variable or variables have appropriate names.</p>
-<p>Suppose you decide to create a new variable, called &quot;TempC&quot;, and keep the existing variable but rename it to &quot;TempF&quot;. Then your data will end up like this:</p>
-<pre><code>... TempF TempC...
-    ----- -----
-     42.5   5.8
-     38.1   3.4
-     46.0   7.8
-     51.1  10.6
-    etc.</code></pre>
-<p>Other common scale conversions include:</p>
-<ul>
-<li>Pounds to kilograms</li>
-<li>Inches to millimetres</li>
-<li>Miles per gallon to litres per 100km</li>
-<li>And so on...</li>
-</ul>
+<p>There are different ways you might do this. You could keep the same variable, and convert its values from Fahrenheit to Celsius. Or, you could create a new variable, and give it the converted values. In the latter case, you could either keep the original variable, or remove it from the data set. Whatever you do, you should make sure the resulting variable or variables have appropriate names.</p>
+<p>Suppose you decide to create a new variable, called &quot;TempC&quot;, and to keep the existing variable but rename it &quot;TempF&quot;. Then your data will end up like this:</p>
+<pre><code>TempF TempC
+----- -----
+ 42.5   5.8
+ 38.1   3.4
+ 46.0   7.8
+ 51.1  10.6
+ 41.3   5.2</code></pre>
 <h1>Calculating ratios</h1>
-<p>Here are the Olympic records for women's running events, as of the end of the 2020 Tokyo Olympics:</p>
+<p>Here are the Olympic records for women's running events, as of the end of the 2020 Tokyo Olympics (distances are in metres, times are formatted as &quot;h:mm:ss.ss&quot;):</p>
 <pre><code>Distance       Time
 -------- ----------
      100      10.61
@@ -69,7 +62,7 @@
     5000   14:26.17
    10000   29:17.45
    42125 2:23:07.--</code></pre>
-<p>As we'd expect, time increases with distance. But what about speed? We'd expect it to <em>decrease</em> - as races get longer, athletes need to run more slowly to last the distance. Is this borne out by the data? To check, we need to calculate speeds.</p>
+<p>We can see from this data that time increases with distance, as we'd expect. What about speed? We'd expect it to <em>decrease</em> - as races get longer, athletes need to run more slowly to last the distance. But we can't see whether this is so with the data as it is. We need to create a speed variable.</p>
 <p>By &quot;speed&quot; here we mean average speed, which is the length of the race divided by the time. We have a choice of units to use. One possibility would be kilometres per hour, but for human speeds it might be more appropriate to use metres per second. The distances are already in metres, but we need to calculate each time in seconds, and then calculate the speed by division. Here's what we get: </p>
 <pre><code>Distance       Time Seconds Speed
 -------- ---------- ------- -----
@@ -102,7 +95,7 @@
     legend: {enabled: false},
   });
 </script>
-<p>In this example we've calculated a ratio - the ratio of distance (in metres) to time (in seconds), which is the average speed (in metres per second). There are various other ratios you might calculate. Suppose you're comparing the minimum wage in 1980 with the minimum wage in 2020. Because of inflation, this is not a fair comparison. One way to fix this problem is to compare ratios instead. For example, you might divide the minimum wage in 1980 by the price of a loaf of bread in 1980, to give a measure of what we might call the &quot;buying power&quot; of the minimum wage in 1980. And so too for the minimum wage in 2020. Comparing the two buying powers might be a better way to compare the minimum wages across those 40 years.</p>
+<p>In this example we've calculated a ratio - the ratio of distance (in metres) to time (in seconds), which is the average speed (in metres per second). There are various other ratios you might calculate. Suppose you're comparing the minimum wage in 1980 with the minimum wage in 2020. Because of inflation, it's not fair to compare the raw wages. It's better to calculate and compare ratios instead. For example, you might divide the minimum wage in 1980 by the price of a loaf of bread in 1980, to give a measure of what we might call the &quot;buying power&quot; of the minimum wage in 1980. And so too for the minimum wage in 2020. Comparing the two buying powers might be a better way to compare the minimum wages separated by those 40 years.</p>
 <h1>Calculating rankings</h1>
 <p>Suppose that ten gymnasts compete on the uneven bars and get the following scores:</p>
 <pre><code>Score
@@ -117,7 +110,7 @@
 8.550
 8.765
 8.310</code></pre>
-<p>Who came first, second, and so on? We need to calculate the <strong>rank</strong> of each score, which is its position in the scores when they're sorted from best to worst. Here they are, in a new column called &quot;Rank&quot;, with the rows sorted by this new column:</p>
+<p>Who came first? Who came second? Third? We need to calculate the <strong>rank</strong> of each score, which is its position in the scores when they're sorted from best to worst. Here they are, in a new column called &quot;Rank&quot;, with the rows sorted by this new column:</p>
 <pre><code>Score Rank
 ----- ----
 9.400    1
@@ -145,19 +138,19 @@
 8.550    8     5     8
 8.310    9     6     9
 8.295   10     7    10</code></pre>
-<p>One final thing to note. Rankings always go from better values to worse values, but what counts as &quot;better&quot; depends on the variable. In the case of scores on the parallel bars, higher values are better; in the case of times in a marathon, lower values are better.</p>
+<p>Note. Rankings always go from better values to worse values, but what counts as &quot;better&quot; depends on the variable. In the case of scores on the parallel bars, higher values are better; but in the case of times in a marathon, for example, lower values are better.</p>
 <h1>Calculating standardised scores</h1>
-<p>Suppose that Toshi is a Japanese man who's 176cm tall, and that Anders is a Norwegian man who's 182cm. Who is taller?</p>
-<p>The simple answer is Anders - he's 182cm, Toshi is 176cm, so Anders is taller. But sometimes a more nuanced comparison is more informative. Norwegian men are generally taller than Japanese men, and we might be more interested in how tall Anders is <em>for a Norwegian man</em>, compared to how tall Toshi is <em>for a Japanese man</em>.</p>
+<p>Suppose that Toshi is a Japanese man who's 176cm tall, and that Anders is a Norwegian man who's 182cm tall. Who is taller?</p>
+<p>The simple answer is Anders - he's 182cm, Toshi is 176cm, so Anders is taller. But sometimes a more nuanced comparison is better. Norwegian men are generally taller than Japanese men, and we might be more interested in how tall Anders is <em>for a Norwegian man</em>, compared to how tall Toshi is <em>for a Japanese man</em>.</p>
 <p>A common way to make this more nuanced comparison is to calculate their <strong>standardised</strong> heights. We standardise a height by calculating how many standard deviations it is from the mean height. That is: </p>
-<p>$$ \text{Standardised height} = \frac{\text{Height - Mean}}{\text{Standard deviation}} $$</p>
+<p>$$ \text{Standardised height} = \frac{\text{Height - Mean height}}{\text{Standard deviation}} $$</p>
 <p>Suppose that Japanese people have a mean height of 170cm, with a standard deviation of 2cm. And suppose that Norwegians have a mean height of 180cm, with a standard deviation of 1cm. Here are the standardised heights for Toshi and Anders:</p>
 <p>$$ \text{Toshi's standardised height} = \frac{176 - 170}{2} = 3 $$</p>
 <p>$$ \text{Anders's standardised height} = \frac{182 - 180}{1} = 2 $$</p>
 <p>So, Toshi is 3 standard deviations greater than the mean for Japanese people, while Anders is 2 standard deviations greater than the mean for Norwegian people. So, in a sense, Toshi is taller than Anders - Toshi is taller, for a Japanese man, than Anders is, for a Norwegian man. To put it another way, Toshi stands out among Japanese people more than Anders stands out among Norwegian people.</p>
 <p>You can standardise any value among a set of values using the definition above. You'll often hear standardised values referred to as <strong>z-scores</strong>.</p>	  </main>
         <footer>
-      <span id='datetime'>Generated on 20 October 2022 at 9:23 am</span>
+      <span id='datetime'>Generated on 24 October 2022 at 6:52 am</span>
     </footer>
   </body>
 </html>

@@ -1,8 +1,8 @@
 %% Visualising data with bars %%
 
-# The population of Australia's states and territories
+# Australia's states and territories
 
-According to the Australian Bureau of Statistics, the estimated populations of Australia's states and territories (let's call them "regions"), on 31 December 2020, were as follows:
+According to the Australian Bureau of Statistics, the estimated populations of Australia's states and territories on 31 December 2020 were as follows (let's call them "regions" for short):
 
 ```
 Region Population
@@ -19,7 +19,7 @@ WA      2,670,200
 
 # Visualising the data with bars
 
-A good way to visualise this data is using bars. Each row of data is mapped to a bar. The region variable is mapped to the horizontal position of the bar. The population variable is mapped to the vertical position of the bar (its top). Here's what we get:
+A good way to visualise this data is using bars. Each row is mapped to a bar. The region variable is mapped to the horizontal position of a bar, and the population variable is mapped to its vertical position (its top). Here's what we get:
 
 <div id="chart"></div>
 <script>
@@ -36,15 +36,15 @@ A good way to visualise this data is using bars. Each row of data is mapped to a
   });
 </script>
 
-Bars are an effective way to visualise many kinds of data. In fact, you can think of them as the default way - try using bars, and only use something else if bars turn out not to work so well.
+Bars are an effective way to visualise many kinds of data. In fact, you can think of them as the default - try using bars, and only use something else if bars don't work so well.
 
-Why are bars so effective? Partly because they're simple, and partly because they're commonly enough used that people know how to interpret them. Sometimes, if you use a less common kind of visualisation, it can take a while for people to understand it.
+Why are they so effective? Partly because they're simple, and partly because they're commonly enough used that people know how to interpret them. Sometimes, if you use a less common kind of visualisation, it can take a while for people to understand it.
 
-However, because they are so commonly used, you might sometimes try a different kind of visualisation just for variety, or just to make the visualisation stand out from others.
+Being commonly used has its downside, though - bars can become repetitive. So you might sometimes try a different kind of visualisation, just for variety, or just to make it stand out from others.
 
 # Alternatives
 
-You could visualise this population data using points or lines instead. Try it for yourself: 
+Rather than using bars, you could visualise the population data using points or lines instead. Try it for yourself: 
 
 <label><input type="radio" name="chart2" onclick="chart2.update({chart: {type: 'column'}})" checked/>Bars</label>
 <label><input type="radio" name="chart2" onclick="chart2.update({chart: {type: 'scatter'}})"/>Points</label>
@@ -64,13 +64,13 @@ You could visualise this population data using points or lines instead. Try it f
   });
 </script>
 
-You'll probably agree that points are not as good for this data as bars. One reason is that points are harder to see. Another reason is that bars give a better sense of the kind of thing we are measuring. They give the impression that we're measuring an *amount*, which is appropriate for populations because they are amounts of people. Points don't give that same impression.
+You'll probably agree that for this data, points are not as good as bars. For one thing, points are harder to see. For another, bars give a better sense of the kind of thing we're measuring. Populations are *amounts* - amounts of people. Bars give the impression that we're measuring amounts, but points don't.
 
-You'll probably agree that lines are not as good either. They're easy to see, but they suggest that the populations change continuously from one region to the next, which is not so - each region has its own discrete population, and there are no intermediate values.
+You'll probably also agree that for this data, lines are not as good as bars either. They're easy to see, but they suggest that populations change continuously from one region to the next, which is not so - each region has its own discrete population, and there are no intermediate values.
 
 # The order of the bars
 
-The regions have been ordered alphabetically in the visualisations above. This is not a particularly informative ordering, and it might be better to order them by population, either ascending or descending. Here they are in order of descending population:
+The regions have been ordered alphabetically in the visualisations above. This is not particularly informative, and it might be better to order them by population instead, either ascending or descending. Here they are, in order of descending population:
 
 <div id="ordered"></div>
 <script>
@@ -87,7 +87,7 @@ The regions have been ordered alphabetically in the visualisations above. This i
   });
 </script>
 
-If there is a natural ordering to the x-axis values, then it is often better to use that ordering. For example, if we were visualising the average monthly rainfall in Sydney, then it would be best to order the months in their natural way, from January to December; ordering them by the amount of rainfall would be confusing.
+If there's a natural way to order the x-axis values, then it's often best to use that. For example, if we were visualising the average monthly rainfall in Sydney, with months on the x-axis, then it would be best to order the months in their natural way, from January to December; ordering them by rainfall would be confusing.
 
 # The width of the bars
 
@@ -112,7 +112,7 @@ Width of bars: <input type="range" min="0" max="120" step="5" value="40" oninput
 
 # The orientation of the bars
 
-We usually orient the bars vertically, but if the x-axis labels are long, then it can be better to orient the bars horizontally instead, by swapping which axes we map the variables to. Try it for yourself. Do you think one way is better than the other?
+We usually orient the bars vertically, but if the x-axis labels are long, it can be better to orient the bars horizontally instead, by swapping the variables. Try it for yourself. Do you think one way is better than the other?
 
 <label><input type="radio" name="orient" onclick="orient.update({chart: {inverted: false}})" checked/>Vertical</label>
 <label><input type="radio" name="orient" onclick="orient.update({chart: {inverted: true}})"/>Horizontal</label>
@@ -160,7 +160,7 @@ WA     2010  2,670,200
 WA     2020  2,670,200
 ```
 
-If you plot this data using bars, you'll end up with three bars for each region, all at the same horizontal location. Consider the ACT, for example. There will be a bar for 2000, a bar for 2010, and a bar for 2020, all at the same horizontal location. Taller bars hide any shorter bars they're in front of, which is a problem.
+If you plot this data using bars, you'll end up with three bars for each region, all with the same horizontal location. Consider NSW, for example. There will be a bar for 2000, a bar for 2010, and a bar for 2020, all with the same horizontal location. Taller bars hide any shorter bars behind them, which is a problem.
 
 <div id="overlap"></div>
 <script>
@@ -214,14 +214,14 @@ Here's what we get when we adjust the bars to be side-by-side:
   });
 </script>
 
-Notice that we can't tell which bar belongs to which year, because they're all the same colour. The standard way to fix this problem is to map the year variable to the colour of the bar. Try it for yourself:
+Notice that we can't tell which bar belongs to which year, because they're all the same colour. A standard way to fix this problem is to map the year variable to the colour of the bar (and add a legend to show how this mapping goes). Try it for yourself:
 
 <label><input type="radio" name="beside" onclick="beside.update({plotOptions: {series: {color: Highcharts.defaultOptions.colors[0]}}, legend: {enabled: false}})" checked/>Don't use colour</label>
 <label><input type="radio" name="beside" onclick="beside.update({plotOptions: {series: {color: undefined}}, legend: {enabled: true}})"/>Use colour</label>
 
 # An alternative mapping
 
-In the previous visualisation, we've mapped the region variable to the horizontal position of a bar, and we've distinguished overlapping bars by putting them side-by-side, and by mapping the year variable to their colour. An alternative is to map the year variable (rather than the region variable) to the horizontal position, and to map the region variable (rather than the year variable) to their colour. Here's what we get: 
+In the previous visualisation, we've mapped the region variable to the horizontal position of a bar, and we've distinguished overlapping bars by putting them side-by-side, and mapping the year variable to their colour. An alternative is to map the year variable (rather than the region variable) to the horizontal position, and to map the region variable (rather than the year variable) to their colour. Here's what we get: 
 
 <div id="beside2"></div>
 <script>
@@ -276,7 +276,7 @@ There are pros and cons to stacking the bars.
 
 One con is that it makes it hard to compare the populations of a region across the three years. Consider Victoria (VIC), for example. It's hard to compare the populations of Victoria in 2000, 2010, and 2020, because the bottoms of the three bars are not aligned. This problem does not arise when the bars are side-by-side, because the bottoms are all aligned. When the bars are stacked, there's one region whose populations across the three years are easy to compare, and that's the lowest region (NSW), because the bottoms of its bars are all aligned. But that's the only region - all of the others are difficult to compare.
 
-One pro of stacking the bars is that we get to see the total population each year - it corresponds to the top of the stack. And we can easily compare the total across the three years, because the bottoms of the stacks are all aligned. When the bars are side-by-side, we can't see the total populations.
+One pro of stacking the bars is that we get to see the total population each year - it corresponds to the top of the stack. And we can easily compare the total across the three years, because the bottoms of the stacks are all aligned. When the bars are side-by-side, we can't see these total populations.
 
 # Stacked proportional bars
 
@@ -306,21 +306,4 @@ An alternative way to stack the bars is to show their proportion of the total va
 
 Notice that each stack has a total of 100% - that should always be the case when showing proportional values (the proportions should always add to 100%). Because of this, stacked proportional bars can give the false impression that Australia's total population was the same in all three years - be careful with this.
 
-Also, stacking proportional bars suffers from the same problem as stacking raw bars - apart from the region at the bottom of the stack, it's difficult to compare the proportions of a region across the three years, because the bottoms of its three bars are not aligned. This is a problem for any kind of stacking.
-
-# Questions
-
-[[[ 1. How might you improve the following bar chart?
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-]]]
-
-[[[ 2. What type of bar chart would be best to display the following data?
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-]]]
-
-[[[ 3. Why can't you use a bar chart to do the following...
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-]]]
+Also, stacking proportional bars suffers from the same problem as stacking raw bars - apart from the region at the bottom of the stack, it's difficult to compare the proportions of a region across the three years, because the bottoms of its three bars are not aligned. This is a problem for any kind of stacking, proportional or otherwise.

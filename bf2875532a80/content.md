@@ -2,9 +2,9 @@
 
 Data sets often have multiple variables. That is, for each case there are measurements of multiple properties. For example, we might have data about the length and weight of some mice - that would be a data set with two variables. Or we might have some data about the age, gender, location, occupation, and activity of some customers - that would be a data set with five variables.
 
-When a data set has multiple variables, we're often interested in whether there are any relationships between them. Is the value of one variable systematically related to the value of some other variable? If so, in what way?
+When a data set has multiple variables, we're often interested in relationships between them. Is the value of one variable systematically related to the value of some other variable? If so, in what way?
 
-If two variables are related, and they both have values on an ordered scale, then we can ask about the **direction** of the relationship. As one variable increases, what happens to the value of the other variable? If it also increases, then there's a *positive* relationship between them. If it decreases, then there's a *negative* relationship. We can also ask how **linear** the relationship is. How closely do the values fit a line, when we visualise them using points?
+If two variables are related, and they both have values on an ordered scale, we can ask about the **direction** of the relationship. As one variable increases, what happens to the value of the other? If it also increases, then there's a *positive* relationship between them. If it decreases, then there's a *negative* relationship. We can also ask how **linear** the relationship is. How closely do the values fit a line, when we visualise them using points?
 
 # Class results
 
@@ -61,7 +61,7 @@ let grades = ["PS", "CR", "DN", "HD"];
 let sexes = ["M", "F"];
 </script>
 
-There are four variables in this data set. That means there are six pairs of variables:
+There are four variables in this data set. So, there are six *pairs* of variables:
 
 - Age and sex
 - Age and mark
@@ -70,15 +70,7 @@ There are four variables in this data set. That means there are six pairs of var
 - Sex and grade
 - Mark and grade
 
-Let's look at each pair to see if there's any relationship between them in the data. Quite a lot can be achieved by visualising the pair of variables using points, by mapping one variable to the horizontal position of a point, and the other variable to the vertical position.
-
-# Two cautions
-
-We'll say these now, but they apply in every case.
-
-A relationship in the sample doesn't mean a relationship in the general population. Might be a matter of lucky random fluctuations. There are special techniques to help figure out how likely this is.
-
-A relationship in the general population doesn't mean there's causation. There are special techniques to figure out how likely, and in which direction.
+Let's look at each pair, to see whether there's any relationship between them in the data. Quite a lot can be achieved by visualising a pair using points, mapping one variable to the horizontal position of the point, and the other variable to the vertical position.
 
 # Age and sex
 
@@ -104,9 +96,13 @@ Here's what we get when we map the age variable to the horizontal position of a 
 <label onclick="ageSex.update({series: {marker: {fillColor: 'blue'}, jitter: {x: 0, y: 0.1}}})"><input type="radio" name="ageSex"/>Add jitter</label>
 <label onclick="ageSex.update({series: {marker: {fillColor: 'rgba(0,0,255,0.5)'}, jitter: {x:  0, y: 0.1}}})"><input type="radio" name="ageSex"/>Add both</label>
 
-It doesn't matter which variable we map to which position - any relationship between them will still be evident, just differently oriented. You can see this for yourself, by using the "Swap the variables" checkbox. Sometimes one mapping is more natural than the other. If there's a suspicion of causal influence between the variables, for example, then it's natural to map the causing variable to the horizontal position, and the effected variable to the vertical position. In the case above, do you find one more natural?
+It doesn't matter which variable we map to which position - any relationship between them will still be evident, just differently oriented. You can see this for yourself, by using the "Swap the variables" checkbox.
 
-Notice that there is some overlap of the points, which means that some of the data is obscured. To deal with this, you could add some transparency, so that when one point is behind another it still shines through and is partly visible. Or you could jitter the points, which adds some random space between them. You can see the effect of these, by using the options above. You need to be a little careful with jitter, in case you distort the data too much. In the case above, the jitter only happens to the sex variable, because jittering the age variable would be too distorting.
+Sometimes one mapping is more natural than the other. If there's a suspicion of causal influence between the variables, then it can be natural to map the causing variable to the horizontal position, and map the affected variable to the vertical position. In the case above, do you find one mapping more natural than the other?
+
+Notice that there's some overlap of the points, which means that some of the data is obscured. To deal with this, you could add some transparency to the points, so that when one is behind another it still shines through and is partly visible. Or you could jitter the points, which means adding some random space between them. You can see the effect of these, by using the options above.
+
+You need to be a little careful when jittering, in case it distorts the data too much. In the case above, jittering is only applied to the sex variable, because jittering the age variable would be too distorting.
 
 # Age and mark
 
@@ -132,7 +128,7 @@ Here's what we get when we map the age variable to the horizontal position of a 
 
 # Age and grade
 
-Here's what we get when we map the age variable to the horizontal position of a point, and the grade variable to the vertical position. The result is similar to the previous visualisation, but we have grades now instead of marks. We see the same general relationship between age and result.
+Here's what we get when we map the age variable to the horizontal position of a point, and the grade variable to the vertical position. The result is similar to the previous visualisation, but now we have grades instead of marks. We see the same general relationship between age and grades, as we did between age and marks.
 
 <div id="ageGrade"></div>
 <script>
@@ -180,7 +176,7 @@ Here's what we get when we map the sex variable to the horizontal position of a 
 
 # Sex and grade
 
-Here's what we get when we map the sex variable to the horizontal position of a point, and the mark variable to the vertical position. Because there are so few combinations of values for the sex and grade variables, there's a lot of overlap and it's hard to see the data properly. Adding transparency doesn't help much, but adding jitter does. Once the points are jittered, we can see that the spread of grades is about the same for males and females, despite the spread of marks being different (see above).
+Here's what we get when we map the sex variable to the horizontal position of a point, and the mark variable to the vertical position. Because there are so few combinations of values for the sex and grade variables, there's a lot of overlap, and it's hard to see the data properly. Adding transparency doesn't help much, but adding jitter does. Once the points are jittered, we can see that the spread of grades is about the same for males and females, despite the spread of marks being different (see above).
 
 <div id="sexGrade"></div>
 <script>
@@ -204,7 +200,7 @@ Here's what we get when we map the sex variable to the horizontal position of a 
 
 # Mark and grade
 
-Here's what we get when we map the mark variable to the horizontal position of a point, and the grade variable to the vertical position. In this case there is a definite relationship between the variables, because grade is defined in terms of mark. Here's the definition: PS = 50-64, CR = 65-74, DN = 75-84, HD = 85-100. This visualisation actually highlights an error in the data - can you spot it?
+Here's what we get when we map the mark variable to the horizontal position of a point, and the grade variable to the vertical position. In this case there's a perfect relationship between the variables, because grade is defined in terms of mark. Here's the definition: PS = 50-64, CR = 65-74, DN = 75-84, HD = 85-100. This visualisation actually highlights an error in the data - can you spot it?
 
 <div id="markGrade"></div>
 <script>
@@ -228,9 +224,11 @@ Here's what we get when we map the mark variable to the horizontal position of a
 
 # Other ways to do it
 
-As you can see from the examples above, we can very effectively visualise the relationship between two variables (or lack thereof) using just points, as long as we use transparency and jitter as well. Sometimes, though, you might try a different technique.
+As these six examples have shown, we can effectively visualise the relationship between two variables (or lack thereof) using just points, and perhaps some transparency or jitter as well. Sometimes, though, you might try a different technique.
 
-Return to the visualisation of grade and sex above. Every student in the class is represented by a point. An alternative is to group the students by combinations of values of grade and sex, count the number of students in each group, then visualise those numbers, rather than each student. We can put the combinations and their frequencies into a table, and add a total row:
+Return to the visualisation of grade and sex above. Every student in the class is represented by a point. An alternative is to group the students by grade and sex, count the number of students in each group, then visualise the groups rather than the students.
+
+We start by listing the groups and their frequencies in a table:
 
 ```
 Grade Sex Frequency
@@ -249,7 +247,7 @@ Total            20
 
 This is like a regular frequency table, except now we have two variables rather than one. It shows the frequency of pairs of values of the two variables.
 
-There are two ways we can visualise this table. One way is to use points, and map the frequency variable to the size of a point (resulting in a bubble plot). Another way is to use colour patches, and map the frequency variable to the colour of a patch (resulting in a heat map). Here's what we get:
+Next, we visualise this table. There are two ways we might do it. One way is to use points, and map the frequency variable to the size of a point (resulting in a bubble plot). Another way is to use colour patches, and map the frequency variable to the colour of a patch (resulting in a heat map). Here's what we get:
 
 <div id="bubble"></div>
 <script>
@@ -292,4 +290,4 @@ There are two ways we can visualise this table. One way is to use points, and ma
   });
 </script>
 
-In the first visualisation, we keep the colour of each geometric object the same, but vary their sizes. In the second visualisation, we keep the size of each geometric object the same, but vary their colours. Do you find one more effective than the other? Are these visualisations better than the original one?
+In the first visualisation, we keep the colour of each geometric object the same, but vary their sizes. In the second visualisation, we keep the size of each geometric object the same, but vary their colours. Do you find one more effective than the other? Are these visualisations better than the original one, which had a point for every student?

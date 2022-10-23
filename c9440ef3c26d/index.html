@@ -4,14 +4,14 @@
     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
     <title>Basic summary of a variable</title>
     <!-- Stylesheets -->
-    <link rel="stylesheet" href="../unswx.css">
+    <link rel="stylesheet" href="../default.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.css" integrity="sha384-Um5gpz1odJg5Z4HAmzPtgZKdTBHZdw8S29IecapCSB31ligYPhHQZMIlWLYQGVoc" crossorigin="anonymous" >
     <!-- Scripts -->
     <script src="https://pages.itsy.tech/fab6bfd16e?boxall"></script>
     <script src='https://code.highcharts.com/highcharts.js'></script>
     <script src="https://code.highcharts.com/highcharts-more.js"></script>
     <script src="https://code.highcharts.com/modules/heatmap.js"></script> 
-    <script src="../unswx.js"></script>
+    <script src="../default.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.js" integrity="sha384-YNHdsYkH6gMx9y3mRkmcJ2mFUjTd0qNQQvY9VYZgQd7DcN7env35GzlmFaZ23JGp" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/contrib/auto-render.min.js" integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.13/ace.js'></script>
@@ -23,9 +23,9 @@
     <header>
       Basic summary of a variable    </header>
     <main>
-      <p>For variables that have numeric values, there are some basic summaries that can be quite informative.</p>
+      <p>If a variable has numeric values, we can calculate some basic summaries of them that can be quite informative.</p>
 <h1>100m results</h1>
-<p>We'll illustrate the summaries described here using the results of the women's 100m final at the 2020 Tokyo Olympics. Here's the data:</p>
+<p>We'll illustrate the summaries using the following data. They're the results of the women's 100m final at the 2020 Tokyo Olympics:</p>
 <pre><code>Place Name                     Time
 ----- ----------------------- -----
 1     Elaine Thompson-Herah   10.61
@@ -40,6 +40,7 @@
 <p>The <strong>count</strong> of a variable is its number of values, including duplicates (if there are any).</p>
 <p>In the case of the time variable of the 100m data:</p>
 <p>$$ \text{Count} = 8 $$</p>
+<p>Every variable in the 100m data set has the same count - effectively, it's the number of rows in the table.</p>
 <h1>Sum</h1>
 <p>The <strong>sum</strong> of a variable is the result of adding its values.</p>
 <p>In the case of the time variable of the 100m data:</p>
@@ -49,9 +50,9 @@
 \end{align*} $$</p>
 <p>Although the sum of this variable is defined, and we can calculate it, it's not a meaningful number - what does the sum of the finishing times correspond to, in reality? The sum of the place variable is defined too, because the values are all numbers, but it's not meaningful either.</p>
 <p>For an example of a variable whose sum <em>is</em> meaningful, consider a variable whose values are the populations of Australia's states and territories on a certain date. The sum of this variable is the total population of Australia on that date, which is meaningful.</p>
-<h1>Minimum and maximum values</h1>
+<h1>Minimum and maximum</h1>
 <p>The <strong>minimum</strong> of a variable is its smallest value, and the <strong>maximum</strong> of a variable is its largest value. (All of its other values lie between these two extremes.)</p>
-<p>We can often just observe the minimum and maximum of a variable, by sorting its values from smallest to largest (or from largest to smallest). The 100m results are already sorted, from smallest time to largest time, and we can just observe the minimum and maximum of the time variable:</p>
+<p>We can often just observe the minimum and maximum of a variable by sorting its values, either from smallest to largest, or from largest to smallest. The 100m results are already sorted, from smallest time to largest time, and we can just observe the minimum and maximum of the time variable:</p>
 <p>$$ \begin{align*}
 \text{Minimum} &amp;= 10.61\\
 \text{Maximum} &amp;= 11.12\\
@@ -76,7 +77,7 @@
 <p>Even when it's meaningful, the mean is not always interesting or helpful. Suppose you're packing for a trip to Rome in March. You could calculate (or find) the mean temperature in Rome in March, but it doesn't much help you pack. What you need to know, instead, are the minimum and maximum temperatures, so that you know how cold and how hot it's likely to get.</p>
 <h1>Median</h1>
 <p>The <strong>median</strong> of a variable is its middle value, when the values are sorted from smallest to largest. Actually, it's a little more complicated than that. If there are an <em>odd</em> number of values, then there is just one middle value, and the median is that one middle value. If there are an <em>even</em> number of values, then there are two middle values, and the median is the mean of those two middle values.</p>
-<p>To calculate the median of a variable, its best to first sort the values. Then the middle value or values can be found, and the median can be observed or calculated. In the case of the 100m results, here are the values of the time variable, sorted from smallest to largest:</p>
+<p>To calculate the median of a variable, it's best to first sort the values. Then the middle value or values can be found, and the median can be observed or calculated. In the case of the 100m results, here are the values of the time variable, sorted from smallest to largest:</p>
 <p>$$ 10.61, 10.74, 10.76, \textbf{10.91}, \textbf{10.97}, 10.99, 11.02, 11.12 $$</p>
 <p>There are an even number of values, so there are two middle values, which are shown in bold. The median of the variable is the mean of these two values. That is:</p>
 <p>$$ \begin{align*}
@@ -86,7 +87,7 @@
 \end{align*} $$</p>
 <h1>Mean or median?</h1>
 <p>The mean and the median are two ways of measuring the middle value of a variable. </p>
-<p>Depending on the variable, they can be different. They're different, for example, in the case of the time variable in the 100m data - the mean is 10.89, and the median is 10.94.</p>
+<p>Depending on the variable, they can be different. They're different, for example, in the case of the time variable of the 100m data - the mean is 10.89, and the median is 10.94.</p>
 <p>We generally use the mean, but sometimes it's more informative to use the median. Suppose you're considering buying a house, in a well-to-do street, in a well-to-do part of town. Suppose there are nine houses in the street, with the following values (in millions of dollars):</p>
 <pre><code>Value
 -----
@@ -106,14 +107,14 @@
 &amp;= 3.92 \\
 \text{Median} &amp;= 1.3 \\
 \end{align*} $$</p>
-<p>Which of these do you think gives a better indication of the middle house value? Most people agree that the median does. The problem with the mean is that it's effected by that one unusually high value of 24.5 million. The mean makes it seem like most houses are valued at around 3.9 million, when in fact most are valued at around 1.3 million. The median is not effected by that extreme value. It is 1.3 million, no matter how large that largest value is.</p>
+<p>Which of these do you think gives a better indication of the middle house value? Most people agree that the median does. The problem with the mean is that it's affected by that one unusually high value of 24.5 million. The mean makes it seem like most houses are valued at around 3.9 million, when in fact most are valued at around 1.3 million. The median is not affected by that extreme value. It is 1.3 million, no matter how large that largest value is.</p>
 <p>Whenever a variable has a relatively small proportion of extremely high (or low) values, the median is generally a more informative measure of its middle value than the mean. This is why you'll typically hear about <em>median</em> house prices, rather than mean.</p>
 <h1>Beware the word &quot;average&quot;</h1>
 <p>The word &quot;average&quot; is often used as an alternative to &quot;mean&quot;. But it's also sometimes used as an alternative to &quot;median&quot;. This makes it ambiguous. Because of this, you should be wary when you see or hear people talking about averages - are they talking about means, or medians? And you should avoid using the word &quot;average&quot; - use either &quot;mean&quot; or &quot;median&quot;, whichever is appropriate.</p>
 <h1>Calculating overall means</h1>
 <p>There's a mistake that people often make, which you should be careful to avoid. It has to do with calculating overall means.</p>
 <p>Suppose that four classes of students sit an end of year exam, and that the mean marks for the classes are 72, 75, 68, and 82 (out of 100). What is the overall mean mark?</p>
-<p>People often think that it's the mean of the means. That is, the mean of 72, 77, 68, and 83, which is 75. Unfortunately, it's not that simple.</p>
+<p>People often think that it's the mean of the means. That is, the mean of 72, 75, 68, and 82, which is 74.25. Unfortunately, it's not that simple.</p>
 <p>Here's how the overall mean is defined:</p>
 <p>$$ \begin{align*}
 \text{Overall mean} &amp;= \frac{\text{Sum of all marks}}{\text{Total number of students}}
@@ -134,41 +135,9 @@
             76       5624
 
 Overall mean = 5624/76 = 74      </code></pre>
-<p>As you can see, the proper calculation is much more complicated than simply finding the mean of the means.</p>
-<h1>Questions</h1>
-<details>
-<summary>Q1. What is the mean of the numbers $5, 9, 6, 3, 3, 2, 7, 5$?</summary>
-<p>$$ \text{Mean} = \frac{5 + 9 + 6 + 3 + 3 + 2 + 7 + 5}{8} = 5 $$</p>
-</details>
-<details>
-<summary>Q2. What is the median of those numbers?</summary>
-<p>First we put the number in ascending order:</p>
-<p>$$ 2, 3, 3, 5, 5, 6, 7, 9 $$</p>
-<p>Since there are eight numbers, the median is the mean of the middle two:</p>
-<p>$$ \text{Median} = \frac{5 + 5}{2} = 5 $$</p>
-</details>
-<details>
-<summary>Q3. Suppose we change the 9 to 33, this making it an outlier. What is the mean now, and the median? What do you notice?</summary>
-<p>$$ \text{Mean} = \frac{5 + 33 + 6 + 3 + 3 + 2 + 7 + 5}{8} = \frac{64}{8} = 8 $$</p>
-<p>The new numbers in ascending order are:</p>
-<p>$$ 2, 3, 3, 5, 5, 6, 7, 33 $$</p>
-<p>Since there are still eight numbers, the median is the mean of the middle two:</p>
-<p>$$ \text{Median} = \frac{5 + 5}{2} = 5 $$</p>
-<p>The mean has changed but the median hasn't.</p>
-</details>
-<details>
-<summary>Q4. Suppose the mean of three numbers is 10. If two of the numbers are 5 and 7, what is the third number?</summary>
-<p>Let the third number be $x$. Since the mean of the three numbers is 10 we have:</p>
-<p>$$ \frac{5 + 7 + x}{3} = 10 $$</p>
-<p>We can now solve this to find $x$:</p>
-<p>$$ \begin{align*}
-5 + 7 + x &amp;amp;= 30 \\
-x &amp;amp;= 30 - 7 - 5 \\
-&amp;amp;= 18
-\end{align*} $$</p>
-</details>	  </main>
+<p>As you can see, the proper calculation is much more complicated than simply finding the mean of the means.</p>	  </main>
         <footer>
-      <span id='datetime'>Generated on 20 October 2022 at 9:23 am</span>
+      <span id='datetime'>Generated on 24 October 2022 at 6:52 am</span>
     </footer>
   </body>
 </html>

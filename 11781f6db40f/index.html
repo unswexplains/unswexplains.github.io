@@ -4,14 +4,14 @@
     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
     <title>Data formats</title>
     <!-- Stylesheets -->
-    <link rel="stylesheet" href="../unswx.css">
+    <link rel="stylesheet" href="../default.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.css" integrity="sha384-Um5gpz1odJg5Z4HAmzPtgZKdTBHZdw8S29IecapCSB31ligYPhHQZMIlWLYQGVoc" crossorigin="anonymous" >
     <!-- Scripts -->
     <script src="https://pages.itsy.tech/fab6bfd16e?boxall"></script>
     <script src='https://code.highcharts.com/highcharts.js'></script>
     <script src="https://code.highcharts.com/highcharts-more.js"></script>
     <script src="https://code.highcharts.com/modules/heatmap.js"></script> 
-    <script src="../unswx.js"></script>
+    <script src="../default.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.js" integrity="sha384-YNHdsYkH6gMx9y3mRkmcJ2mFUjTd0qNQQvY9VYZgQd7DcN7env35GzlmFaZ23JGp" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/contrib/auto-render.min.js" integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.13/ace.js'></script>
@@ -26,8 +26,8 @@
       <p>When we collect data we typically store it, and when we store it we use some format. There are many formats, but most of the data you'll work with is stored using just a small number of them. We'll illustrate each of these common formats below.</p>
 <p>To help, imagine you've just collected the following data about two of your friends:</p>
 <ul>
-<li>Jane Johnson was born on 24 June 1968, and her email address is jane34@readymail.com.</li>
-<li>Peter Simons was born on 1 October 1989, and his email address is p.simons@goget.com.au.</li>
+<li>Jane Johnson was born on 24 June 1968, and her email address is jane34@readymail.com</li>
+<li>Peter Simons was born on 1 October 1989, and his email address is p.simons@goget.com.au</li>
 </ul>
 <p>We'll show how you might store this data using each of the formats.</p>
 <h1>Human memory</h1>
@@ -40,15 +40,15 @@
 <h1>A photo</h1>
 <p>If the data is given to you in some kind of visual way, then you could take a photo of it.</p>
 <p>This kind of storage is becoming increasingly common. Suppose you find a shirt that you like while shopping, and you want to remember it for later. You might take a photo of the tag. You'd thereby be storing data in a photo.</p>
-<h1>Hand written notes</h1>
+<h1>Handwritten notes</h1>
 <p>You could write the data on a piece of paper.</p>
 <p>Much of our data is stored this way, at least to begin with. Notes are quick and easy, and more reliable than human memory. And they're still inaccessible enough to provide some security benefits. But they're difficult to work with in any systematic way.</p>
 <h1>A text file</h1>
 <p>You could type the data into a text file.</p>
-<p>This is another very common way that we store data. Text files are easier to work with systematically than hand written notes.</p>
+<p>This is another very common way that we store data. Text files are easier to work with systematically than handwritten notes.</p>
 <h1>A CSV file</h1>
 <p>You could enter the data into a CSV (Comma Separated Values) file.</p>
-<p>A CSV file is like a regular text file, but it imposes more structure on the data. The cases of the data (the observations) are separated by line breaks (so each case starts on a new line). Within each line, the variable values are separated by commas. Optionally, the first row is used to store the names of the variables, in which case its called a <strong>header row</strong>. Here's the data about your friends, in CSV format, with a header row: </p>
+<p>A CSV file is like a regular text file, but it imposes more structure on the data. The cases of the data (the observations) are separated by line breaks (so each case starts on a new line). Within each line, the variable values are separated by commas. Optionally, the first row is used to store the names of the variables, in which case it's called a <strong>header row</strong>. Here's the data about your friends, in CSV format, with a header row: </p>
 <pre><code>firstName,lastName,dob,email
 Jane,Johnson,1968-06-24,jane34@readymail.com
 Peter,Simons,1989-10-01,p.simons@goget.com.au</code></pre>
@@ -61,7 +61,7 @@ Peter&gt;&gt;Simons&gt;&gt;1989-10-01&gt;&gt;p.simons@goget.com.au</code></pre>
 <p>Because CSV and TSV formats impose more structure on the data than a regular text file, they are more difficult to create. But once created, they're easier and more reliable to work with.</p>
 <h1>A spreadsheet file</h1>
 <p>You could enter the data into a spreadsheet file, such as a Microsoft Excel file or a Google Sheets file.</p>
-<p>A spreadheet file is like a CSV file, but it contains lots of additional metadata (data about the data). This includes instructions for how to present the data - how to align columns, how to shade cells, which rows to hide, and so on. And instructions for how to calculate columns from other columns. And a vast range of other things. As you'll be aware, this is a very commonly used format for storing data - organisations tend to rely heavily on Excel spreadsheets.</p>
+<p>A spreadsheet file is like a CSV file, but it contains lots of additional metadata (data about the data). This includes instructions on how to present the data - how to align columns, how to shade cells, which rows to hide, and so on. And instructions for how to calculate columns from other columns. And a vast range of other things. As you'll be aware, this is a very commonly used format for storing data - organisations tend to rely heavily on Excel spreadsheets.</p>
 <h1>A relational database</h1>
 <p>You could add the data to a relational database.</p>
 <p>In a relational database, data is stored in a set of tables. Each table has a predefined set of columns, and only data that fits into those columns can be stored. In this way, tight control is maintained over the integrity of the data. Here is the data about your friends, stored in a relational database (it's a simple database - it only has one table):</p>
@@ -160,7 +160,7 @@ Peter&gt;&gt;Simons&gt;&gt;1989-10-01&gt;&gt;p.simons@goget.com.au</code></pre>
   &lt;/person&gt;
 &lt;/xml&gt;</code></pre>	  </main>
         <footer>
-      <span id='datetime'>Generated on 20 October 2022 at 9:23 am</span>
+      <span id='datetime'>Generated on 24 October 2022 at 6:52 am</span>
     </footer>
   </body>
 </html>

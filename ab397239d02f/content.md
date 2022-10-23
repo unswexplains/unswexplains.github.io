@@ -2,7 +2,7 @@
 
 # Rainfall in Australia's capital cities
 
-According to the Australian Bureau of Meteorology, the mean monthly rainfall (in millimetres) in Australia's capital cities between 1859 and 2020 is as follows:
+According to the Australian Bureau of Meteorology, the mean monthly rainfalls in Australia's capital cities between 1859 and 2020 are as follows (in millimetres):
 ```
 City     Month Mean
 -------- ----- ----
@@ -23,14 +23,14 @@ Sydney     DEC   74
 
 # Visualising the data with colour patches
 
-A good way to visualise this data is using colour patches, to give what is often called a **heat map**. Each row is mapped to a colour patch. The city variable is mapped to the horizontal position of the patch; the month variable is mapped to the vertical position of the patch; and the mean variable is mapped to the colour of the patch.
+A good way to visualise this data is using colour patches, to give what is often called a **heat map**. Each row is mapped to a colour patch. The city variable is mapped to the horizontal position of the patch; the month variable is mapped to the vertical position; and the mean variable is mapped to the colour.
 
 <div id="heatmap"></div>
 <script src="https://code.highcharts.com/modules/heatmap.js"></script>
 <script>
   let chart = new Highcharts.Chart('heatmap', {
     chart: {type: "heatmap", height: 500},
-    title: {text: "Mean monthly rainfall in Australia's Capital Cities 1859-2020"},
+    title: {text: "Mean monthly rainfall in Australia's Capital Cities, 1859-2020"},
   	caption: {text: "Source: Australian Bureau of Statistics"},
     xAxis: {type: "category"},
     yAxis: {categories: ["","JAN","FEB","MAR","APR","MAY","JUN","JUL","AUG","SEP","OCT","NOV","DEC"], title: null},
@@ -60,19 +60,13 @@ You have some choice about which variable to map to which axis. The visualisatio
 
 You also have some choice about how to order the values on the axes. There's probably only one sensible way to sort the months - in temporal order. But there are various ways you might sort the cities: in alphabetical order, in order of increasing longitude, in order of increasing latitude, or in order of mean annual rainfall (to name just four).
 
-You can experiment by choosing options below and seeing how they effect the visualisation above. Which combination do you think is best?
+You can see what difference these choices make, by setting the options below. Which combination do you think is best?
 
-Map the city variable to:
-  <label onclick="chart.update({chart: {inverted: false}})"><input type="radio" name="axis" checked/>The x-axis</label>
-  <label onclick="chart.update({chart: {inverted: true}})"><input type="radio" name="axis" />The y-axis</label>
+**Map the city variable to**: <label onclick="chart.update({chart: {inverted: false}})"><input type="radio" name="axis" checked/>The x-axis</label><label onclick="chart.update({chart: {inverted: true}})"><input type="radio" name="axis" />The y-axis</label>
 
-Sort the cities:
-  <label onclick="chart.update({xAxis: {categories: ['Adelaide','Brisbane','Canberra','Darwin','Hobart','Melbourne','Perth','Sydney']}})"><input type="radio" name="sort" value="alpha" checked/>Alphabetically</label>
-  <label onclick="chart.update({xAxis: {categories: ['Perth','Darwin','Adelaide','Melbourne','Hobart','Canberra','Sydney','Brisbane']}})"><input type="radio" name="sort" value="lat"/>By longitude</label>
-  <label onclick="chart.update({xAxis: {categories: ['Darwin','Brisbane','Perth','Sydney','Adelaide','Canberra','Melbourne','Hobart']}})"><input type="radio" name="sort" value="long"/>By latitude</label>
-  <label onclick="chart.update({xAxis: {categories: ['Melbourne','Adelaide','Hobart','Canberra','Perth','Sydney','Brisbane','Darwin']}})"><input type="radio" name="sort" value="alpha" checked/>By mean annual rainfall</label>
+**Sort the cities**:<label onclick="chart.update({xAxis: {categories: ['Adelaide','Brisbane','Canberra','Darwin','Hobart','Melbourne','Perth','Sydney']}})"><input type="radio" name="sort" value="alpha" checked/>Alphabetically</label><label onclick="chart.update({xAxis: {categories: ['Perth','Darwin','Adelaide','Melbourne','Hobart','Canberra','Sydney','Brisbane']}})"><input type="radio" name="sort" value="lat"/>By longitude</label><label onclick="chart.update({xAxis: {categories: ['Darwin','Brisbane','Perth','Sydney','Adelaide','Canberra','Melbourne','Hobart']}})"><input type="radio" name="sort" value="long"/>By latitude</label><label onclick="chart.update({xAxis: {categories: ['Melbourne','Adelaide','Hobart','Canberra','Perth','Sydney','Brisbane','Darwin']}})"><input type="radio" name="sort" value="alpha" checked/>By annual rainfall</label>
 
-In case you're wondering, here are the mean annual rainfalls (in millimetres, between 1859 and 2020, according to the Bureau of Meteorology): 
+In case you're wondering, here are the mean annual rainfalls (in millimetres). Are you surprised to see that Melbourne is the driest? 
 
 ```
 City      Rain

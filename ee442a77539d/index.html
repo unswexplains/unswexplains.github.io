@@ -4,14 +4,14 @@
     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
     <title>$ The problem with many samples</title>
     <!-- Stylesheets -->
-    <link rel="stylesheet" href="../unswx.css">
+    <link rel="stylesheet" href="../default.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.css" integrity="sha384-Um5gpz1odJg5Z4HAmzPtgZKdTBHZdw8S29IecapCSB31ligYPhHQZMIlWLYQGVoc" crossorigin="anonymous" >
     <!-- Scripts -->
     <script src="https://pages.itsy.tech/fab6bfd16e?boxall"></script>
     <script src='https://code.highcharts.com/highcharts.js'></script>
     <script src="https://code.highcharts.com/highcharts-more.js"></script>
     <script src="https://code.highcharts.com/modules/heatmap.js"></script> 
-    <script src="../unswx.js"></script>
+    <script src="../default.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.js" integrity="sha384-YNHdsYkH6gMx9y3mRkmcJ2mFUjTd0qNQQvY9VYZgQd7DcN7env35GzlmFaZ23JGp" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/contrib/auto-render.min.js" integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.13/ace.js'></script>
@@ -23,22 +23,46 @@
     <header>
       $ The problem with many samples    </header>
     <main>
-      <h1>A phenomenon</h1>
-<p>Suppose someone manages to correctly predict, every election for the previous ten elections, whether the Republican or Democrat candidate will be elected to president. What do you conclude?</p>
-<h1>One explanation: skill</h1>
-<p>You probably feel some temptation to think that this person is a skillful predictor.</p>
-<p>And they might be. But there's another explanation.</p>
-<h1>Another explanation: chance</h1>
-<p>It could be that this person has no skill, and the predictions are not better than guesses, despite how it feels to the person predicting.</p>
-<p>But wouldn't that require extraodinary luck, and thus not be a plausible explanation?</p>
-<p>Yes, the probability of any particular person correctly predicting ten elections in a row is very small. It's $0.5^{10} = 0.00098 = \frac{1}{1024}$.</p>
-<p>But if you have many people doing the predicting then the probability that at least <em>one</em> of them will correctly predict ten elections in a row is quite high. In fact, if there are about 3000 of them then then it's quite likely: the probability is about 0.95. We can be 95% confident that at least one of them will get them all right. The population of the US is more than 300 million. So it only takes 1 in 100,000 people to be a predictor, and we can be 95% confident that one of them will get them all right. Suppose that in actual fact it's 1 in 10,000 people. Then the probability that at least one of them will get them all correct is 0.999999999999814 - virtually certain.
-0
-That's even if none of them have any skill and they might as well just be guessing.</p>
-<h1>A simulation</h1>
-<p>Some stock traders have beaten the market for several years in a row. They must be skilfull, right?</p>
-<p>Not necessarily. If there are many stock traders then it's highly likely that this will happen, even if none of them have any skill.</p>
-<p>Below are 4096 squares, each of which represents someone predicting whether the Republican candidate or the Democrat candidate will win the US presidential election. But they have no skill, and don't pretend to - each just flips a coin, and if heads then Republican and if tails then Democrat. The chance of one of them correctly predicting the outcome in a given election is just 50%. Each time you click &quot;Run an election&quot;, each predictor tosses their coin and makes a prediction; the ones who get it correct are kept and the others discarded. After ten elections, any predictors that are left are ones who have correctly predicted the outcome of every one of those elections. There is 98% chance that you'll be left with at least one person.</p>
+      <p>Suppose that someone has managed to correctly predict, for every one of the past ten US presidential elections, whether the Republican or Democrat candidate will win. What do you conclude?</p>
+<h1>Skill?</h1>
+<p>You're probably tempted to conclude that this person is an especially skilled predictor. For without a lot of skill, the chance of correctly predicting all ten elections is very small.</p>
+<p>We can quantify it. Suppose that she has no skill at all, so that each of her predictions are as good as a guess. In mathematical terms, the probability of her getting any one prediction correct is 0.5. Then the probability of her getting all ten correct was:</p>
+<p>$$ \underbrace{0.5 \times \cdots \times 0.5}_\text{ten times} = 0.00098 \approx \frac{1}{1000}$$</p>
+<p>So, about 1 in 1000 - she'd have been very unlikely to get all ten correct.</p>
+<p>Suppose that she has <em>some</em> skill, so that the probability of her getting any one prediction correct is 0.6. Then the probability of her getting all ten correct was:  </p>
+<p>$$ \underbrace{0.5 \times \cdots \times 0.6}_\text{ten times} = 0.00605 \approx \frac{6}{1000} $$</p>
+<p>So, about 6 in 1000 - she'd still have been very unlikely to get all ten correct.</p>
+<p>Rather than continuing with such calculations, we can see them all together. The following graph shows, for each level of skill, the probability of her getting all ten predictions correct. By &quot;level of skill&quot; we mean the probability of her getting any one prediction correct. So a 0.5 level of skill means 0.5 probability of getting a prediction correct, which means no skill at all - she might as well just guess. A 0.75 level of skill means a probability of 0.75 of getting one prediction correct. And a 1 level of skill means a probability of 1 of getting one prediction correct - perfect skill.</p>
+<div id="skill"></div>
+<script>
+  let data = [];
+  for (let s = 0.5; s <= 1; s+= 0.01) data.push([s, s**10]);
+  Highcharts.chart("skill", {
+    title: {text: "Probability of getting all ten predictions correct"},
+    tooltip: {pointFormat: "{series.name}: <b>{point.y:.2f}<br/>"},
+    xAxis: {min: 0.5, max: 1, title: {text: "Amount of skill"}},
+    yAxis: {min: 0, max: 1, title: {text: "Probability"}, labels: {format: "{value}"}, tickInterval: 0.1},
+    plotOptions: {series: {animation: false, showInLegend: false}},
+    series: [{
+      type: "line",
+      marker: {radius: 0},
+      data: data,
+    },{
+      type: "scatter",
+      marker: {radius: 10, symbol: "circle"},
+      data: [[0.8,0.8**10]],
+    }]
+  });
+</script>
+<p>We can see from this graph that even if her skill level is 0.8, the chance of her getting all ten predictions is still small - about 0.1, or 1 in 10. So, given that she did get all ten correct, her skill level must be quite high.</p>
+<p>Right?</p>
+<h1>Perhaps not</h1>
+<p>Not necessarily. It's quite possible that she had no skill at all, despite the fact that she got all ten predictions correct.</p>
+<p>If enough people were making predictions, then it's very likely that <em>someone</em> would get all ten correct, even if they were all just guessing. </p>
+<p>Suppose there were a bunch of people making predictions. Suppose that none of them have any skill, so that the probability of any one of them getting any one prediction correct is 0.5. Then for each person, the probability of that person getting all ten correct is about 1/1000. But the probability of <em>at least one of them</em> getting all ten correct can be quite high. In fact, if there were 3000 of them, then it's about 0.95, or 95%. We can be 95% confident that at least one of them will get them all right. To emphasise: that's even if none of them have any skill and they might as well just be guessing.</p>
+<p>You can see this for yourself.</p>
+<p>Below are 4096 squares, each of which represents someone predicting the outcome of the election. They have no skill. In fact, they don't even pretend to - each just flips a coin, and if heads then Republican and if tails then Democrat. So the chance of one of them correctly predicting the outcome in a given election is just 50%.</p>
+<p>Each time you click &quot;Run an election&quot;, each predictor tosses their coin and makes a prediction; the ones who get it correct are kept and the others discarded. After ten elections, any predictors that are left are ones who have correctly predicted the outcome of every one of those elections. There is 98% chance that you'll be left with at least one person.</p>
 <table id="stats">
   <tr><td>Number of elections held:</td><td id="numElections"></td></tr>
   <tr><td>Number of predictors remaining:</td><td id="numPredictors"></td></tr>
@@ -74,10 +98,12 @@ That's even if none of them have any skill and they might as well just be guessi
     document.getElementById("numPredictors").innerHTML = document.querySelectorAll("td:not(.inactive)").length;
   }
 </script>
+<h1>It's virtually guaranteed</h1>
 <div id="probcurve"></div>
 <script>
-  let data = [];
-  for (let n = 1; n <= 4096; n+= 10) data.push([n, (1-(1023/1024)**n)]);
+  data = [];
+  let numCorrect = 10;
+  for (let n = 1; n <= 4096; n+= 10) data.push([n, (1-((2**numCorrect - 1)/(2**numCorrect))**n)]);
   Highcharts.chart("probcurve", {
     chart: {type: "line"},
     title: {text: "Chance of getting a successful predictor"},
@@ -90,12 +116,13 @@ That's even if none of them have any skill and they might as well just be guessi
     ]
   });
 </script>
+<p>The population of the US is more than 300 million. So it only takes 1 in 100,000 people to be a predictor, and we can be 95% confident that one of them will get them all right. Suppose that in actual fact it's 1 in 10,000 people. Then the probability that at least one of them will get them all correct is 0.999999999999814 - virtually certain.</p>
 <h1>The moral</h1>
-<p>Illusion of skill: Traders are no better than chance. Professional investors fail the test of persistent achievement (unlike golfers). But their subjective experience is that they are using skill. It is a feeling, not a judgment. Made worse if sustained by a community of like-minded believers. People who acquire  more knowledge develop an enhanced illusion of their skill and become unrealistically overconfident. Reach the point of diminishing predictive returns very quickly.</p>
+<p>Unlikley events are likely to happen, if you try enough times. Suppose someone would like to show that the prevalance of a certain disease in a population is 100%, even though it's actually only 50%. They could use a sample of one person. Then they stand a 50% chance of getting a proportion of 100% in the sample. But we won't be fooled by that. We'll expect them to use a large sample, let's say 1000. Then the chance of them getting a sample with proportion 100% is extremely small. But if they try enough times, they might eventually get lucky. They could then assert with high confidence that the population proportion is 100%.</p>
 <h1>Further reading</h1>
 <p>Kahneman Chapter 20.</p>	  </main>
         <footer>
-      <span id='datetime'>Generated on 20 October 2022 at 9:23 am</span>
+      <span id='datetime'>Generated on 24 October 2022 at 6:52 am</span>
     </footer>
   </body>
 </html>

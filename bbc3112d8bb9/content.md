@@ -1,10 +1,10 @@
 %% Five number summary of a variable %%
 
-A common way to summarise the spread of values of a numeric variable is to calculate what's called its **five number summary**. This is a commonly used statistical description of a variable.
+A common way to summarise the spread of values of a numeric variable is to calculate what's called its "five number summary".
 
-# The 2020 Tokyo Olympics women's marathon
+# The women's marathon
 
-We'll illustrate the five number summary of a variable using the results of the women's marathon at the 2020 Tokyo Olympics. Here's the data (the times are in minutes):
+We'll illustrate the five number summary using the following data. It shows the results of the women's marathon at the 2020 Tokyo Olympics (the times are in minutes):
 
 ```
 Pos Name                    Time
@@ -38,7 +38,7 @@ We'll explain each of these one-by-one.
 
 The **minimum** value of a variable is its smallest value.
 
-We can often just observe the minimum value, by sorting the variable's values from smallest to largest (or from largest to smallest). The marathon results above are already sorted, from smallest time to largest time, and we can just observe the minimum time: 147.33 minutes.
+We can often just observe the minimum value by sorting the values, either from smallest to largest, or from largest to smallest. The marathon results above are already sorted, from smallest time to largest time, and we can just observe the minimum time: it's 147.33 minutes.
 
 # The first quartile value (Q1)
 
@@ -46,7 +46,7 @@ The **first quartile** value of a variable is the value which is one-quarter of 
 
 The concept is fairly straightforward, but it can be tricky to implement. Here's how we do it:
 
-> We subtract 1 from the total number of values, multiple by 1/4, then add 1. If that gives a whole number, such as 8, then Q1 is the 8th value of the variable (when they're sorted from smallest to largest). If it gives a fractional number, such as 8.75, then Q1 is the mean of the 8th and 9th values. (There's a slightly more complicated version, but this method is already complicated enough, and serves most purposes.)
+> We subtract 1 from the total number of values, multiple by 1/4, then add 1. If that gives a whole number, such as 8, then Q1 is the 8th value of the variable (when they're sorted from smallest to largest). If it gives a fractional number, such as 8.75, then Q1 is the mean of the 8th and 9th values. (There's a slightly more complicated version, but this method is already complicated enough, and serves well for most purposes.)
 
 Let's do this for the time variable of the marathon data:
 
@@ -76,7 +76,7 @@ Let's do this for the time variable of the marathon data:
 
 The **maximum** value of a variable is its largest value.
 
-We can often just observe the maximum value, by sorting the variable's values from smallest to largest (or from largest to smallest). The marathon results above are already sorted, from smallest time to largest time, and we can just observe the maximum time: 183.17 minutes.
+We can often just observe the maximum value by sorting the values, either from smallest to largest, or from largest to smallest. The marathon results above are already sorted, from smallest time to largest time, and we can just observe the maximum time: it's 183.17 minutes.
 
 # Displaying with a table
 
@@ -88,7 +88,7 @@ Minimum     Q1 Median     Q3 Maximum
  147.33 153.23 155.65 160.07  183.17
 ```
 
-# Visualing with a box
+# Visualising with a box
 
 A common way to visualise the five number summary of a variable is to use a box, which is a geometrical object custom-made for the task. It's a good way to compactly show the distribution of values of a variable. The box can be displayed either vertically or horizontally. Here it is, for the time variable of the marathon data, displayed horizontally:
 
@@ -129,15 +129,15 @@ In the case of the time variable of the marathon data:
 
 $$ \text{Interquartile range} = 160.07 - 153.23 = 6.84 $$
 
-The interquartile range is a measure of how spread out the values of a variable are. It's an alternative to using the range of the variable, which is the difference between the maximum value and the minimum value:
+The interquartile range is a measure of spread of a variable's values. It's an alternative to the *range* of the variable, which is the difference between the variable's maximum and minimum values:
 
 $$ \text{Range} = \text{Maximum} - \text{Minimum} $$
 
-Sometimes the interquartile range gives a better indication of spread than the range. The range is effected by how small the minimum value is, and how large the maxiumum value is. If one or both of these is unusually extreme, then the range might not be very indicative of the spread of values. The interquartile range, on the other hand, is not effected by the minimum or maximum values - it's determined by the first and third quartiles instead. So, if one or both of the minimum and maximum values are unusually extreme, then the interquartile range might give a better indication of spread.
+Sometimes the interquartile range gives a better indication of spread than the range. The range is affected by how small the minimum value is, and how large the maximum value is. If one or both of these is unusually extreme, then the range might not be very indicative of the spread of values. The interquartile range, on the other hand, is not affected by the minimum or maximum values - it's determined by the first and third quartiles instead. So, if one or both of the minimum and maximum values are unusually extreme, then the interquartile range might give a better indication of spread.
 
 # Distinguishing outliers
 
-Sometimes it's better to exclude the most extreme values when visualising the five number summary. These are called "outliers".
+Sometimes it's better to exclude the most extreme values when visualising the five number summary. These extreme values are called "outliers".
 
 There's a formula that's often used to quantify what counts as an outlier.
 
@@ -163,7 +163,7 @@ $$ \begin{align*}
                    &= 170.33 \\
 \end{align*} $$
 
-Next, we find the outliers. In this case, an outlier is any value that is either less than 142.97, or greater than 170.33. There are no values less than 142.97, but there are six values greater than 170.33. These are the outliers:
+Next, we find the outliers. In this case, an outlier is any value that is either less than 142.97, or greater than 170.33. There are no values less than 142.97, but there are six values greater than 170.33. So there are six outliers:
 
 ```
 173.43
@@ -174,7 +174,7 @@ Next, we find the outliers. In this case, an outlier is any value that is either
 183.17
 ```
 
-To show outliers when visualising the five number summary, we place the whiskers at the fences, rather than at the minimum and maximum values. And we show the outliers as separate points. Here's what we get:
+To show outliers when visualising the five number summary, we place the whiskers at the fences, rather than at the minimum and maximum values. And we show the outliers as separate points. Here's what we get for the marathon data:
 
 <div id="outliers"></div>
 <script src="https://code.highcharts.com/highcharts-more.js"></script>

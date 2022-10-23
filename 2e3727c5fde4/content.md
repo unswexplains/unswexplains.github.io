@@ -10,7 +10,7 @@ When we work with data, it's important to know about the scale that each variabl
 
 In what follows, we go through some of the main properties of scales.
 
-# Scale value types
+# Value types
 
 The most important property of a scale is the type of values it has. Here are the types you are most likely to encounter: 
 
@@ -24,7 +24,7 @@ The most important property of a scale is the type of values it has. Here are th
 
 Years are not considered to be a special type - they're treated as regular numbers. Why are dates, times, and datetimes special, even though they're often converted into numbers? It's because they have special ways of being formatted, and special ways of being manipulated.
 
-Null is used when data is missing, and there's no value to record. We can't use a particular number for this purpose, such as 0, because 0 can be a valid non-missing value, so we wouldn't be able to tell whether an occurrence of 0 in the data stood for a missing value or a genuine value of 0. The same applies to any other number we might choose. For the same reason, we can't use a particular text value, or boolean value, or date value, or time value, or datetime value. We need the special value Null, whose only use is to represent the lack of a value.
+Null is used when data is missing, and there's no value to record. We can't use a particular number for this purpose, such as 0, because 0 can be a valid non-missing value, so we wouldn't be able to tell whether an occurrence of 0 in the data stood for a missing value or a genuine value of 0. The same applies to any other number we might choose. For the same reason, we can't use a particular text value, or Boolean value, or date value, or time value, or datetime value. We need the special value Null, whose only use is to represent the lack of a value.
 
 # Discrete versus continuous scales
 
@@ -86,7 +86,7 @@ The Celsius temperature scale, for example, is linear. The difference in tempera
   });
 </script>
 
-Not all scales are linear. The Richter scale for measuring the magnitude of earthquakes, for example, isn't linear. The difference in magnitude between earthquakes measuring 5 and 6 on the Richter scale is not the same as the difference in magnitude between earthquakes measuring 8 and 9. An increase of 1 on the Richter scale corresponds to an increase by a *factor of 10* in magnitude. So a magnitude 6 earthquake is 10 times more powerful than a magnitude 5 earthquake, and a magnitude 7 earthquake is 10 times more powerful than a magnitude 6 earthquake (and thus 10 x 10 = 100 times more powerful than a magnitude 5 earthquake.) We can visualise the non-linearity of the Richter scale by showing how it maps magnitudes to values:
+Not all scales are linear. The Richter scale, for measuring the magnitude of earthquakes, isn't linear. The difference in magnitude between earthquakes measuring 5 and 6 on the Richter scale is not the same as the difference in magnitude between earthquakes measuring 8 and 9. An increase of 1 on the Richter scale corresponds to an increase by a *factor of 10* in magnitude. So a magnitude 6 earthquake is 10 times more powerful than a magnitude 5 earthquake, and a magnitude 7 earthquake is 10 times more powerful than a magnitude 6 earthquake (and thus 10 x 10 = 100 times more powerful than a magnitude 5 earthquake.) We can visualise the non-linearity of the Richter scale by showing how it maps magnitudes to values:
 
 <div id="richter"></div>
 <script>

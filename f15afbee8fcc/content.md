@@ -1,8 +1,8 @@
 %% Visualising data with lines %%
 
-# Sydney's monthly maximum temperatures
+# Sydney's temperatures
 
-The Australian Bureau of Meteorology has been measuring the temperature in Sydney each day since 1859, at Observatory Hill (in The Rocks). Between 1859 and 2020, the mean maximum temperatures (in degrees Celsius) for each month, were are as follows:
+The Australian Bureau of Meteorology has been measuring the temperature in Sydney every day since 1859, at Observatory Hill, in The Rocks. Between 1859 and 2020, the mean maximum temperatures for each month, in degrees Celsius, were as follows:
 
 ```
 Month  Max
@@ -23,7 +23,7 @@ DEC   25.2
 
 # Visualising the data with lines
 
-A good way to visualise this data is using lines. Each row is mapped to a line. The month variable is mapped to the horizontal position of the line (i.e. the horizontal position of its starting point), and the temperature variable is mapped to the vertical position of the line (i.e. the vertical position of its starting point). Each line extends to the next data point.
+A good way to visualise this data is using lines. Each row is mapped to a line. The month variable is mapped to the horizontal position of the line (i.e. the horizontal position of its starting point), and the temperature variable is mapped to the vertical position of the line (i.e. the vertical position of its starting point). Each line extends to the next point.
 
 <div id="chart"></div>
 <script>
@@ -88,9 +88,9 @@ You could visualise this data using points or bars instead. Try it for yourself:
   });
 </script>
 
-You'll probably agree that points and bars are not as good for this data as lines.
+You'll probably agree that for this data, points and bars are not as good as lines.
 
-Lines naturally give the impression of continuity between the values, whereas points and bars don't. Giving the impression of continuity is appropriate for this data, because temperature is something that changes continuously from month to month, rather than jumping from discrete value to discrete value. Lines are generally a good way to visualise a variable that changes continously over time.
+Lines naturally give the impression of continuity between the values, whereas points and bars don't. Giving the impression of continuity is appropriate for this data, because temperature is something that changes continuously from month to month, rather than jumping from discrete value to discrete value. Lines are generally a good way to visualise a variable that changes continuously over time.
 
 There's another drawback of using bars in this case. Bars give the impression that we're showing amounts. That's fine for a variable like rainfall, which can appropriately be thought of as an amount (an amount of rain). But it's not so fine for temperature, which is difficult to think of as an amount (what would it be an amount of?).
 
@@ -98,7 +98,7 @@ Another advantage of lines over points and bars is that they can be a better way
 
 # Visualising multiple sets of data
 
-What if we also have data about Sydney's mean minimum temperatures? Here's the data (courtesy, again, of the Australian Bureau of Meteorology):
+What if we also have data about Sydney's mean *minimum* temperatures? Here's the data (courtesy of the Australian Bureau of Meteorology again):
 
 ```
 Month  Max  Min
@@ -117,13 +117,13 @@ NOV   23.7 15.7
 DEC   25.2 17.6
 ```
 
-Let's visualise the minimum and maximum temperatures together. We need a way to visually distinguish the two data sets, and colour is a natural choice. You could also try line width or line style, but colours are usually easier to distinguish. Another advantage of colour is that we can utilise the conventional association between blue colours and cold temperatures, and red colours and hot temperatures. So let's use a blueish colour for the minimum temperatures, and a reddish colour for the maximum temperatures. The association between colours and temperatures is strong, but probably not strong enough that we can do away with the legend - we should keep it.
+Let's visualise the maximum and minimum temperatures together. We need a way to visually distinguish the two data sets, and colour is a natural choice. You could also try line width or line style, but colours are usually easier to distinguish. Another advantage of colour is that we can utilise the conventional association between blue colours and cold temperatures, and red colours and hot temperatures. So let's use a blueish colour for the minimum temperatures, and a reddish colour for the maximum temperatures. The association between colours and temperatures is strong, but probably not strong enough that we can do away with the legend - we should keep it.
 
 <div id="maxmin"></div>
 <script>
   let maxmin = Highcharts.chart("maxmin", {
     chart: {type: "line"},
-  	title: {text: "Monthly Mean Maximum and Minimum Temperatures in Sydney, 1859-2020"},
+  	title: {text: "Monthly Mean Maximum and Minimum Temperature in Sydney, 1859-2020"},
   	caption: {text: "Source: Australian Bureau of Meteorology"},
   	xAxis: {title: {text: ""}, type: "category", gridLineWidth: 1, tickmarkPlacement: "on"},
   	yAxis: {min: 0, title: {text: "Temperature (C)"}, tickInterval: 5},
@@ -194,7 +194,7 @@ Here's what we get when we visualise them together. You can see what difference 
 <script>
   let overlap = Highcharts.chart("overlap", {
     chart: {type: "line"},
-  	title: {text: "Monthly Mean Maximum Temperature in Sydney and Adelaide, 1859-2020"},
+  	title: {text: "Monthly Mean Maximum Temperature in Sydney, Adelaide and Canberra, 1859-2020"},
   	caption: {text: "Source: Australian Bureau of Meteorology"},
   	xAxis: {title: {text: ""}, type: "category", gridLineWidth: 1, tickmarkPlacement: "on"},
   	yAxis: {min: 0, title: {text: "Temperature (C)"}, tickInterval: 5},

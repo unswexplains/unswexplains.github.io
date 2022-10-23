@@ -4,14 +4,14 @@
     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
     <title>The process of data analysis</title>
     <!-- Stylesheets -->
-    <link rel="stylesheet" href="../unswx.css">
+    <link rel="stylesheet" href="../default.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.css" integrity="sha384-Um5gpz1odJg5Z4HAmzPtgZKdTBHZdw8S29IecapCSB31ligYPhHQZMIlWLYQGVoc" crossorigin="anonymous" >
     <!-- Scripts -->
     <script src="https://pages.itsy.tech/fab6bfd16e?boxall"></script>
     <script src='https://code.highcharts.com/highcharts.js'></script>
     <script src="https://code.highcharts.com/highcharts-more.js"></script>
     <script src="https://code.highcharts.com/modules/heatmap.js"></script> 
-    <script src="../unswx.js"></script>
+    <script src="../default.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.js" integrity="sha384-YNHdsYkH6gMx9y3mRkmcJ2mFUjTd0qNQQvY9VYZgQd7DcN7env35GzlmFaZ23JGp" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/contrib/auto-render.min.js" integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.13/ace.js'></script>
@@ -23,9 +23,9 @@
     <header>
       The process of data analysis    </header>
     <main>
-      <p>Suppose you have some data that you're ready to use - you understand what the cases and variables are, you've checked the data for trustworthiness, and you've done any necessary tidying of the columns and rows. How do you now use the data to get useful knowledge?</p>
+      <p>Suppose you have some data that you're ready to use - you understand what the cases and variables are, you've checked that the data is trustworthy, and you've done any necessary tidying of the columns and rows. How do you now use the data to get useful knowledge?</p>
 <h1>Exam data</h1>
-<p>To make things concrete, we'll do some analysis of an example data set. Suppose you're the Year 10 coordinator at your local high school. The end of year exams have just been held, and you have the results of the mathematics exam. There are 75 students spread across 3 classes, 10A, 10B, and 10C, and the exam was out of 100. Here are the results: </p>
+<p>To make things concrete, we'll analyse an example data set. Suppose you're the Year 10 coordinator at your local high school. The end of year exams have just been held, and you've got the results of the mathematics exam. There are 75 students spread across 3 classes, 10A, 10B, and 10C, and the exam was out of 100. Here's a sample of the results: </p>
 <pre><code>Class Mark
 ----- ----
 10A     94
@@ -35,7 +35,7 @@
 10B     51
 10C     64
 etc</code></pre>
-<p>What interesting or useful knowledge might we get out of these results, and how?</p>
+<p>What interesting or useful knowledge can we get from these results, and how?</p>
 <h1>What we're looking for</h1>
 <p>We're hoping to learn things that are interesting, or useful, or both. There are many kinds of things we might learn, but they generally fall into three categories:</p>
 <ul>
@@ -43,9 +43,10 @@ etc</code></pre>
 <li>How the distribution of values of a variable compares between two or more subsets of cases</li>
 <li>Whether and how two variables are related</li>
 </ul>
+<p>We'll illustrate each of these, and then reflect upon the process as a whole.</p>
 <h1>The distribution of values of a variable</h1>
-<p>Consider the mark variable of the exam data. What are its distinct values? How frequently does each occur? Which value is the most frequent? Which value is the least frequent? Is there anything interesting or unusual about their distribution? Are there any unusually high or low values?</p>
-<p>Because the mark variable has many possible values (101 of them, from 0 to 100), it's more interesting to create a new variable which groups them, and examine the distribution of this new variable instead. Suppose your school has a standard way of grouping marks, into grades. The conversion goes like this: E = 0-49, D = 50-64, C = 65-74, B = 75-84, and A = 85-100. Here's the exam data, with the grade variable added: </p>
+<p>Consider the mark variable of the exam data. What are its distinct values? How frequently does each occur? Which value is the most frequent? Which value is the least frequent? Is there anything interesting or unusual about their distribution?</p>
+<p>Because the mark variable has many possible values (101 of them, from 0 to 100), it's more interesting to create a new variable which groups them, and to examine the distribution of this new variable instead. Suppose your school has a way of grouping marks into grades, that goes as follows: E = 0-49, D = 50-64, C = 65-74, B = 75-84, and A = 85-100. Here's the exam data, with the grades calculated and added as a new variable called &quot;grade&quot;: </p>
 <pre><code>Class Mark Grade
 ----- ---- -----
 10A     94     A
@@ -55,7 +56,8 @@ etc</code></pre>
 10B     51     D
 10C     64     D
 etc</code></pre>
-<p>The questions we started with, about distribution, are difficult to answer from the data in this form - it needs some transformation. One helpful transformation is to create a frequency table for the grade variable. It has two columns. In the first column are the distinct values of the variable; in the second column are the frequencies of each value (the number of times it occurs). Here is the result of this transformation, a new table of data:</p>
+<p>The questions we started with, about the distribution of the mark variable, can also be asked about the grade variable. They're difficult to answer with the data in this form - it needs some transformation.</p>
+<p>One helpful transformation is to create a frequency table for the variable. It has two columns. In the first column are the distinct values of the variable; in the second column are the frequencies of each value (the number of times each occurs). Here is the result of this transformation - it's a new table of data:</p>
 <pre><code>Grade Frequency
 ----- ---------
 A            10
@@ -63,7 +65,7 @@ B            23
 C            32
 D             8
 E             2</code></pre>
-<p>This frequency table allows us to answer many of our questions about the distribution of the grade variable. What are its distinct values? A, B, C, D, and E. How frequently does each value occur? A: 10 times, B: 23 times, and so on. Which value is the most frequent? C. Which value is the least frequent? E. Is there anything interesting or unusual about their distribution? For this last question it helps to visualise the data, and a good way is to use bars:</p>
+<p>This frequency table allows us to answer many of our questions about the distribution of the grade variable. What are its distinct values? A, B, C, D, and E. How frequently does each value occur? A: 10 times, B: 23 times, and so on. Which value is the most frequent? C. Which value is the least frequent? E. Is there anything interesting or unusual about their distribution? For this last question, it helps to visualise the data, and a good way is to use bars:</p>
 <div id="bars"></div>
 <script>
   Highcharts.chart("bars", {
@@ -78,8 +80,8 @@ E             2</code></pre>
     }]
   });
 </script>
-<p>Visualising the distribution this way reveals a distinct jump in frequencies from D to C. Why such a big difference between these two grades? Perhaps some of the questions of middle difficulty need to be made more difficult for next time. Or perhaps something else is going on. The main thing is, by analysing and visualising the distribution of grades we've spotted a potential problem.</p>
-<h1>Comparing the distribution of two or more subsets</h1>
+<p>Visualising the distribution in this way reveals a distinct jump in frequencies from D to C. Why such a big difference between the two grades? Perhaps some of the questions of middle difficulty were too easy? Or perhaps something else is going on? The main thing is, that by analysing and visualising the distribution of grades we've spotted a potential problem.</p>
+<h1>The distribution for two or more subsets</h1>
 <p>How do the distributions of grades in each class compare to each other? This question involves considering three subsets of the data: the rows for 10A, the rows for 10B, and the rows for 10C. For each subset we can figure out the distribution, and then compare them.</p>
 <p>Again, a good way is to create a frequency table, but now we calculate the frequency of each value in each class. This is what we get:</p>
 <pre><code>Class Grade Frequency
@@ -158,7 +160,7 @@ E             2</code></pre>
 <li><strong>First quartile (Q1)</strong>: the middle of the lower half of values.</li>
 <li><strong>Third quartile (Q3)</strong>: the middle of the upper half of values.</li>
 <li><strong>Interquartile range (IQR)</strong>: the difference between the third and first quartiles.</li>
-<li><strong>Variance</strong>: the mean squared deviation of values from the mean.</li>
+<li><strong>Variance</strong>: the mean squared deviation of values from their mean.</li>
 <li><strong>Standard deviation</strong>: the square root of the variance.</li>
 </ul>
 <p>Calculating these summary statistics for each class gives us a new data set:</p>
@@ -172,7 +174,7 @@ E             2</code></pre>
 <script>
   Highcharts.chart("boxes", {
     chart: {type: "boxplot"},
-    title: {text: "Comparison of Class Results"},
+    title: {text: "Distribution of Marks"},
     legend: {enabled: false},
     xAxis: {type: "category", title: {text: ""}},
     yAxis: {min: 0, max: 100, title: {text: "Mark"}, tickInterval: 5},
@@ -213,9 +215,9 @@ Another way is to have three scatter plots:
 10B      51      53
 10C      64      64
 etc</code></pre>
-<p>A quick glance at this extended data suggests there might be a relationship between a student's mark in maths and her mark in science - students with higher marks in maths seem to have higher marks in science, and vice-versa. Is there such a relationship?</p>
-<p>This is a different kind of question from the previous ones. Previously, we considered just one variable. We looked at the distribution of its values overall, and also compared the distribution of its values for each class. In this case, we're considering <em>two</em> variables, and wondering whether and how the values of one vary with the values of the other.</p>
-<p>A good way to answer this question is to visualise the data using points. We map one variable to the horizontal position of a point, and the other variable to the vertical position. Here's what we get. As you can see, this visualisation shows quite clearly that the two scores are indeed related:</p>
+<p>A quick glance at this extended data set suggests there might be a relationship between a student's mark in maths and her mark in science - students with higher marks in maths seem to have higher marks in science, and students with lower marks in maths seem to have lower marks in science. Is there such a relationship?</p>
+<p>This is a different kind of question from the previous ones. Previously, we considered just one variable. We looked at the distribution of its values overall, and also compared the distribution of its values for each class. In this case, we're considering <em>two</em> variables, and wondering whether and how the values of one variable vary with the values of the other.</p>
+<p>A good way to answer this question is to visualise the data using points. We map one variable to the horizontal position of a point, and the other variable to its vertical position. Here's what we get. As you can see, this visualisation shows quite clearly that the maths and science scores are indeed related:</p>
 <div id="corr"></div>
 <script>
   Highcharts.chart("corr", {
@@ -240,9 +242,9 @@ etc</code></pre>
 \Uparrow         &amp;             &amp; \Downarrow       \\
 \text{Transform} &amp; \Longleftarrow  &amp; \text{Visualise} \\
 \end{matrix} $$</p>
-<p>The process typically involves a lot of trial and error, and many dead-ends. So don't be surprised or dismayed if this happens to you; actually, you can expect it to.</p>	  </main>
+<p>The process typically involves a lot of trial and error, and many dead-ends. So don't be surprised or dismayed if this happens; you should expect it to.</p>	  </main>
         <footer>
-      <span id='datetime'>Generated on 20 October 2022 at 9:23 am</span>
+      <span id='datetime'>Generated on 24 October 2022 at 6:52 am</span>
     </footer>
   </body>
 </html>

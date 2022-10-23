@@ -4,8 +4,8 @@ When we collect data we typically store it, and when we store it we use some for
 
 To help, imagine you've just collected the following data about two of your friends:
 
-- Jane Johnson was born on 24 June 1968, and her email address is jane34@readymail.com.
-- Peter Simons was born on 1 October 1989, and his email address is p.simons@goget.com.au.
+- Jane Johnson was born on 24 June 1968, and her email address is jane34@readymail.com
+- Peter Simons was born on 1 October 1989, and his email address is p.simons@goget.com.au
 
 We'll show how you might store this data using each of the formats.
 
@@ -29,7 +29,7 @@ If the data is given to you in some kind of visual way, then you could take a ph
 
 This kind of storage is becoming increasingly common. Suppose you find a shirt that you like while shopping, and you want to remember it for later. You might take a photo of the tag. You'd thereby be storing data in a photo.
 
-# Hand written notes
+# Handwritten notes
 
 You could write the data on a piece of paper.
 
@@ -39,13 +39,13 @@ Much of our data is stored this way, at least to begin with. Notes are quick and
 
 You could type the data into a text file.
 
-This is another very common way that we store data. Text files are easier to work with systematically than hand written notes.
+This is another very common way that we store data. Text files are easier to work with systematically than handwritten notes.
 
 # A CSV file
 
 You could enter the data into a CSV (Comma Separated Values) file.
 
-A CSV file is like a regular text file, but it imposes more structure on the data. The cases of the data (the observations) are separated by line breaks (so each case starts on a new line). Within each line, the variable values are separated by commas. Optionally, the first row is used to store the names of the variables, in which case its called a **header row**. Here's the data about your friends, in CSV format, with a header row: 
+A CSV file is like a regular text file, but it imposes more structure on the data. The cases of the data (the observations) are separated by line breaks (so each case starts on a new line). Within each line, the variable values are separated by commas. Optionally, the first row is used to store the names of the variables, in which case it's called a **header row**. Here's the data about your friends, in CSV format, with a header row: 
 
 ```
 firstName,lastName,dob,email
@@ -71,7 +71,7 @@ Because CSV and TSV formats impose more structure on the data than a regular tex
 
 You could enter the data into a spreadsheet file, such as a Microsoft Excel file or a Google Sheets file.
 
-A spreadheet file is like a CSV file, but it contains lots of additional metadata (data about the data). This includes instructions for how to present the data - how to align columns, how to shade cells, which rows to hide, and so on. And instructions for how to calculate columns from other columns. And a vast range of other things. As you'll be aware, this is a very commonly used format for storing data - organisations tend to rely heavily on Excel spreadsheets.
+A spreadsheet file is like a CSV file, but it contains lots of additional metadata (data about the data). This includes instructions on how to present the data - how to align columns, how to shade cells, which rows to hide, and so on. And instructions for how to calculate columns from other columns. And a vast range of other things. As you'll be aware, this is a very commonly used format for storing data - organisations tend to rely heavily on Excel spreadsheets.
 
 # A relational database
 

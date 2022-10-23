@@ -1,8 +1,8 @@
 %% Tabulating frequencies %%
 
-# Hosts of the Summer Olympics
+# Olympic hosts
 
-By 2032, there will have been 32 Modern Summer Olympic Games, since they began in 1896. Here's a list of the host cities, with their country and region:
+The Modern Summer Olympic Games were first held in 1896, and by 2032 they will have been held 32 times. Here's a sample of the host cities, with their country and region:
 
 ```
 Year City           Country   Region
@@ -22,11 +22,11 @@ Year City           Country   Region
 
 This data raises many interesting questions. By 2032, which cities will have hosted the games more than once? How frequently will each country have hosted them? What about the regions?
 
-The answers to all these questions are there in the raw data, but they're difficult to see without some analysis. One helpful kind of analysis is to transform the data into **frequency tables**.
+The answers to all of these questions are there in the raw data, but they're difficult to see without some analysis. One helpful kind of analysis is to transform the data into one or more **frequency tables**.
 
 # Frequency tables
 
-We can create a frequency table for any of the variables. First, we choose a variable. Then, we create a table with two columns. In the first column we have the different values of the variable. In the second column we have the frequency of each value - the number of times it occurs. Optionally, we can add a total row at the end of the table.
+We can create a frequency table for any variable in the data set. First, we choose a variable. Then, we create a table with two columns. In the first column we list the different values of the variable. In the second column we list the frequency of each value - the number of times it occurs. Optionally, we can add a total row at the end.
 
 Here's the frequency table for the region variable of the Olympics data, with a total row added:
 
@@ -43,13 +43,13 @@ Africa                0
 Total                32
 ```
 
-There are two columns. In the first column we have the different values of the region variable. In the second column we have the frequency of each value.
+Notice that the table has two columns. In the first column are the different values of the region variable, and in the second column are the frequencies of each value.
 
-There are various ways we might sort the rows of a frequency table. In the table above, we've sorted them by frequency (from highest to lowest). It's common to sort the rows this way, by frequency, either from highest to lowest, or from lowest to highest. This allows us to easily see the most frequent and least frequent values, which is often what we're interested in. We might also sort the rows by the values of the variable. That can be useful, especially if we're using the table to lookup the frequency of any given value - they're easiest to find when they're in order.
+There are various ways we might sort the rows of a frequency table. In the table above, we've sorted them by frequency, from highest to lowest. It's common to sort the rows by frequency in this way, either from highest to lowest, or from lowest to highest. This allows us to easily see the most frequent and least frequent values, which is often what we're interested in. We might also sort the rows by the values of the variable. This can be useful too, for instance if we're using the table to look up the frequency of any given value - the values are easiest to find when they're in order.
 
 # Visualising frequency tables
 
-As well as inspecting it, we often visualise the data in a frequency table too - this makes it more vivid.
+As well as inspecting a frequency table, we often visualise it too - this makes the data in the table more vivid.
 
 Here's a visualisation of the frequency table above, using bars:
 
@@ -69,7 +69,7 @@ Here's a visualisation of the frequency table above, using bars:
   });
 </script>
 
-When we visualise the frequency table of a variable using bars, as we have done here, the result is said to be a **frequency histogram** of the variable.
+When we visualise the frequency table of a variable using bars, as we've done here, the result is said to be a **frequency histogram** of the variable.
 
 If there aren't many values of the variable, and they're sufficiently different, you might also visualise the frequency table using wedges, to get a pie chart. Here's a pie chart for the frequency table above:
 
@@ -96,9 +96,9 @@ There's no special terminology for the value (or values) of a variable with the 
 
 # Relative frequencies
 
-Sometimes we're interested, not in the frequency of each value of a variable, but in its **relative frequency**. The relative frequency of a value is the frequency of the value, divided by the sum of all the frequencies.
+Sometimes we're interested, not in the *frequency* of each value of a variable, but in its **relative frequency**. The relative frequency of a value is the frequency of the value, divided by the sum of all the frequencies.
 
-Here's how we calculate the relative frequency of the value Europe of the region variable above:
+Here's how we calculate the relative frequency of the value "Europe" for the region variable above:
 
 $$ \begin{align*}
 \text{Relative frequency of Europe} &= \frac{\text{Frequency of Europe}}{\text{Sum of all frequencies}} \\
@@ -109,7 +109,7 @@ $$ \begin{align*}
 
 The result is always a fraction between 0 and 1, inclusive (can you see why?). Like any fraction, we can express it as a percentage. In the example above, the fraction is 0.53, which is 53%. It's common to express relative frequencies using percentages.
 
-Here is our frequency table, with the relative frequencies included, and also the totals. Note that the relative frequencies total to 100%, which they always should (again, can you see why?).
+Here is our frequency table, with the relative frequencies included, and also the totals. Note that the relative frequencies add to 100%, which they always should (again, can you see why?).
 
 ```
 Region        Frequency Relative Frequency
@@ -126,7 +126,7 @@ Total                32               100%
 
 # Using bins
 
-If a variable has a large number of values, each of which has a low frequency, then its frequency table is probably not very illuminating.
+If a variable has a large number of values, each of which has a low frequency, then its frequency table tends to not be very illuminating.
 
 Consider, for example, the finishing times (in minutes) in the men's marathon at the 2020 Tokyo Olympics:
 
@@ -167,14 +167,14 @@ Here's how the frequency table of the time variable looks, if we use bins as ind
 ```
 Time Bin Frequency
 -------- ---------
-125-130          2
-130-135         17
-135-140         29
-140-145         18
-145-150          6
-150-155          3
-155-160          0
-160-165          1
+ 125-130         2
+ 130-135        17
+ 135-140        29
+ 140-145        18
+ 145-150         6
+ 150-155         3
+ 155-160         0
+ 160-165         1
 ------- ----------
 Total           76
 ```

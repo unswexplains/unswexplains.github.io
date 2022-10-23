@@ -36,11 +36,19 @@ Don’t draw causal conclusions (e.g. correlation is not causation). We need to 
 
 It's okay to note things for further investigation.
 
+# Compare fair things
+
+Number of church goers has risen, sure, but what about the proportion? General population has risen too.
+
 # Take care
 
 With calculations - double check them.
 
 Other people might be relying on you.
+
+# Reported data
+
+Be aware of what data comes from reports. Rates of infection have dropped, versus reported rates of infection have dropped.
 
 # Be transparent
 

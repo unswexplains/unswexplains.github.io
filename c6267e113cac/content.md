@@ -92,7 +92,7 @@ When we're collecting data, the way we measure values can vary quite a bit, depe
 
 Sometimes we measure by observation. This is how you might measure the registration, make, and colour of the cars in the supermarket parking lot. As mentioned above, it's a bit odd to use the term "measurement" for this, but it still counts as measurement.
 
-Sometimes we measure by using an instrument of some kind, such as a tape measure, or some scales, or a thermometer. This is how you might measure the lengths of the cars - using a tape measure.
+Sometimes we measure by using an instrument of some kind, such as a tape measure, or scales, or a thermometer. This is how you might measure the lengths of the cars - using a tape measure.
 
 Sometimes we measure by calculation. This is how you might measure the frequency of words in a document, for example.
 

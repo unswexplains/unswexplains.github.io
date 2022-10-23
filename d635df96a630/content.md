@@ -1,8 +1,8 @@
 %% Visualising data with boxes %%
 
-# The 2020 Tokyo Olympics women's marathon
+# The women's marathon
 
-There were 73 finishers in the women's marathon at the 2020 Tokyo Summer Olympics. Here are their times, in minutes:
+There were 73 finishers in the women's marathon at the 2020 Tokyo Olympics. Here's a selection of their times, in minutes:
 
 ```
 Pos Name                    Time
@@ -20,11 +20,11 @@ Pos Name                    Time
  73 Dayna PIDHORESKY      183.17
 ```
 
-How are their times spread?
+How are their times distributed? Are the evenly distributed from first to last? Do they cluster in the middle? Do they cluster towards one of the ends? Are there two or more clusters?
 
 # Their five number summary
 
-One way to see is to calculate their so-called "five number summary". This is a commonly used statistical description of a set of values. It includes: 
+One way to gauge the distribution of the times is to calculate their so-called "five number summary". This is a commonly used statistical description of a set of values. It includes: 
 
 - The minimum value. This is the smallest (fastest) time, which is 147.33 minutes.
 
@@ -44,9 +44,9 @@ Minimum     Q1 Median     Q3 Maximum
  147.33 153.23 155.65 160.07  183.17
 ```
 
-# Visualing using a box
+# Visualising using a box
 
-This table of numbers gives us some idea of the spread of the times, but we can see the spread more vividly by visualising them using a **box**. When the x-axis starts at 0, the box is a bit hard to see - you can use the options below the visualisation to zoom in and out. 
+This table of numbers gives us some idea of the distribution of the times, but we can see it more vividly by visualising them using a **box**. When the x-axis starts at 0, the box is a bit hard to see - you can use the options below the visualisation to zoom in and out. 
 
 <div id="chart"></div>
 <script src="https://code.highcharts.com/highcharts-more.js"></script>
@@ -62,10 +62,10 @@ This table of numbers gives us some idea of the spread of the times, but we can 
     }]
   });
 </script>
-<label onclick="chart.update({yAxis: {min: 0, max: 200}})"><input type="radio" name="chart" checked/>Full</label>
+<label onclick="chart.update({yAxis: {min: 0, max: 200}})"><input type="radio" name="chart" checked/>Unzoomed</label>
 <label onclick="chart.update({yAxis: {min: 140, max: 190}})"><input type="radio" name="chart" />Zoomed</label>
 
-This is called a **box plot** (or a "box and whisker plot"). It has the following five visual properties: 
+This is called a **box plot** (or a "box and whisker plot"). The box has the following five visual properties: 
 
 - Position of the left/bottom whisker
 - Position of the left/bottom of the box
@@ -79,15 +79,15 @@ Boxes are a good way to show the distribution of values of a variable in a compa
 
 # Distinguishing outliers
 
-Sometimes it's better to exclude the most extreme values when visualising the five number summary. These are called "outliers".
+Sometimes it's better to exclude the most extreme values when visualising the five number summary. These extreme values are called "outliers".
 
 There's a formula that's often used to quantify what counts as an outlier.
 
-First, we calculate the distance between Q1 and Q3 (i.e. Q3 - Q1), which is called the **interquartile range** and given the symbol IQR. In this case, IQR is 160.07 - 153.23, which is 6.84.
+First, we calculate the distance between Q1 and Q3, which is Q3 - Q1. This is called the **interquartile range**, often abbreviated to IQR. In this case, IQR is 160.07 - 153.23, which is 6.84.
 
-Next, we define an outlier to be any value that is more than 1.5 IQRs below Q1, or any value that is more than 1.5 IQRs above Q3. In this case, that means any value that is below 142.97, or any value that is above 170.33.
+Next, we define an outlier to be any value that is either more than 1.5 IQRs below Q1, or more than 1.5 IQRs above Q3. In this case, that means any value that is either below 142.97, or above 170.33.
 
-This gives us the following outliers:
+There are no values below 142.97, but there are six values above 170.33. So there are six outliers:
 
 ```
 173.43
@@ -98,7 +98,7 @@ This gives us the following outliers:
 183.17
 ```
 
-We stop the whiskers of the box before they get to the outliers, and we show the outliers as separate points. Here's what we get:
+We stop the whiskers of the box before they get to the outliers, and we show the outliers as separate points. Here's what we get (zoomed in):
 
 <div id="outliers"></div>
 <script src="https://code.highcharts.com/highcharts-more.js"></script>
@@ -123,25 +123,25 @@ We stop the whiskers of the box before they get to the outliers, and we show the
 
 Boxes are especially useful for showing multiple distibutions in one visualisation, where space can be at a premium.
 
-There were 76 finishers in the men's marathon at the 2020 Tokyo Summer Olympics. Here are their times:
+There were 76 finishers in the men's marathon at the 2020 Tokyo Olympics. Here's a selection of their times (in minutes):
 
 ```
-Pos Name                     Time Minutes
---- --------------------- ------- -------
-  1 Eliud KIPCHOGE        2:08:38  128.63
-  2 Abdi NAGEEYE          2:09:58  129.97
-  3 Bashir ABDI           2:10:00  130.00
-  4 Lawrence CHERONO      2:10:02  130.03
-  5 Ayad LAMDASSEM        2:10:16  130.27
+Pos Name                   Time
+--- -------------------- ------
+  1 Eliud KIPCHOGE       128.63
+  2 Abdi NAGEEYE         129.97
+  3 Bashir ABDI          130.00
+  4 Lawrence CHERONO     130.03
+  5 Ayad LAMDASSEM       130.27
 ...
- 72 Cameron LEVINS	      2:28:43  148.72
- 73 Yuma HATTORI          2:30:08  150.13
- 74 Jesus ARTURO ESPARZA  2:31:51  151.85
- 75 Jorge CASTELBLANCO	  2:33:22  153.37
- 76 Ivan ZARCO	          2:44:36  164.60
+ 72 Cameron LEVINS       148.72
+ 73 Yuma HATTORI         150.13
+ 74 Jesus ARTURO ESPARZA 151.85
+ 75 Jorge CASTELBLANCO	 153.37
+ 76 Ivan ZARCO	         164.60
 ```
 
-Here is their five number summary:
+Here's their five number summary:
 
 ```
 Minimum     Q1 Median     Q3 Maximum
@@ -157,7 +157,7 @@ Here are the outliers:
 164.60
 ```
 
-And here's what we get when we visualise the women and men together:
+And here's what we get when we visualise the women and men together. Notice that it shows clearly how the two distributions compare:
 
 <div id="both"></div>
 <script src="https://code.highcharts.com/highcharts-more.js"></script>

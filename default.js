@@ -22,7 +22,6 @@ window.addEventListener('load', function(){
     try {return window.self !== window.top}
     catch (e) {return true}
   }
-  /*
   if (inIframe()) {
     document.documentElement.style.backgroundColor = "white";
     document.body.style.maxWidth = "100%";
@@ -34,7 +33,6 @@ window.addEventListener('load', function(){
     document.querySelector("footer").style.display = "none";
     Highcharts.charts.forEach((x) => x.reflow());
   }
-  */
   // Set links to open in new window
   document.querySelectorAll("a[href^='http']").forEach(x => x.setAttribute('target', '_blank'));
   // Process maths
