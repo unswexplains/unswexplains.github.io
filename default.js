@@ -26,7 +26,7 @@ window.addEventListener('load', function(){
     document.documentElement.style.backgroundColor = "white";
     document.body.style.maxWidth = "100%";
     document.getElementById("who").style.display = "none";
-    document.querySelector("header").style.display = "none";
+    //document.querySelector("header").style.display = "none";
     document.getElementById("reader").style.display = "none";
     document.querySelector("main").style.padding = 0;
     document.querySelector("main").style.paddingRight = "20px";
