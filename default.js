@@ -29,7 +29,8 @@ window.addEventListener('load', function(){
     //document.querySelector("header").style.display = "none";
     document.getElementById("reader").style.display = "none";
     document.querySelector("main").style.padding = 0;
-    document.querySelector("main").style.paddingRight = "20px";
+    //document.querySelector("main").style.paddingRight = "20px";
+    document.querySelector("main").style.paddingTop = "20px";
     document.querySelector("footer").style.display = "none";
     Highcharts.charts.forEach((x) => x.reflow());
   }
