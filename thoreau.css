@@ -1,0 +1,113 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto");
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono");
+body {
+  font-family: "Roboto";
+  font-size: 16px;
+}
+.block {
+  cursor: pointer;
+  margin: 0;
+  min-height: 1em;
+}
+.block *:first-child {
+  margin-top: 0;
+}
+.block *:last-child {
+  margin-bottom: 0;
+}
+.block.selected:not(.cut):not(.copied) {
+  outline: medium black dashed;
+}
+.block.selected.cut {
+  outline: medium red dashed;
+}
+.block.selected.copied {
+  outline: medium green dashed;
+}
+.block.cut:not(.selected) {
+  outline: thin red dashed;
+}
+.block.copied:not(.selected) {
+  outline: thin green dashed;
+}
+.block:not(.selected):hover {
+  outline: thin gray dashed;
+}
+.content {
+  background-color: white;
+  bottom: 0;
+  box-sizing: border-box;
+  left: 200px;
+  overflow-y: auto;
+  position: fixed;
+  right: 0;
+  top: 0;
+}
+.hidden {
+  display: none;
+}
+#editButtons {
+  position: absolute;
+  right: 1em;
+  top: 1.5em;
+}
+#editButtons button {
+  margin-left: 0.5em;
+  padding: 0.25em;
+  width: 6em;
+}
+#editor {
+  border: thin lightgray solid;
+  bottom: 20px;
+  box-sizing: border-box;
+  left: 1em;
+  position: absolute;
+  right: 1em;
+  top: 65px;
+}
+#editTitle {
+  color: gray;
+  margin: 16px 0;
+}
+#html {
+  padding: 1em;
+}
+#leftbar {
+  background-color: whitesmoke;
+  bottom: 0;
+  box-sizing: border-box;
+  left: 0;
+  overflow-y: auto;
+  padding: 1em;
+  position: fixed;
+  top: 0;
+  width: 200px;
+}
+#leftbar button {
+  display: block;
+  margin-bottom: 0.5em;
+  padding: 0.25em;
+  width: 100%;
+  /*
+  width: 100%;
+  box-sizing: border-box;
+  background-color: lightgray;
+  */
+}
+#markdown {
+  padding: 0 1em;
+}
+#rightbar {
+  border-left: thin lightgray solid;
+  bottom: 0;
+  box-sizing: border-box;
+  overflow-y: auto;
+  padding: 1em;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 100px;
+}
+#topbar {
+  position: relative;
+}
