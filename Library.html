@@ -1,0 +1,165 @@
+<!doctype html>
+<html>
+  <head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.13/ace.js"></script>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Roboto");
+      @import url("https://fonts.googleapis.com/css2?family=Roboto+Mono");
+      :root {
+        --left-width: 400px;
+        --tabs-height: 40px;
+      }
+      body {font-family: "Roboto";}
+      .hidden {display: none;}
+      a.selected {background-color: white;}
+      #left {position: fixed; left: 0; top: 0; width: var(--left-width); bottom: 0; box-sizing: border-box; background-color: whitesmoke; padding: 0 1em; overflow-y: auto;}
+      #right {position: fixed; left: var(--left-width); top: 0; right: 0; bottom: 0;}
+      #tabs {height: var(--tabs-height); border-bottom: thin lightgrey solid;}
+      #main {position: absolute; left: 0; top: var(--tabs-height); right: 0; bottom: 0;}
+      #markdown {position: absolute; width: 100%; height: 100%; box-sizing: border-box; border: none; padding: 0 20px 20px 0;}
+      #html {position: absolute; width: 100%; height: 100%; box-sizing: border-box; border: none; padding: 0 20px 20px 20px;}
+      #result {position: absolute; width: 100%; height: 100%; box-sizing: border-box; border: none; padding: 0 20px 20px 20px;}
+      #topics a {display: block; padding: 0.25em 0; cursor: pointer;}
+      #results a {display: block; padding: 0.25em 0; cursor: pointer;}
+      #view {position: fixed; top: 0; bottom: 0; height: 100%; right: 0; width: 75%; border: thin lightgray solid; box-sizing: border-box;}
+      #results td {background-color: whitesmoke}
+      #results em {font-style: normal; font-weight: bold;}
+    </style>
+  </head>
+  <body>
+    <div id="left">
+      <h1>UNSW Explains</h1>
+      <a href="https://unswx.github.io/thoreau" target="thoreau">Launch Thoreau</a>
+      <p><input type="text" id="searchText" onkeypress="search()" placeholder="Search..." autofocus/><button onclick="unsearch()">&times;</button></p>
+      <div id="topics"></div>
+      <div id="results" class="hidden"></div>
+    </div>
+    <div id="right">
+      <div id="tabs">
+        <button onclick="showTab('markdown')">Markdown</button>
+        <button onclick="showTab('html')">HTML</button>
+        <button onclick="showTab('result')">Result</button>
+      </div>
+      <div id="main">
+        <div id="markdown"></div>
+        <textarea id="html" class="hidden"></textarea>
+        <iframe id="result" class="hidden"></iframe>
+      </div>
+    </div>
+    <script>
+      let ids = [];
+      let topics = [];
+      listTopics();
+      async function getText(url) {
+        let response = await fetch(url);
+        let text = await response.text();
+        return text;
+      }
+      async function view(id) {
+        document.querySelectorAll("a").forEach(x => x.classList.remove("selected"));
+        document.querySelector(`a[id="${id}"]`).classList.add("selected");
+        getText(`https://unswx.github.io/${id}/content.md`).then(text => {
+          editor.setValue(text);
+          editor.navigateFileStart();
+          editor.clearSelection();
+          if (document.getElementById("searchText").value) {
+            editor.findAll(document.getElementById("searchText").value ,{
+              backwards: false,
+              wrap: false,
+              caseSensitive: false,
+              wholeWord: false,
+              regExp: false
+            });
+          }
+        })
+        getText(`https://unswx.github.io/${id}/index.html`).then(text => {
+          document.getElementById("html").value = text;
+        });
+        document.getElementById("result").src = `https://unswx.github.io/${id}`;
+        /*
+        let url = `https://unswx.github.io/${id}/index.html`;
+        fetch(url)
+          .then(response => response.text())
+          .then(text => {
+            text = text.replaceAll("../unswx.js", "https://unswx.github.io/unswx.js");
+            text = text.replaceAll("../unswx.css", "https://unswx.github.io/unswx.css");
+            document.getElementById("view").srcdoc = text;
+            console.log(document.getElementById("view").contentWindow.document.body.innerText.trim().split(/\s+/).length)+ " words";
+          });
+        */
+      }
+      window.addEventListener("load", function(){
+        editor = ace.edit(document.getElementById("markdown"), {
+          theme: "ace/theme/textmate",
+          mode: "ace/mode/markdown",
+          minLines: 20,
+          readOnly: true,
+          //maxLines: Infinity,
+          tabSize: 2,
+          printMargin: false,
+          fontFamily: "Roboto Mono",
+          fontSize: 14,
+          wrap: "free",
+          highlightActiveLine: false,
+          autoScrollEditorIntoView: true,
+        });
+      });
+      function showTab(id) {
+        document.querySelectorAll("#main > *").forEach(x => x.classList.add("hidden"));
+        document.getElementById(id).classList.remove("hidden");
+      }
+      async function listTopics() {
+        document.getElementById("topics").innerHTML = "";
+        let json = await getText("https://unswx.github.io/topics.json")
+        ids = JSON.parse(json);
+        for (id of ids) {
+          topics.push({id: id});
+          document.getElementById("topics").innerHTML += `<a id="${id}" onclick="view('${id}')">${id}</a>`;
+          getTopicName(id);
+          async function getTopicName(id) {
+            let text = await getText(`https://unswx.github.io/${id}/content.md`);
+            text = text.trim();
+            let name = id;
+            if (text.startsWith("%%")) name = text.split("%%", 2)[1].trim();
+            document.getElementById(id).textContent = name;
+            let topic = topics.find(x => x.id === id);
+            if (topic) {
+              topic.name = name;
+              topic.matches = 0;
+            }
+          }
+        }
+      }
+      function unsearch() {
+        document.getElementById("searchText").value = "";
+        document.getElementById("searchText").select();
+        document.getElementById("topics").classList.remove("hidden");
+        document.getElementById("results").classList.add("hidden");
+      }
+      function search() {
+        if (event.key === "Enter") {
+          document.getElementById("searchText").select();
+          let searchText = document.getElementById("searchText").value;
+          if (!searchText) {
+            unsearch();
+            return;
+          }
+          document.getElementById("topics").classList.add("hidden");
+          let results = document.getElementById("results");
+          results.classList.remove("hidden");
+          results.innerHTML = "No matches";
+          for (id of ids) check(id);
+          async function check(id) {
+            let text = await getText(`https://unswx.github.io/${id}/content.md`);
+            let indices = [...text.matchAll(new RegExp(searchText, 'gi'))].map(x => x.index);
+            if (indices.length > 0) {
+              if (results.textContent === "No matches") results.textContent = "";
+              let name = document.getElementById(id).innerText;
+              document.getElementById("results").innerHTML += `<a id="${id}" onclick="view('${id}')"">${name} (${indices.length})</a>`;
+            }
+          }
+        }
+      }
+    </script>
+  </body>
+</html>
