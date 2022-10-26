@@ -257,7 +257,6 @@ Next, we visualise this table. There are two ways we might do it. One way is to 
     if (item) {item.z++, item.value++;}
     else data.push({x: sexes.indexOf(row.sex), y: grades.indexOf(row.grade), z: 1, value: 1});
   }
-  console.log(data);
   let bubble = Highcharts.chart("bubble", {
     chart: {type: "bubble"},
     title: {text: "Sex and Grade"},

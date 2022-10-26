@@ -129,7 +129,7 @@ Here are the key properties of the correlation coefficient:
 
 Here are some linear relationships and their correlation coefficients (image courtesy of Wikipedia):
 
-![6ff83257845bdcc49da968d0d8f1425efile copy](https://itsy.tech/sites/b166791274bd669ee752f4c34d820e8c.file.jpg)
+![6ff83257845bdcc49da968d0d8f1425efile copy](b166791274.jpg)
 
 # From numbers to words
 
@@ -206,7 +206,7 @@ Here's the wrong way. First, calculate the correlation coefficient. Then, use it
 
 Here are some relationships with a correlation coefficient of 1 or -1 (courtesy of Wikipedia) (ignore the middle one). Notice that relationships with the same correlation coefficient can have quite different slopes: 
 
-![6ff83257845bdcc49da968d0d8f1425efile copy 2](https://itsy.tech/sites/d149110245fc6219a181fae15cf80888.file.jpg)
+![6ff83257845bdcc49da968d0d8f1425efile copy 2](d149110245.jpg)
 
 Here are some relationships with a correlation coefficient of 0.82. Notice how much they vary in shape:
 
@@ -221,4 +221,4 @@ plot(anscombe$x4, anscombe$y4, xlim=c(0,20), ylim=c(0,14), main="Data set 4", xl
 
 Finally, here are some relationships with a correlation coefficient of 0 (courtesy of Wikipedia). Notice that a correlation coefficient of 0 doesn't mean no relationship. Also notice that the relationships are quite diverse:
 
-![6ff83257845bdcc49da968d0d8f1425efile copy2](https://itsy.tech/sites/fceb40f2c0d550b00bf86af586e35c43.file.jpg)
+![6ff83257845bdcc49da968d0d8f1425efile copy2](fceb40f2c0.jpg)

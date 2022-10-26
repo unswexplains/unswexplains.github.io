@@ -1,34 +1,54 @@
-%% $ Regression to the mean %%
+%% Regression to the mean %%
 
-# Three phenomena
+# Three cases
 
-Flight instuctors in the Israeli Air Force have found that when they praise flight cadets for performing a maneuver particularly well they usually do worse the next time, and when they criticise them for doing it particularly poorly they usually do better. Why might that be?
+Suppose that when flight instructors praise their students for performing a manoeuvre particularly well, the students tend to do worse the next time, and when they criticise them for performing a manoeuvre particularly poorly, the students tend to do better. Why might that be? 
 
-An athlete whose picture appears on the cover of Sports Illustrated tends to perform worse during the following season. The "Sports Illustrated jinx". Why might that be?
+Suppose that when an athlete's picture appears on the cover of Sports Illustrated magazine, the athlete tends to perform worse during the following season. Why might that be?
 
-Suppose you find that when people take a certain expensive medicine to relieve their arthritis symptoms their symptoms do indeed tend to improve. Why might that be?
+Suppose that when people take a certain expensive medicine to relieve their arthritis symptoms, their symptoms tend to improve. Why might that be?
 
-# Causal explanations
+# Causal explanations?
 
-In each case, your mind was eager to find some causal explanation.
+When you read these cases, your mind eagerly searched for causal explanations.
 
-Punishment works and reward fails.
+In the first case, you're probably tempted to conclude that praising flight students tends to backfire, whereas punishing them tends to work.
 
-Overconfidence and the pressure of meeting high expectations.
+In the second case, you're probably tempted to conclude that appearing on the cover of Sports Illustrated magazine somehow has a detrimental effect - perhaps the athlete becomes overconfident, or feels the pressure of increased expectation.
 
-The medicine works.
+In the third case, you're probably tempted to conclude that the expensive medicine works.
 
-# Regression to the mean
+# Or regression to the mean?
 
-The causal explanations *might* be correct. But there's a simpler explanation that probably didn't even occur to you.
+Those causal explanations *might* be correct. But there's a simpler explanation in each case, one that probably didn't occur to you, and that you're probably not even aware of.
 
-Must have done exceptionally well, which required an amount of luck, and is bound to not be so lucky next time. Good (or just better than average) performances are typically followed by worse ones. It’s not causal, it’s statistical. Expect RTM when correlation coefficient between two variables is less than perfect.
+The simpler explanation is **regression to the mean**.
 
-# Demo
+Consider the first case. Performing flight manoeuvres requires skill, but it also involves a certain amount of luck. When a student performs a manoeuvre particularly well, it tends to be because she was particularly lucky on that occasion. Chances are, she won't be so lucky next time, and her performance will be worse - it will "regress to the mean". If so, then it's not because of the instructor's praise, it's because she's likely to have less luck next time.
 
-Consider a professional golfer who plays off scratch. Generally gets par, but performance is affected by chance by up to 6 strokes (in either direction). The diagram below shows a simulation of her performance over 50 rounds of golf. Performances that are followed by better ones are shown in green, ones that are followed by worse ones are shown in red, and ones that are followed by equal ones are shown in black.
+Conversely, when a student performs a manoeuvre particularly poorly, it tends to be because she was particularly unlucky on that occasion. Chances are, she won't be so unlucky next time, and her performance will be better - it will also regress to the mean. If so, then it's not because of the instructor's criticism, it's because she's likely to have better luck next time.
 
-Note that good performances are mostly followed by worse performances (they are red) and bad performances are mostly followd by better performances (they are green). This illustrates the phenomenon of <b>regression to the mean</b>.
+In both cases, "regressing to the mean" means changing from an extreme performance to a more average one. When the extreme performance is a good one, regressing to the mean means getting worse. When the extreme performance is a bad one, regressing to the mean means getting better. Regression to the mean is the statistical fact that extreme performances tend to be followed by more average ones.
+
+What about the Sports Illustrated case?
+
+When an athlete appears on the cover of Sports Illustrated, it's usually because her performances have been outstandingly good. But sport, like flight manoeuvres, involves a certain amount of luck, and performing outstandingly well means that the athlete had luck on her side this time. Chances are, she won't be so lucky next time, and her performance will be worse - it will regress to the mean. If so, then it's not because she appeared on the cover of Sports Illustrated, but because she's likely to have less luck next time.
+
+What about the arthritis case? Can see how to explain it using regression to the mean?
+
+# A simulation
+
+Here's a simulation to help illustrate the phenomenon of regression to the mean. 
+
+Suppose that Greg is a professional golfer who generally completes a round of golf on par - that is, in 72 shots. But there's luck involved. If Greg is lucky, he might score as low as 66 (which is good - it's fewer shots). If he's unlucky, he might score as high as 78 (which is bad - it's more shots). 
+
+The grid below shows Greg's scores for 50 rounds of golf. Each time, his level of luck is chosen randomly between -6 shots (which is extremely lucky), and +6 shots (which is extremely unlucky). His score is 72 plus his level of luck. So, it varies between 72 - 6 = 66 and 72 + 6 = 78. 
+
+Performances that are followed by worse ones are shown in red; performances that are followed by better ones are shown in green; and performances that are followed by equal ones are shown in black.
+
+Notice that good performances (on the left) are mostly red, which means they're followed by worse ones. And poor performances (on the right) are mostly green, which means they're followed by better ones. This is regression to the mean, vividly displayed in colour.
+
+You can run the simulation as often as you like. Each time, you'll see regression to the mean at work.
 
 <button onclick="populate()">Re-run the simulation</button>
 <table id="results"></table>
@@ -73,8 +93,8 @@ Note that good performances are mostly followed by worse performances (they are 
 
 # The moral
 
-Regression effects are ubiquitous. But regression to the mean is a phenomenon that we typically fail to understand, and thus overlook. We look for causal explanations, and overlook the possibility that it might be just chance doing the work. Even it we're savy enough not to automatically accept the causal explanations, it's still a problem if we don't realise that RTM is a possibility.
+Regression to the mean is a ubiquitous phenomenon. But most of us are unaware that there's even such a thing. Consequently, we often mistakenly attribute its effects to some underlying causal mechanism. So, when you find yourself tempted to explain some data causally, stop and ask yourself whether it might be better explained as regression to the mean.
 
 # Further reading
 
-Kahneman Chapter 17, "Regression to the mean".
+If you'd like to read more about regression to the mean, an excellent account is given in Chapter 17 of "Thinking, fast and slow", by Daniel Kahneman.

@@ -26,7 +26,7 @@ Year Cyclist             Country       Distance Stages
 
 You might like to download the complete data set, and do some of the analyses described below.
 
-[Download the data](https://itsy.tech/sites/77bdba6c2fc341a7f2b60a94576b8a63.file.csv)
+[Download the data](77bdba6c2f.csv)
 
 # Without filtering or grouping
 

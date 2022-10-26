@@ -2,18 +2,18 @@
 <html>
   <head>
     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-    <title>$ Responsibly analysing data</title>
+    <title>Responsibly analysing data</title>
     <!-- Stylesheets -->
     <link rel="stylesheet" href="../default.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.css" integrity="sha384-Um5gpz1odJg5Z4HAmzPtgZKdTBHZdw8S29IecapCSB31ligYPhHQZMIlWLYQGVoc" crossorigin="anonymous" >
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.3/dist/katex.min.css" crossorigin="anonymous" >
     <!-- Scripts -->
     <script src="https://pages.itsy.tech/fab6bfd16e?boxall"></script>
     <script src='https://code.highcharts.com/highcharts.js'></script>
     <script src="https://code.highcharts.com/highcharts-more.js"></script>
     <script src="https://code.highcharts.com/modules/heatmap.js"></script> 
     <script src="../default.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.js" integrity="sha384-YNHdsYkH6gMx9y3mRkmcJ2mFUjTd0qNQQvY9VYZgQd7DcN7env35GzlmFaZ23JGp" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/contrib/auto-render.min.js" integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.3/dist/katex.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.3/dist/contrib/auto-render.min.js" crossorigin="anonymous"></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.13/ace.js'></script>
   </head>
   <body>
@@ -21,37 +21,66 @@
       UNSW explains ...
     </div>
     <header>
-      $ Responsibly analysing data    </header>
+      Responsibly analysing data    </header>
     <main>
-      <h1>Make sure you have permission to use the data</h1>
+      <p>In some ways, analysing data is like driving a car. Driving a car can be remarkably helpful. But it requires skill, and if we don't do it carefully we can harm ourselves and others. So, we take on responsibilities when we drive a car.</p>
+<p>Similarly, analysing data can be remarkably helpful. But it requires skill, and if we don't do it carefully we can harm ourselves and others (for example, by jumping to false conclusions and acting on them). So, we take on responsibilities when we analyse data.</p>
+<p>We don't yet need a license to analyse data, but as the potential harms become more widely recognised, perhaps one day we will.</p>
+<h1>Make sure you have permission to use the data</h1>
+<p>Like cars, data can be owned, and when it's owned, you need the owner's permission to use it. So make sure you have that permission.</p>
+<p>Keep in mind that having permission to use it doesn't mean having permission to let <em>others</em> use it. So you can't just share the data, unless the owner has given you permission to do that too.</p>
+<h1>Keep the data safe</h1>
+<p>Like cars, data can be stolen. So you need to keep the data safe from theft, especially if it's not your data.</p>
+<p>This means being careful about where you store it. If you're storing it on your personal computer, make sure that potential thieves can't easily access it. If you're storing it in the cloud, make sure you're using a secure service.</p>
+<p>If you're protecting the data with a password, make sure your password is strong.</p>
 <h1>Check the quality of the data</h1>
-<p>Sampling, measurements, currency.</p>
-<p>Sometimes you can trust the source - BOM, ABS.</p>
-<p>Other times not.</p>
-<h1>Don't cherry-pick the data</h1>
-<p>E.g. customer feedback. student feedback.</p>
-<p>Beware of confirmation bias. Selectively interpreting data. We seek data that supports a theory, rather than data that violates it.</p>
-<p>When &quot;fact checking&quot; we natural look to confirm a story rather than checking the facts and looking for an alternative story. Example: checking whether such-and-such happened.</p>
-<h1>Don't draw inferences about the population</h1>
-<p>Unless you know what you're doing.</p>
-<p>It's okay to note things that suggest further investigation.</p>
+<p>Analysing data is potentially harmful, even when the data is <em>correct</em>. If it's <em>not</em> correct, the potential harms are even greater. So you should do whatever you can to check that the data is correct.</p>
+<p>Often, you'll have gotten the data from a source you can trust to be correct, such as the Australian Bureau of Meteorology, or the World Health Organisation.</p>
+<p>If not, do what you can to check that the data is trustworthy. If the data about a sample of a population, has the sample been selected without bias? Have measurements been made validly and reliably? Is the data current enough for your purposes?</p>
+<p>You might not be able to answer these questions. If not, and you're not otherwise sure how reliable the data is, then you should treat it with a healthy dose of skepticism.</p>
+<h1>Take care with calculations</h1>
+<p>When analysing data, you'll often perform calculations. You might find the mean of a variable, or convert the values of a variable from one scale to another, or divide the values of one variable by the values of a second, and so on.</p>
+<p>Be careful when you do this, because it's easy to make mistakes. You can trust your software to correctly do whatever you ask it to do - there's no risk there. The risk is that you ask it to do the wrong thing. You might, for example, mistakenly ask it to round fractions down, rather than round them up or down to whichever whole number is closest. Or, you might ask it to calculate the median of a variable, when what you really want is the mean.</p>
+<p>Sometimes the mistakes can be small and hard to notice, but add up to big differences in the long run.</p>
+<p>So, double-check any formula you're asking your software to use. Calculate a few values manually, and compare the results. If you can, cross-check by doing the calculation some alternative way. For example, if you're asking for the mean of a variable, try also asking for the sum divided by the count - the result should be the same.</p>
+<h1>Beware of confirmation bias</h1>
+<p>When we analyse data, we're often trying to answer a particular question. It might be, for example, &quot;Do customers like our new flavour of ice cream&quot;?</p>
+<p>We're not good at answering these questions, especially when there are answers we'd <em>like</em> to be true. The problem is, we suffer from <em>confirmation bias</em>, which is a natural tendency to find evidence in favour of things we'd like to be true, and to ignore evidence that goes against them. We don't do it on purpose - we do it automatically, without conscious thought. And it can lead us to draw unwarranted conclusions.</p>
+<p>Suppose we're reading comments from customers about our new flavour of ice cream. If we're hoping it's a hit, we'll be naturally inclined to take notice of the positive comments, and to dismiss the negative ones. This might lead us to form an overly optimistic assessment of the new flavour.</p>
+<p>How can we avoid confirmation bias?</p>
+<p>One technique is to ask someone to find, in the data, as much evidence as possible <em>against</em> the thing we'd like to be true. </p>
+<p>Another technique is to keep our analysis objective. If customers also rated the new flavour on a scale from 1 (bad) to 5 (good), then an objective summary of those ratings might be better than a subjective evaluation of the comments.</p>
+<h1>Don't infer facts about the population</h1>
+<p>If your data is about a sample of a population, you might be tempted to infer facts about the population from facts about the sample.</p>
+<p>For example, suppose you have data about 20 of the 100 students in your course. Suppose that 85% of these 20 students were satisfied with the course. Then you might be tempted to infer that 85% of the whole 100 students were satisfied.</p>
+<p>Unless you know what you're doing, you should resist this temptation. Inferring from samples to populations is a specialised skill that can easily be done badly. So don't do it, unless you've had the proper training.</p>
+<p>That said, it's okay to use facts about the sample to suggest <em>possibilities</em> about the population, which might be investigated further. The admonition here is not against raising possibilities; it's against drawing conclusions.</p>
 <h1>Don't make predictions</h1>
-<p>Unless you know what you're doing - use the right techniques.</p>
-<p>Traps.</p>
+<p>If you find relationships in your data, you might be tempted to use them to make predictions.</p>
+<p>For example, suppose you have data about 250 customers. Suppose you find, in the data, that the age of a customer is positively related to how much they can tolerate your advertising campaigns: the older the customer, the more they can tolerate them; the younger the customer, the less they can tolerate them. Suppose the relationship is close to linear, and you calculate the equation of the line of best fit. You might be tempted to use this equation to predict, for customers outside of your sample, how much they can tolerate your advertising campaigns.</p>
+<p>Unless you know what you're doing, you should resist this temptation. Using samples to find equations and make predictions is a specialised skill that can easily be done badly. So don't do it, unless you've had the proper training.</p>
+<p>Again, it's okay to consider the <em>possibility</em> that your equation is a valid way to make predictions. Just don't assume that it is.</p>
 <h1>Don't draw causal conclusions</h1>
-<p>Don’t draw causal conclusions (e.g. correlation is not causation). We need to be sure that we are interpreting data accurately. It can be easy to draw conclusions from data which are not warranted.</p>
-<p>It's okay to note things for further investigation.</p>
-<h1>Compare fair things</h1>
-<p>Number of church goers has risen, sure, but what about the proportion? General population has risen too.</p>
-<h1>Take care</h1>
-<p>With calculations - double check them.</p>
-<p>Other people might be relying on you.</p>
-<h1>Reported data</h1>
-<p>Be aware of what data comes from reports. Rates of infection have dropped, versus reported rates of infection have dropped.</p>
-<h1>Be transparent</h1>
-<p>Make it possible for others to see what you've done. Or your future self. Using R helps with this.</p>	  </main>
+<p>If you find a relationship between two variables in your data, you might be tempted to conclude that one causes the other.</p>
+<p>For example, suppose you have data about the height (in centimetres) and popularity (between 0 and 10) of some politicians. Suppose you generate the following visualisation, which shows a positive relationship between their height and popularity. You might be tempted to conclude that height somehow causally effects popularity:</p>
+<div id="corr"></div>
+<script>
+  Highcharts.chart("corr", {
+    chart: {type: "scatter"},
+    title: {text: "Height and Popularity of Some Politicians"},
+    xAxis: {min: 150, max: 200, title: {enabled: true, text: "Height (cm)"}, gridLineWidth: 1, tickInterval: 5},
+    yAxis: {min: 0, max: 10, title: {text: "Popularity"}, tickInterval: 1},
+    series: [{
+      marker: {radius: 7.5},
+      data: [[160,3],[165,5],[166,4],[170,6],[175,7],[180,7],[182,7.5],[185,9],[187,8.5],[190,9]],
+    }],
+    legend: {enabled: false},
+  });
+</script>
+<p>Unless you know what you're doing, you should resist this temptation. Determining whether one variable causes another is yet another specialised skill that can easily be done badly (and often is). Don't draw causal conclusions from your data, unless you've had the proper training, and use it well.</p>
+<p>Again, it's okay to use any relationship you might find to raise the <em>possibility</em> that one variable causes the other, which might be worth further investigation. Just don't conclude that it does.</p>	  </main>
         <footer>
-      <span id='datetime'>Generated on 24 October 2022 at 6:52 am</span>
+      <span id='datetime'>Generated on 27 October 2022 at 8:02 am</span>
     </footer>
   </body>
 </html>

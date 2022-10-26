@@ -1,24 +1,24 @@
-%% $ The problem with many samples %%
+%% The problem with many samples %%
 
-Suppose that someone has managed to correctly predict, for every one of the past ten US presidential elections, whether the Republican or Democrat candidate will win. What do you conclude?
+Suppose that someone has correctly predicted, for every one of the past ten US presidential elections, whether the Republican or Democrat candidate will win. What do you conclude?
 
 # Skill?
 
 You're probably tempted to conclude that this person is an especially skilled predictor. For without a lot of skill, the chance of correctly predicting all ten elections is very small.
 
-We can quantify it. Suppose that she has no skill at all, so that each of her predictions are as good as a guess. In mathematical terms, the probability of her getting any one prediction correct is 0.5. Then the probability of her getting all ten correct was:
+We can quantify it. Suppose she has no skill at all, so that each of her predictions is as good as a guess. In mathematical terms, the probability of her getting any one prediction correct is 0.5. So, the probability of her getting all ten correct is:
 
 $$ \underbrace{0.5 \times \cdots \times 0.5}_\text{ten times} = 0.00098 \approx \frac{1}{1000}$$
 
-So, about 1 in 1000 - she'd have been very unlikely to get all ten correct.
+So it's about 1 in 1000 - she'd be very unlikely to get all ten correct.
 
-Suppose that she has *some* skill, so that the probability of her getting any one prediction correct is 0.6. Then the probability of her getting all ten correct was:  
+Suppose, instead, that she has *some* skill, and that the probability of her getting any one prediction correct is 0.6. Then the probability of her getting all ten correct is:  
 
-$$ \underbrace{0.5 \times \cdots \times 0.6}_\text{ten times} = 0.00605 \approx \frac{6}{1000} $$
+$$ \underbrace{0.6 \times \cdots \times 0.6}_\text{ten times} = 0.00605 \approx \frac{6}{1000} $$
 
-So, about 6 in 1000 - she'd still have been very unlikely to get all ten correct.
+So it's about 6 in 1000 - she'd still be very unlikely to get all ten correct.
 
-Rather than continuing with such calculations, we can see them all together. The following graph shows, for each level of skill, the probability of her getting all ten predictions correct. By "level of skill" we mean the probability of her getting any one prediction correct. So a 0.5 level of skill means 0.5 probability of getting a prediction correct, which means no skill at all - she might as well just guess. A 0.75 level of skill means a probability of 0.75 of getting one prediction correct. And a 1 level of skill means a probability of 1 of getting one prediction correct - perfect skill.
+Rather than continuing with such calculations, we can see them all together. The following graph shows, for each level of skill, the probability of her getting all ten predictions correct. By "level of skill" we mean the probability of her getting any one prediction correct. So, a 0.5 level of skill means 0.5 probability of getting a prediction correct, which means no skill at all - she might as well just guess. A 0.75 level of skill means a probability of 0.75 of getting one prediction correct. And a 1 level of skill means a probability of 1 of getting one prediction correct - perfect skill.
 
 <div id="skill"></div>
 <script>
@@ -42,7 +42,7 @@ Rather than continuing with such calculations, we can see them all together. The
   });
 </script>
 
-We can see from this graph that even if her skill level is 0.8, the chance of her getting all ten predictions is still small - about 0.1, or 1 in 10. So, given that she did get all ten correct, her skill level must be quite high.
+We can see from this graph that even if her skill level is 0.8, the chance of her getting all ten predictions correct is still small - about 0.1, or 1 in 10. So, given that she did get all ten correct, her skill level must be quite high.
 
 Right?
 
@@ -50,15 +50,15 @@ Right?
 
 Not necessarily. It's quite possible that she had no skill at all, despite the fact that she got all ten predictions correct.
 
-If enough people were making predictions, then it's very likely that *someone* would get all ten correct, even if they were all just guessing. 
+How can that be? It's because if enough people were making predictions, then it's very likely that *someone* would get all ten correct, even if they were all just guessing. 
 
-Suppose there were a bunch of people making predictions. Suppose that none of them have any skill, so that the probability of any one of them getting any one prediction correct is 0.5. Then for each person, the probability of that person getting all ten correct is about 1/1000. But the probability of *at least one of them* getting all ten correct can be quite high. In fact, if there were 3000 of them, then it's about 0.95, or 95%. We can be 95% confident that at least one of them will get them all right. To emphasise: that's even if none of them have any skill and they might as well just be guessing.
+Suppose there were a bunch of people making predictions. Suppose that none of them have any skill, so that the probability of any one of them getting any one prediction correct is 0.5. Then for any given person, the probability of that person getting all ten correct is about 1/1000. But the probability of *at least one of them* getting all ten correct can be quite high. In fact, if there were about 4000 of them, then it's about 0.98, or 98%. So we can be 98% confident that at least one of them will get them all right. To emphasise: that's even if none of them have any skill, and their predictions are no better than guesses.
 
 You can see this for yourself.
 
-Below are 4096 squares, each of which represents someone predicting the outcome of the election. They have no skill. In fact, they don't even pretend to - each just flips a coin, and if heads then Republican and if tails then Democrat. So the chance of one of them correctly predicting the outcome in a given election is just 50%.
+Below are 4096 squares, each of which represents someone predicting the election. They have no skill. In fact, they don't even pretend to - each just flips a coin, and if it lands heads they predict Republican, otherwise they predict Democrat. So each has just 50% chance of correctly predicting the outcome of an election.
 
-Each time you click "Run an election", each predictor tosses their coin and makes a prediction; the ones who get it correct are kept and the others discarded. After ten elections, any predictors that are left are ones who have correctly predicted the outcome of every one of those elections. There is 98% chance that you'll be left with at least one person.
+Each time you click "Run an election", the predictors toss their coins and make a prediction. Those who get it correct are kept; the others are discarded. After ten elections, any remaining predictors are ones who have correctly predicted the outcome of all ten elections. There is 98% chance that you'll be left with at least one predictor.
 
 <table id="stats">
   <tr><td>Number of elections held:</td><td id="numElections"></td></tr>
@@ -98,6 +98,11 @@ Each time you click "Run an election", each predictor tosses their coin and make
 
 # It's virtually guaranteed
 
+The population of the US is more than 300 million. So, to get about 4000 predictors, and thus have 98% chance of at least one person getting all ten predictions correct, we only need one in every 75,000 people making predictions. It's quite likely that there are at least that many.
+ 
+There might even be far more. Suppose it's actually 1 in 10,000 people who make predictions. That's 30,000 predictors, and the probability that at least one of them will get all ten predictions correct is 0.999999999999814 - it's virtually guaranteed.
+
+<!--
 <div id="probcurve"></div>
 <script>
   data = [];
@@ -115,13 +120,16 @@ Each time you click "Run an election", each predictor tosses their coin and make
     ]
   });
 </script>
-
-The population of the US is more than 300 million. So it only takes 1 in 100,000 people to be a predictor, and we can be 95% confident that one of them will get them all right. Suppose that in actual fact it's 1 in 10,000 people. Then the probability that at least one of them will get them all correct is 0.999999999999814 - virtually certain.
+-->
 
 # The moral
 
-Unlikley events are likely to happen, if you try enough times. Suppose someone would like to show that the prevalance of a certain disease in a population is 100%, even though it's actually only 50%. They could use a sample of one person. Then they stand a 50% chance of getting a proportion of 100% in the sample. But we won't be fooled by that. We'll expect them to use a large sample, let's say 1000. Then the chance of them getting a sample with proportion 100% is extremely small. But if they try enough times, they might eventually get lucky. They could then assert with high confidence that the population proportion is 100%.
+Unlikely events are likely to happen, if you try enough times.
 
-# Further reading
+Suppose that a certain drug is effective for only 50% of US citizens. A determined manufacturer might nevertheless be able to "show" that it's effective for 100%.
 
-Kahneman Chapter 20.
+Suppose they choose a sample of 10 people at random from the population, give them all the drug, then measure the proportion for which it's effective. The chance of the proportion being 100% is only about 1 in 1000. (It's like someone correctly guessing the result of all ten presidential elections.) But if they repeat this process 4000 times, then the chance of the proportion being 100% in at least *one* of the samples is about 98%. If they find such a sample, which is highly likely, then they can publish the results of this study, and ignore the other 3999. They can thus "show" that the drug is effective in 100% of US citizens.
+
+Of course, no one will accept, quite rightly, that 10 is a sufficiently large sample. But the manufacturer can just increase the samples to whatever size people will accept. This will mean that the chance of any one sample having a proportion of 100% is much lower. But the manufacturer can make up for this by collecting more samples. No matter how large the sample size, by collecting enough samples the manufacturer can give themselves a 98% chance of finding at least one whose proportion is 100%, whose results they can then publish.
+
+As you can probably see, this is irresponsible. It amounts to cherry-picking their data. This is not something that they, or anyone, should do.

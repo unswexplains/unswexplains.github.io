@@ -1,28 +1,32 @@
-%% $ The problem with small samples %%
+%% The problem with small samples %%
 
-# Kidney cancer study
+# A kidney cancer study
 
-A study of the incidence of kidney cancer in the 3,141 counties of the United States. Counties with the lowest rate of kidney cancer: mostly rural, sparsely populated. Why might that be?
+A study of the incidence of kidney cancer in the 3,141 counties of the United States once showed that the counties with the lowest rate of kidney cancer were mostly rural and sparsely populated. (See Wainer, H., & Zwerling, H. L. (2006). Evidence That Smaller Schools Do Not Improve Student Achievement. *Phi Delta Kappan, 88*(4), 300–303. Also see Chapter 10 of "Thinking, fast and slow", by Daniel Kahneman.)
 
-# Causal explanations
+Why might that be?
 
-You're probably looking for a causal explanation. We look for a causal explanation - clean living: no air or water pollution, fresh food without additives.
+# A causal explanation?
 
-But, the conties with the highest rates of kidney cancer: mostly rural, sparsely populated. Again look for causal explanations: poor access to medical care, high fat diet, alcohol, tobacco.
+If you're like most people, you'll have assumed that being rural and sparsely populated must somehow prevent kidney cancer, and you're busily thinking of a causal mechanism: perhaps it's the clean air and water, fresh food, and physical lifestyle?
 
-But both cannot be right! What's going on?
+But now, a twist. The study also showed that the counties with the *highest* rates of kidney cancer were also mostly rural and sparsely populated. Why might that be?
 
-Example from Howard Wainer and Harris Zwerling.
+It's tempting to think, again, that being rural and sparsely populated must somehow *cause* kidney cancer: perhaps it's the high fat diet, smoking, drinking, and poor access to medical care?
 
-# Small samples
+But we can't have it both ways: it can't be that being rural and sparsely populated both prevents *and* causes kidney cancer.
 
-There's another explanation of what's going on in this study. It's because the counties are small. The problem with small samples is that they are more likley to have extreme proportions.
+What's going on?
 
-We can see this by considering an extreme case - a county of just one person.
+# Or just small samples?
 
-Suppose that the real rate of kidney cancer is 50%, uniform across the country. So, pick any person at random and they are 50% likely to have it, 50% not.
+Here's another possibility: there's nothing causal going on; rather, it's a statistical phenomenon. It's because they're *small* that these counties have both the lowest and highest rates of kidney cancer. And that's because small samples are more likely than large samples to have extreme proportions.
 
-Suppose a county has just one person. The proportion of the county with kidney cancer is either 100% (if this person has it) or 0% (if this person doesn't have it). It will definitely be an extreme value. Every county with just one person will have an extreme value. Here are the possibilities in a table:
+Why are small samples more likely to have extreme proportions? 
+
+Suppose that the real rate of kidney cancer is 50%, uniform across the country. That is, if we were to choose a person at random, they're 50% likely to have kidney cancer, 50% likely to not.
+
+Suppose, to start with an extreme case, that a county has just one person. Then the proportion of the county with kidney cancer is either 100% or 0%. It's 100% if this person has kidney cancer, 0% if not. Here are the possibilities in a table:
 
 ```
 Person    Proportion
@@ -31,20 +35,22 @@ Cancer          100%
 No cancer         0%
 ```
 
+So, the county will *definitely* have an extreme proportion. Any county with just one person will too. 
+
 What if a county has two people? Then either they both have kidney cancer, which is a proportion of 100%, or neither does, which is a proportion of 0%, or one does and one doesn't, which is a proportion of 50%. Here are the possibilities in a table:
 
 ```
 Person1   Person2   Proportion
 --------- --------- ----------
-Cancer    No cancer       100%
+Cancer    Cancer          100%
 Cancer    No cancer        50%
 No cancer Cancer           50%
 No cancer No cancer         0%
 ```
 
-Half of the counties with just two people are likely to have an extreme value.
+It's no longer *definite* that the county will have an extreme proportion. But it's still quite likely - there's 50% chance. The same is true of any county with two people.
 
-What if a county has three people? Then you'll either get three people with kidney cancer, which is a proportion of 100%, or two people with and one without, which is a proportion of 67%, or one person with and two without, which is a proportion of 33%, or three people without, which is a proportion of 0%. Here are the possibilities in a table:
+What if a county has three people? Then it'll either have three people with kidney cancer, which is a proportion of 100%, or two people with and one without, which is a proportion of 67%, or one person with and two without, which is a proportion of 33%, or three people without, which is a proportion of 0%. Here are the possibilities in a table:
 
 ```
 Person1   Person2   Person3   Proportion
@@ -59,17 +65,21 @@ Cancer    No cancer No cancer        33%
 No cancer No cancer No cancer         0%
 ```
 
-It turns out that the bigger the sample, the less likely it is to have an extreme value for the proportion, and the more likely it is to have the underlying proportion of 50%. This is a mathematical fact, known as **the law of large numbers**.
+The county is now even less likely to have an extreme proportion.
+
+This trend continues as we increase the size of the county. The bigger the county, the less likely it is to have an extreme proportion, and the more likely it is to have the same proportion as the whole population. Or, to put it the other way around, the smaller the county, the more likely it is to have an extreme proportion, and the less likely it is to have the same proportion as the whole population. 
+
+This is a mathematical fact, known as **the law of large numbers**.
 
 # A simulation
 
-Here's a simulation that illustrates the danger of working with small samples.
+Here's a simulation of what we've just described.
 
-Suppose that in a population of 120 people, everyone has an equal 50% chance of developing a certain condition. Suppose they live in communities of various sizes, from 1 person to 64 people, as shown in the diagram below.
+Suppose there are 120 people in the whole population, each of whom is 50% likely to have kidney cancer. Suppose they live in counties of various sizes, from 1 person to 64 people, as shown in the diagram below.
 
-If you click the "Distribute the condition" button, the condition will be distributed across the population, with everyone having an equal 50% chance of developing the condition. The proportion of each community that develop the condition is shown, and colour coded according to how extreme it is -- the further from 50%, the more red. Try clicking the button a few times.
+If you click the "Distribute cancer" button, kidney cancer will be distributed across the population, with everyone having an equal 50% chance of getting it. The proportion of each county that has kidney cancer is shown, and colour coded according to how extreme it is - the further from 50%, the more red. Try clicking the button a few times.
 
-<button onclick="rollDice()">Distribute the condition</button>
+<button onclick="rollDice()">Distribute cancer</button>
 <table id="diceRolls">
   <tr><td>1</td><td rowspan="2">4</td><td rowspan="4">16</td><td rowspan="8">64</td></tr>
   <tr><td>1</td></tr>
@@ -101,15 +111,24 @@ If you click the "Distribute the condition" button, the condition will be distri
   }
 </script>
 
-Notice that the smallest communities tend to have the most extreme proportions - either a high proportion with the condition, or a high proportion without the condition. This is not because those communities are more prone to the condition, or more resistant to it - after all, everyone in the population has an equal 50% chance of developing it. It is just because those communities are small.
+Notice that smaller counties tend to have more extreme proportions - either an extremely high proportion (closer to 100%), or an extremely low proportion (closer to 0%). This is not because people in those counties are more prone to getting kidney cancer, or more resistant to it - everyone in the population has an equal chance of getting it. It's just because those counties are small.
 
-# Implications for inference
+# The implications for sampling
 
-Sometimes we use a sample to learn things about a larger population. The hope is that the sample is representative of the population, which means that summary facts about the sample are the same as the corresponding summary facts about the population. If so, then we can use summary facts about the sample to learn things about the population. Because of random fluctuations, we can't be sure that a sample is representative of its population. But there are two things we can do to maximise the likelihood that the sample is representative: choose the sample without bias; choose a large enough sample. Here we consider sample size.
+Apart from having implications for what causal conclusions we should or should not draw, the fact that smaller samples tend to have more extreme proportions has implications for how we use samples to infer facts about populations.
 
-Suppose you're interested in the proportion of Australians in favour of severing ties with the UK and becoming a republic. You've devised an unbiased selection method, so that every Australian has an equal chance of ending up in the sample. And you have a valid and reliable measurement instrument, one that tells you exactly whether a person is in favour or not. Suppose that the actual proportion of Australians in favour is 50%.
+Sometimes we use a sample to learn things about a larger population. The hope is that the sample is *representative*, which means that summary facts about the sample are the same as the corresponding summary facts about the population. If so, then we can use summary facts about the sample to learn things about the population.
 
-Suppose you choose a sample of just one person. The proportion of the sample in favour of becoming a replublic is either 100% (if this person is in favour) or 0% (if this person is not in favour), neither of which is the same as the proportion of all Australians. So the sample is not representative of the population. It doesn't matter who you choose - the proportion of the sample will be either 100% or 0%. So a sample of one person will never be representative (even if it's chosen without bias). Here are the possibilities in a table:
+Because of random fluctuations, we can't be *sure* that a sample is representative of its population. But there are two things we can do to maximise the likelihood:
+
+- Choose the sample without bias
+- Choose a large enough sample
+
+Here we consider why sample size matters.
+
+Suppose you'd like to know the proportion of Australians in favour of severing ties with the UK and becoming a republic. You've devised an unbiased selection method, so that every Australian has an equal chance of ending up in the sample. And you have a valid and reliable measurement instrument, one that tells you exactly whether a person is in favour or not. Suppose that the actual proportion of Australians in favour is 50%.
+
+Suppose you choose a sample of just one person. The proportion of the sample in favour of becoming a republic is either 100% (if this person is in favour) or 0% (if this person is not in favour). Here are the possibilities in a table:
 
 ```
 Person        Proportion
@@ -118,7 +137,9 @@ In favour           100%
 Not in favour         0%
 ```
 
-What if you choose two people at random? Then you'll either get two people in favour, which is a proportion of 100%, or two people not in favour, which is a proportion of 0%, or one of each, which is a proportion of 50%. Here are the possibilities in a table:
+In neither case is the proportion the same as the proportion of all Australians. So the sample is not representative of the population. It doesn't matter who you choose - the proportion of the sample will be either 100% or 0%. So a sample of one person will never be representative (even if it's chosen without bias). 
+
+What if you choose two people? Then you'll either get two people in favour, which is a proportion of 100%, or two people not in favour, which is a proportion of 0%, or one of each, which is a proportion of 50%. Here are the possibilities in a table:
 
 ```
 Person1       Person2       Proportion
@@ -131,7 +152,7 @@ Not in favour Not in favour         0%
 
 You *might* end up with a representative sample in this case, so it's better than choosing just one person. But you're just as likely not to.
 
-What if you choose three people at random? Then you'll either get three people in favour, which is a proportion of 100%, or two people in favour and one not, which is a proportion of 67%, or one person in favour and two not, which is a proportion of 33%, or three people not in favour, which is a proportion of 0%. Here are the possibilities in a table:
+What if you choose three people? Then you'll either get three people in favour, which is a proportion of 100%, or two people in favour and one not, which is a proportion of 67%, or one person in favour and two not, which is a proportion of 33%, or three people not in favour, which is a proportion of 0%. Here are the possibilities in a table:
 
 ```
 Person1       Person2       Person3       Proportion
@@ -142,19 +163,19 @@ In Favour     Not in favour In favour            67%
 In favour     In favour     Not in favour        67%
 Not in favour Not in favour In favour            33%
 Not in favour In favour     Not in favour        33%
-In Favour     Not in favour Not in favour        33%
+In favour     Not in favour Not in favour        33%
 Not in favour Not in favour Not in favour         0%
 ```
 
-It turns out that the bigger the sample, the more likely it is to have the same proportion as the population. This is a mathematical fact, known as **the law of large numbers**. What it means is that you can increase the likelihood of your sample being representative by increasing its size.
+Again, the bigger the sample, the more likely it is to have the same proportion as the population - the law of large numbers. You can increase the likelihood of your sample being representative by increasing its size.
 
-# A simulation
+# Another simulation
 
-We can simulate your survey. Suppose you select 100 people. As you go, you record the proportion of the sample in favour of becoming a republic. You can click the "Choose the sample" button below to see it in action.
+Here's a simulation of the survey we've just described. Suppose you select 100 people. As you go, you record the proportion of the sample in favour of becoming a republic. You can click the "Choose the sample" button below to see it in action.
 
 <button onclick="prop=document.getElementById('prop').value;tosses=[];toss()">Choose the sample</button>
 <div id="tosser"></div>
-<p>Actual proportion in favour: 0%<input id="prop" type="range" min="0" max="1" step="0.01" value="0.5" oninput="adjust()"/>100%</p>
+<p style="display:none">Actual proportion in favour: 0%<input id="prop" type="range" min="0" max="1" step="0.01" value="0.5" oninput="adjust()"/>100%</p>
 <script>
   let tosses = [];
   let prop = 0.5;
@@ -188,55 +209,12 @@ We can simulate your survey. Suppose you select 100 people. As you go, you recor
   }
 </script>
 
-Notice that after just a few tosses the proportion of heads tends to be extreme -- either extremely high or extremely low. But as we toss the coin more times the proportion tends to become less extreme, approaching roughly 50%. Try clicking the button a few times.
+Notice that after just a few people the proportion tends to be extreme - either extremely high or extremely low. But as we keep adding people to the sample, the proportion tends to become less extreme, approaching roughly 50%. This is what the law of large numbers tells us to expect. Try clicking the button a few times.
 
 # How large is large enough?
 
-How large is large enough? There are carefully worked out ways to calculate this, developed by statisticians over hundreds of years. But, as a rule of thumb, if you're sampling without bias, then once you reach a sample size of 1000, you can be quite confident that the sample is representative of the population, and increasing the sample size further is unlikely to be worth the effort.
-
-Suppose a sample is chosen using an unbiased sampling method. Suppose we use the sample proportion as an estimate of the population proportion. We can calculate a confidence interval as well. Must choose a confidence level first. The width is twice the margin of error (MOE).
-
-Interpretation. Suppose our 95% confidence interval is 0.80-0.84. If we were to repeat the same process many times (same population, same sampling method, same sample size, same calculation), the difference between the sample proportion and the true population proportion will be within the margin of error about 95% of the time. It's a measure of how good the process is. Note: we can't be sure that it will always be within the MOE.
-
-As the sample size increases, the margin of error decreases. But there is a diminishing return from taking larger and larger samples. The margin of error for most sample estimates depends directly on the square root of the size of the sample, $\sqrt{n}$.
-
-For large random samples a 95% confidence interval for a population proportion is given by
-
-$$ \text{sample proportion} \pm 1.96 \sqrt{\frac{\text{sample proportion}(1-\text{sample proportion})}{n}} $$
-
-<div id="moecurve"></div>
-<script>
-  let xs = [];
-  let max = 2000;
-  for (let i = max/100; i <= max; i += max/100) xs.push(i);
-  Highcharts.chart("moecurve", {
-    chart: {type: "line"},
-    title: {text: "Sample size and the 95% confidence interval"},
-    tooltip: {pointFormat: "{series.name}: <b>&pm;{point.y:.2f}%</b><br/>"},
-    xAxis: {min: 0, max: max, title: {text: "Sample size"}, tickInterval: 100},
-    yAxis: {min: 0, max: 15, title: {text: "95% confidence interval"}, tickInterval: 1, labels: {useHTML: true, format: "&pm;{value}%"}, plotLines: [{value: 3, color: "green", width: 2, dashStyle: "shortdash", zIndex: 5}]},
-    plotOptions: {series: {animation: false, showInLegend: false}},
-    series: [
-      {name: "95% confidence interval", data: xs.map(x => [x, 196*Math.sqrt((0.4*0.6)/x)])},
-    ]
-  });
-</script>
-
-Notice that the amount by which the margin of error decreases is most substantial between samples sizes of 200 and 1500. In contrast, the margin of error does not substantially decrease at sample sizes above 1500 (since it is already below 3%). 
-
-Many surveys are based on samples of size 1000 to 1500 people. Why is this sample size so commonly used? The answer is based on the margin of error. For a sample size of n = 1000, the margin of error for a sample proportion is around $\frac{1}{\sqrt{n}}=\frac{1}{\sqrt{1000}} \approx 0.03$ or about 3%. It's quite a bit of work to reduce that using just the sample size.
-
-For example, To cut the margin of error in half, like from 3.2% down to 1.6%, you need four times as big of a sample, like going from 1000 to 4000 respondents.
-
-Since other problems inherent in surveys may often cause biases of a percent or two, pollsters often believe that it is not worth the expense to achieve the small improvement in the margin of error that might be gained by increasing the sample size further. It's rarely worth it for pollsters to spend additional time and money to bring the margin of error down below 3% or so. The whole point of sampling is to save us the time, effort and money involved in asking a lot of people, so it's a tradeoff - you want a sample that is small enough to be feasible, but large enough to be likely to be representative. 
-
-The size of the population does not affect the margin of error. So, a percentage estimated from a sample will have the same margin of error (reliability), regardless of whether the population size is 50,000 or 5 billion.
+How large a sample is large enough? There are carefully worked out ways to calculate this, developed by statisticians over hundreds of years. But, as a rule of thumb, if the sampling is done without bias, then 1000 should be enough. With 1000, we can be quite confident that the sample is representative of the population, and increasing the sample size further is unlikely to be worth the effort.
 
 # The moral
 
-
-problem is that we're trying to find a causal explanation for a non-causal phenomenon. It's a statistical phenomenon.
-
-# Further reading
-
-Kahneman Chapter 10.
+Be wary of small samples, because they're more likely to have extreme proportions, just by chance. Don't assume that there's some causal explanation of the proportion, because there might not be. And don't assume that it's close to the population proportion, because it might not be.
