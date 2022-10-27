@@ -4,7 +4,7 @@ In some ways, analysing data is like driving a car. Driving a car can be remarka
 
 Similarly, analysing data can be remarkably helpful. But it requires skill, and if we don't do it carefully we can harm ourselves and others (for example, by jumping to false conclusions and acting on them). So, we take on responsibilities when we analyse data.
 
-We don't yet need a license to analyse data, but as the potential harms become more widely recognised, perhaps one day we will.
+We don't yet need a licence to analyse data, but as the potential harm becomes more widely recognised, perhaps one day we will.
 
 # Make sure you have permission to use the data
 
@@ -14,7 +14,7 @@ Keep in mind that having permission to use it doesn't mean having permission to 
 
 # Keep the data safe
 
-Like cars, data can be stolen. So you need to keep the data safe from theft, especially if it's not your data.
+Like cars, data can be stolen. So, you need to keep the data safe from theft, especially if it's not your data.
 
 This means being careful about where you store it. If you're storing it on your personal computer, make sure that potential thieves can't easily access it. If you're storing it in the cloud, make sure you're using a secure service.
 
@@ -22,13 +22,13 @@ If you're protecting the data with a password, make sure your password is strong
 
 # Check the quality of the data
 
-Analysing data is potentially harmful, even when the data is *correct*. If it's *not* correct, the potential harms are even greater. So you should do whatever you can to check that the data is correct.
+Analysing data is potentially harmful, even when the data is *correct*. If it's *not* correct, the potential harm is even greater. So you should do whatever you can to check that the data is correct.
 
 Often, you'll have gotten the data from a source you can trust to be correct, such as the Australian Bureau of Meteorology, or the World Health Organisation.
 
 If not, do what you can to check that the data is trustworthy. If the data is about a sample of a population, has the sample been selected without bias? Have measurements been made validly and reliably? Is the data current enough for your purposes?
 
-You might not be able to answer these questions. If not, and you're not otherwise sure how reliable the data is, then you should treat it with a healthy dose of skepticism.
+You might not be able to answer these questions. If not, and you're not otherwise sure how reliable the data is, then you should treat it with a healthy dose of scepticism.
 
 # Take care with calculations
 
@@ -78,7 +78,7 @@ Again, it's okay to consider the *possibility* that your equation is a valid way
 
 If you find a relationship between two variables in your data, you might be tempted to conclude that one causes the other.
 
-For example, suppose you have data about the height (in centimetres) and popularity (between 0 and 10) of some politicians. Suppose you generate the following visualisation, which shows a positive relationship between their height and popularity. You might be tempted to conclude that height somehow causally effects popularity:
+For example, suppose you have data about the height (in centimetres) and popularity (between 0 and 10) of some politicians. Suppose you generate the following visualisation, which shows a positive relationship between their height and popularity. You might be tempted to conclude that height somehow causally affects popularity:
 
 <div id="corr"></div>
 <script>

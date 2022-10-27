@@ -1,6 +1,6 @@
 %% The problem with many samples %%
 
-Suppose that someone has correctly predicted, for every one of the past ten US presidential elections, whether the Republican or Democrat candidate will win. What do you conclude?
+Suppose that someone has correctly predicted, for every one of the past ten US presidential elections, whether the Republican or Democrat candidate would win. What do you conclude?
 
 # Skill?
 

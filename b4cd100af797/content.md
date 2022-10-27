@@ -28,7 +28,7 @@ We're not always tempted to commit this fallacy. Think about the earthquake that
 
 By not drawing this conclusion, in the earthquake case, you're acknowledging that the reasoning is fallacious - that there can be cases in which A happened (you peeled an apple), then B happened (the earthquake occurred), but A did not cause B.
 
-Why are we ever tempted to reason this way, if we're aware that it's fallacious? It's because of our eagerness to find causal explanations. If we can see a plausible causal mechanism, especially one we'd like to be true, we tend to drop our logical guards and jump to that conclusion.
+Why are we tempted to reason this way, if we're aware that it's fallacious? It's because of our eagerness to find causal explanations. If we can see a plausible causal mechanism, especially one we'd like to be true, we tend to drop our logical guard and jump to that conclusion.
 
 We should never reason this way. If we observe that A happened, then B happened, we should never thus conclude that A caused B. We can raise the question of whether A caused B - that's fine. But we can't simply conclude that A caused B. To properly draw that conclusion, we need better grounds.
 
@@ -60,7 +60,7 @@ Why the name "cum hoc"? It's short for "cum hoc ergo propter hoc", which is Lati
 
 We're not always tempted to commit this fallacy. Suppose you learn that at a certain beach, shark attacks co-occur with ice cream sales. Are you tempted to conclude that shark attacks cause ice cream sales, or that ice cream sales cause shark attacks? Presumably not. By not drawing either of these conclusions you're acknowledging that the reasoning is fallacious - that there can be cases in which A and B co-occur but A does not cause B.
 
-So why are we ever tempted to reason this way, if we're aware that it's fallacious? Again, it's because of our eagerness to find causal explanations. If we can see a plausible causal mechanism, especially one we'd like to be true, we tend to drop our logical guards and jump to that conclusion.
+So why are we tempted to reason this way, if we're aware that it's fallacious? Again, it's because of our eagerness to find causal explanations. If we can see a plausible causal mechanism, especially one we'd like to be true, we tend to drop our logical guard and jump to that conclusion.
 
 We should never reason this way. If we observe that A and B co-occur, we should never thus conclude that A causes B. We can raise the question of whether A causes B - that's fine. But we can't simply conclude that A causes B. To properly draw that conclusion, we again need to do a controlled experiment.
 

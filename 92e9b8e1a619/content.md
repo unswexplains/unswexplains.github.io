@@ -1,6 +1,6 @@
 %% Variance and standard deviation %%
 
-When we have a numeric variable, it can be interesting to know how widely spread its values are. There are several commonly used measures of spread. One is the *range* of the variable - the difference between its maximum and minimum values. Another is its *interquartile range* - the difference between its third and first quartile values. Here we consider what are perhaps the two most commonly used measures of spread - variance, and standard deviation.
+When we have a numeric variable, it can be interesting to know how widely spread its values are. There are several commonly used measures of spread. One is the *range* of the variable - the difference between its maximum and minimum values. Another is its *interquartile range* - the difference between its third and first quartile values. Here we consider what are perhaps the two most commonly used measures of spread - variance and standard deviation.
 
 # Variance
 

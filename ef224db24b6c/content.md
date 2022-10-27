@@ -40,7 +40,7 @@ What about the arthritis case? Can you see how to explain it using regression to
 
 Here's a simulation to help illustrate the phenomenon of regression to the mean. 
 
-Suppose that Greg is a professional golfer who generally completes a round of golf on par - that is, in 72 shots. But there's luck involved. If Greg is lucky, he might score as low as 66 (which is good - it's fewer shots). If he's unlucky, he might score as high as 78 (which is bad - it's more shots). 
+Suppose that Greg is a professional golfer who generally completes a round of golf on par - that is, in 72 shots (on a regulation golf course). But there's luck involved. If Greg is lucky, he might score as low as 66 (which is good - it's fewer shots). If he's unlucky, he might score as high as 78 (which is bad - it's more shots). 
 
 The grid below shows Greg's scores for 50 rounds of golf. Each time, his level of luck is chosen randomly between -6 shots (which is extremely lucky), and +6 shots (which is extremely unlucky). His score is 72 plus his level of luck. So, it varies between 72 - 6 = 66 and 72 + 6 = 78. 
 

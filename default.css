@@ -262,6 +262,7 @@
   }
   footer {
     bottom: 0;
+    display: none;
     left: 0;
     position: absolute;
     right: 0;
@@ -269,6 +270,9 @@
   }
   html {
     background-color: gray;
+  }
+  #who {
+    display: none;
   }
 }
 @media print {
@@ -289,6 +293,7 @@
     background-color: transparent;
     border-top: thin lightgray solid;
     color: black;
+    display: none;
   }
   iframe {
     display: none;

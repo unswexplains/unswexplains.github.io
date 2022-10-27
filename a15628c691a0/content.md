@@ -6,7 +6,7 @@ When you present data, there are things you have a responsibility to do or not d
 
 You might have permission to *use* the data, but that doesn't mean you have permission to show it to others. So before you present it, make sure you have permission to show it to your particular audience.
 
-If you got the data from your organisation, it's likely to have a custodian - you should check with that person. If you got it from a government website, such as The Australian Bureau of Statistics, it's likely to be public data, which means you can show it. If you got it from a data repository, such as Kaggle, it's likely to have a license of some kind - you should check the details of that license. Typically it will allow you to show the data, but not always.
+If you got the data from your organisation, it's likely to have a custodian - you should check with that person. If you got it from a government website, such as The Australian Bureau of Statistics, it's likely to be public data, which means you can show it. If you got it from a data repository, such as Kaggle, it's likely to have a licence of some kind - you should check the details of that licence. Typically it will allow you to show the data, but not always.
 
 # Specify your data sources
 
@@ -50,7 +50,7 @@ First, the term "average" can be ambiguous, between "mean" and "median", and the
 
 Second, people sometimes think that "mean" means "normal" - that the mean value is the value that *normal* things have, and that deviations from the mean are signs of abnormality. For example, they might think that the mean age at which children start walking is the age at which normal children start walking, and that children who aren't walking by then are somehow abnormal. If there's any danger of this, you might like to emphasise that "mean" does not mean "normal", and that plenty of normal things deviate from the mean.
 
-Third, sometimes spread is just as important as mean. When it comes to town planning, for example, the mean size of a family doesn't tell us everything we need to know - we also need to know how small and how frequent are the smallest ones, and how large and how frequent are the largest ones. This effects the nature and number of houses that we need to build. Similarly, when packing for a trip to a foreign city, it's not enough to know the mean daily temperature. You'll also need to know the range - how cold will it get, and how hot? So keep in mind, when reporting means, that you might also need to report spreads.
+Third, sometimes spread is just as important as mean. When it comes to town planning, for example, the mean size of a family doesn't tell us everything we need to know - we also need to know how small and how frequent are the smallest ones, and how large and how frequent are the largest ones. This affects the nature and number of houses that we need to build. Similarly, when packing for a trip to a foreign city, it's not enough to know the mean daily temperature. You'll also need to know the range - how cold will it get, and how hot? So keep in mind, when reporting means, that you might also need to report spreads.
 
 # Be careful with percentages
 
@@ -88,7 +88,7 @@ The first is when its vertical axis does not start at zero. Consider the followi
 <div id="prob1"></div>
 <script>
   let prob1 = Highcharts.chart("prob1", {
-  	title: {text: "Sales have increased in the last six months"},
+  	title: {text: "Sales have increased in the past six months"},
   	xAxis: {title: {text: ""}, type: "category",},
   	yAxis: {min: 88, max: 100, title: {text: "Sales"}},
   	legend: {enabled: false},

@@ -39,7 +39,7 @@ Rather than hope to get lucky, it's better to give every member of the populatio
 
 Suppose you work in the marketing department of an organisation. There's a proposal to change the organisation's logo, and you've been asked to find out what proportion of employees prefer the new logo to the old. 
 
-Ideally, you'd ask *everyone* in the organisation. Then you'd know for sure what the proportion is (assuming you correctly measure their preferences). If your organisation is small, then you might be able to do this - you could meet with everyone and ask their opinion. But what if your organisation is too large for that?
+Ideally, you'd ask *everyone* in the organisation. Then you'd know for sure what the proportion is (assuming you correctly measure their preferences). If your organisation is small, then you might be able to do this - you could meet everyone and ask their opinion. But what if your organisation is too large for that?
 
 A natural thought is to send everyone an email, and hope they all reply with their opinion.
 
@@ -58,7 +58,7 @@ Here's a better technique:
 1. Figure out how many employees you have the time and resources to ask
 2. Get a list of all employees
 3. Choose at random from the list, giving everyone an equal chance of being chosen, until you have the right number of people
-4. Get the opinion of everyone on the list.
+4. Get the opinion of everyone on the list
 
 Be careful with the last step. There are two mistakes that are easy to make.
 
