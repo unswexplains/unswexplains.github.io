@@ -210,14 +210,7 @@ Here are some relationships with a correlation coefficient of 1 or -1 (courtesy 
 
 Here are some relationships with a correlation coefficient of 0.82. Notice how much they vary in shape:
 
-```r
-svg()
-par(mfrow=c(2,2), pch=19)
-plot(anscombe$x1, anscombe$y1, xlim=c(0,20), ylim=c(0,14), main="Data set 1", xlab="x", ylab="y")
-plot(anscombe$x2, anscombe$y2, xlim=c(0,20), ylim=c(0,14), main="Data set 2", xlab="x", ylab="y")
-plot(anscombe$x3, anscombe$y3, xlim=c(0,20), ylim=c(0,14), main="Data set 3", xlab="x", ylab="y")
-plot(anscombe$x4, anscombe$y4, xlim=c(0,20), ylim=c(0,14), main="Data set 4", xlab="x", ylab="y")
-```
+![96baa626-050f-40da-b6f4-2b2b373f9878](f3df0ddad3.png)
 
 Finally, here are some relationships with a correlation coefficient of 0 (courtesy of Wikipedia). Notice that a correlation coefficient of 0 doesn't mean no relationship. Also notice that the relationships are quite diverse:
 

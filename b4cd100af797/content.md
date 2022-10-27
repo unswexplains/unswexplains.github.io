@@ -1,6 +1,6 @@
 %% The post hoc and cum hoc fallacies %%
 
-We humans have an insatiable appetite for causal explanations. This might have been evolutionarily advantageous, and perhaps it serves us well much of the time. But evolved abilities are typically not perfect. The human visual system, for example, generates illusions. Nor are they always in our best interests, especially when they evolved in environments that differ from our current one. We're afraid of snakes, for example, but not texting while driving, despite the latter being a far greater danger to us now.
+We humans have an insatiable appetite for causal explanations. This might have been evolutionarily advantageous, and perhaps it serves us well much of the time. But evolved abilities are typically not perfect: the human visual system, for example, generates illusions. Nor are they always in our best interests, especially when they evolved in environments that differ from our current one: we're afraid of snakes, for example, but not texting while driving, despite the latter being a far greater danger to us now.
 
 Indeed, our desire for causal explanations often leads us to see causation where it isn't. Sometimes this is harmless, but often it's not. If we mistakenly think that A causes B, then this can lead to a waste of time and effort. Worse, it can lead us to do harm.
 
@@ -8,7 +8,7 @@ There are two fallacies of causal reasoning that we're particularly prone to com
 
 # The post hoc fallacy
 
-Suppose one summer you try a different brand of fertiliser in your garden, and your vegetables grow better than they usually do.
+Suppose that one summer you try a different brand of fertiliser in your garden, and your vegetables grow better than they usually do.
 
 Can you feel the temptation to draw the causal conclusion, that the new fertiliser is to thank?
 
@@ -28,11 +28,11 @@ We're not always tempted to commit this fallacy. Think about the earthquake that
 
 By not drawing this conclusion, in the earthquake case, you're acknowledging that the reasoning is fallacious - that there can be cases in which A happened (you peeled an apple), then B happened (the earthquake occurred), but A did not cause B.
 
-So why are we ever tempted to reason this way, if we're aware that it's fallacious? It's because of our eagerness to find causal explanations. If we can see a plausible causal mechanism, especially one we would like to be true, we tend to drop our logical guards and jump to that conclusion.
+Why are we ever tempted to reason this way, if we're aware that it's fallacious? It's because of our eagerness to find causal explanations. If we can see a plausible causal mechanism, especially one we'd like to be true, we tend to drop our logical guards and jump to that conclusion.
 
 We should never reason this way. If we observe that A happened, then B happened, we should never thus conclude that A caused B. We can raise the question of whether A caused B - that's fine. But we can't simply conclude that A caused B. To properly draw that conclusion, we need better grounds.
 
-What better grounds are there? How do we properly draw a causal conclusion? It's difficult. We must be able to rule out other possible explanations. That requires knowing what would have happened if A hadn't have occurred, and everything else was the same. What would have happened if you'd used the usual fertiliser, and everything else was the same about your garden? Would your vegetables have been worse? The same? Better? In practice, that's difficult to know, if not impossible. We have to approximate it by doing a controlled experiment. They're difficult to do, and need special training.
+What better grounds are there? How do we properly draw a causal conclusion? It's difficult. We must be able to rule out other possible explanations. That requires knowing what would have happened if A hadn't have occurred, and everything else was the same. What would have happened if you'd used the usual fertiliser, and everything else about your garden was the same? Would your vegetables have been worse? The same? Better? In practice, that's difficult to know, if not impossible. We have to approximate it by doing a controlled experiment. They're difficult to do, and need special training.
 
 The point is, if you notice that A happened, then B happened, don't automatically conclude that A caused B. It's okay to raise the question of whether it did, but you can't know the answer unless you do a controlled experiment.
 
@@ -58,9 +58,9 @@ This reasoning is fallacious, because the conclusion does not follow from the pr
 
 Why the name "cum hoc"? It's short for "cum hoc ergo propter hoc", which is Latin for "with this therefore because of this", which is how ancient scholars first formulated the reasoning (in Latin).
 
-We're not always tempted to commit this fallacy. Suppose you learn that, at a certain beach, shark attacks co-occur with ice cream sales. Are you tempted to conclude that shark attacks cause ice cream sales, or that ice cream sales cause shark attacks? Presumably not. By not drawing either of these conclusions you're acknowledging that the reasoning is fallacious - that there can be cases in which A and B co-occur but A does not cause B.
+We're not always tempted to commit this fallacy. Suppose you learn that at a certain beach, shark attacks co-occur with ice cream sales. Are you tempted to conclude that shark attacks cause ice cream sales, or that ice cream sales cause shark attacks? Presumably not. By not drawing either of these conclusions you're acknowledging that the reasoning is fallacious - that there can be cases in which A and B co-occur but A does not cause B.
 
-So why are we ever tempted to reason this way, if we're aware that it's fallacious? Again, it's because of our eagerness to find causal explanations. If we can see a plausible causal mechanism, especially one we would like to be true, we tend to drop our logical guards and jump to that conclusion.
+So why are we ever tempted to reason this way, if we're aware that it's fallacious? Again, it's because of our eagerness to find causal explanations. If we can see a plausible causal mechanism, especially one we'd like to be true, we tend to drop our logical guards and jump to that conclusion.
 
 We should never reason this way. If we observe that A and B co-occur, we should never thus conclude that A causes B. We can raise the question of whether A causes B - that's fine. But we can't simply conclude that A causes B. To properly draw that conclusion, we again need to do a controlled experiment.
 

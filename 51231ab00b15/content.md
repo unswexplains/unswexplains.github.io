@@ -12,7 +12,7 @@ According to the standard explanation, the problem was their sampling method. Th
 
 When we use a sample to learn about a larger population, we want the sample to be *representative*. That is, we want summary facts about the sample to be the same as the corresponding summary facts about the population. If they are, then we can infer facts about the population from facts about the sample.
 
-How do we make sure that the sample is representative? Unfortunately, unless the population is perfectly uniform, we can't. If the population varies, as is usually the case, then there's always a chance that the composition of the sample might be different from the composition of the population as a whole.
+How do we make sure that the sample is representative? Unfortunately, unless the population is perfectly uniform, we can't. If the population varies, as is usually the case, then there's always a chance that the composition of the sample is different from the composition of the population as a whole.
 
 Nevertheless, there are two things we can do to maximise the likelihood that the sample is representative:
 
@@ -33,7 +33,7 @@ What's wrong with biased selection? If we give some members of the population mo
 
 If we're lucky, that subset might just happen to have the same composition as the population, and we might end up with a representative sample. But it might not. In the case of Literary Digest, it didn't. The proportion of Republican voters among subscribers and phone owners was much higher than the proportion of Republicans among Americans as a whole.
 
-Rather than hope to get lucky, it's better to give every member of the population the same chance of ending up in the sample.
+Rather than hope to get lucky, it's better to give every member of the population the same chance of ending up in the sample - to select without bias.
 
 # Dos and don'ts
 
@@ -68,4 +68,4 @@ Second, what if some don't want to give their opinion? You can't *make* them. No
 
 # The moral
 
-If you're working with data about a sample of some population, check the selection method, if you can. As you can see from the above, selecting samples without bias can be difficult, and it often goes wrong. If you find any issues with the selection method, keep them well in mind when working with the data, especially if you'll be presenting any results.
+If you're working with data about a sample, check that the sample was selected without bias, if you can. Selecting samples without bias can be difficult, and it often goes wrong. If you find any issues with the selection method, keep them well in mind when working with the data, especially if you'll be presenting any results.

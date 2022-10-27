@@ -34,7 +34,7 @@ What about the Sports Illustrated case?
 
 When an athlete appears on the cover of Sports Illustrated, it's usually because her performances have been outstandingly good. But sport, like flight manoeuvres, involves a certain amount of luck, and performing outstandingly well means that the athlete had luck on her side this time. Chances are, she won't be so lucky next time, and her performance will be worse - it will regress to the mean. If so, then it's not because she appeared on the cover of Sports Illustrated, but because she's likely to have less luck next time.
 
-What about the arthritis case? Can see how to explain it using regression to the mean?
+What about the arthritis case? Can you see how to explain it using regression to the mean?
 
 # A simulation
 

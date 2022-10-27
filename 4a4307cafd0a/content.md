@@ -26,7 +26,7 @@ Analysing data is potentially harmful, even when the data is *correct*. If it's 
 
 Often, you'll have gotten the data from a source you can trust to be correct, such as the Australian Bureau of Meteorology, or the World Health Organisation.
 
-If not, do what you can to check that the data is trustworthy. If the data about a sample of a population, has the sample been selected without bias? Have measurements been made validly and reliably? Is the data current enough for your purposes?
+If not, do what you can to check that the data is trustworthy. If the data is about a sample of a population, has the sample been selected without bias? Have measurements been made validly and reliably? Is the data current enough for your purposes?
 
 You might not be able to answer these questions. If not, and you're not otherwise sure how reliable the data is, then you should treat it with a healthy dose of skepticism.
 
@@ -34,9 +34,9 @@ You might not be able to answer these questions. If not, and you're not otherwis
 
 When analysing data, you'll often perform calculations. You might find the mean of a variable, or convert the values of a variable from one scale to another, or divide the values of one variable by the values of a second, and so on.
 
-Be careful when you do this, because it's easy to make mistakes. You can trust your software to correctly do whatever you ask it to do - there's no risk there. The risk is that you ask it to do the wrong thing. You might, for example, mistakenly ask it to round fractions down, rather than round them up or down to whichever whole number is closest. Or, you might ask it to calculate the median of a variable, when what you really want is the mean.
+Be careful when you do this, because it's easy to make mistakes. You can trust your software to correctly do whatever you ask it to do - there's no risk there. The risk is that you ask it to do the wrong thing. You might, for example, mistakenly ask it to round fractions down, rather than round them up or down to whichever whole number is closest. Or, you might ask it to calculate the mean of a variable, when what you really want is the median.
 
-Sometimes the mistakes can be small and hard to notice, but add up to big differences in the long run.
+Sometimes mistakes can be small and hard to notice, but add up to big differences in the long run.
 
 So, double-check any formula you're asking your software to use. Calculate a few values manually, and compare the results. If you can, cross-check by doing the calculation some alternative way. For example, if you're asking for the mean of a variable, try also asking for the sum divided by the count - the result should be the same.
 
@@ -95,6 +95,6 @@ For example, suppose you have data about the height (in centimetres) and popular
   });
 </script>
 
-Unless you know what you're doing, you should resist this temptation. Determining whether one variable causes another is yet another specialised skill that can easily be done badly (and often is). Don't draw causal conclusions from your data, unless you've had the proper training, and use it well.
+Unless you know what you're doing, you should resist this temptation. Determining whether one variable causes another is yet another specialised skill that can easily be done badly (and often is). Don't draw causal conclusions from your data, unless you've had the proper training, and use that training well.
 
-Again, it's okay to use any relationship you might find to raise the *possibility* that one variable causes the other, which might be worth further investigation. Just don't conclude that it does.
+Again, it's okay to use a relationship to raise the *possibility* that one variable causes another, and to suggest further investigation. Just don't conclude that it does.

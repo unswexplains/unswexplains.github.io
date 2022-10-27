@@ -153,11 +153,4 @@ Line of best fit in each case: y = 3.00 + 0.500x
 
 Despite having nearly identical numerical summaries, the four data sets have very different distributions, as you can see from the following visualisations:
 
-```r
-svg()
-par(mfrow=c(2,2), pch=19)
-plot(anscombe$x1, anscombe$y1, xlim=c(0,20), ylim=c(0,14), main="Data set 1", xlab="x", ylab="y")
-plot(anscombe$x2, anscombe$y2, xlim=c(0,20), ylim=c(0,14), main="Data set 2", xlab="x", ylab="y")
-plot(anscombe$x3, anscombe$y3, xlim=c(0,20), ylim=c(0,14), main="Data set 3", xlab="x", ylab="y")
-plot(anscombe$x4, anscombe$y4, xlim=c(0,20), ylim=c(0,14), main="Data set 4", xlab="x", ylab="y")
-```
+![96baa626-050f-40da-b6f4-2b2b373f9878](7d7901616f.png)
