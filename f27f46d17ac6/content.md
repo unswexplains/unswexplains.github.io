@@ -24,7 +24,7 @@ Suppose you go to the local supermarket and collect data about shoppers - their 
 
 First, you need a customer's permission to measure these things - you can't just measure their girth and height without asking.
 
-Second, who owns the data in this case - you, or the customers? It's still you, because you're the one making and collecting the measurements. So it's your data. It's not the customers' data, even though it's about them.
+Second, who owns the data in this case - you, or the customer? It's still you, because you're the one making and collecting the measurements. So, it's your data. It's not the customer's data, even though it's about them.
 
 That said, owning the data doesn't give you the right to do whatever you want with it - you have an obligation to the customers to use it responsibly. So, you can't just publish the data wherever you want, or show it to whomever you want. Because of this, customers might be reluctant to let you collect the data - they'd be trusting you to use it responsibly. But if they do give permission, then the data is yours.
 
@@ -32,7 +32,7 @@ To summarise. Collecting data about people requires the permission of those peop
 
 # What owners can do
 
-The owner of some data has quite a lot of power over it. They can grant permission to use the data. They can grant permission to grant permission to use the data (i.e. delegate their authority). They can even transfer the ownership of the data to someone else.
+The owner of some data has quite a lot of power over it. They can grant permission to use the data. They can grant permission to grant permission to use the data (i.e. delegate their authority to grant permission). They can even transfer the ownership of the data to someone else.
 
 But, and this is important, if the data is about people then they must use the data responsibly. If the owner cannot be trusted to use the data responsibly, then people will be reluctant to give their permission for the data to be collected in the first place.
 
@@ -44,7 +44,7 @@ Much of the time, the data you'd like to use is owned by one of the following:
 
 - Your organisation
 - The government, who are making it available at their website
-- An individual, who's making it available via on online repository (such as Kaggle or GitHub)
+- An individual, who's making it available via an online repository (such as Kaggle or GitHub)
 
 If it's owned by your organisation, there'll be someone in the organisation with authority to grant permission to use it. You'll need to find that person and get permission.
 
