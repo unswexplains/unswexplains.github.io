@@ -1,0 +1,77 @@
+<!doctype html>
+<html>
+  <head>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Roboto");
+      @import url("https://fonts.googleapis.com/css2?family=Roboto+Mono");
+      :root {
+        /* Primary */
+        --unsw-yellow: rgb(255,220,0);
+        /* Secondary */
+        --unsw-indigo: rgb(63,97,196);
+        --unsw-red: rgb(255,99,93);
+        --unsw-green: rgb(26,201,135);
+        --unsw-pink: rgb(250,145,182);
+        /* Tertiary */
+        --unsw-blue: rgb(45,170,226);
+        --unsw-teal: rgb(0,120,130);
+        --unsw-purple: rgb(138,104,200);
+        --unsw-orange: rgb(255,130,0);
+        /* Other */
+        --unsw-gray: #F3F3F3;
+      }
+      body {font-family: "Roboto"; padding: 0; margin: 0; text-align: center;}
+      header {background-color: var(--unsw-yellow); padding: 0; margin: 0; font-size: 200%; padding: 10px;}
+      #text {width: 80%; max-width: 40em; display: inline-block; margin: 2em auto; padding: 0.5em;}
+      #text:focus {outline: none;}
+      #topics {display: inline-block; text-align: left;}
+      #topics a {display: block; padding: 0.25em 0; cursor: pointer; text-decoration: none; color: blue}
+    </style>
+  </head>
+  <body>
+    <header>
+      UNSW Explains
+    </header>
+    <main>
+      <p><input id="text" onkeyup="showTopics()" placeholder="Search topics" autofocus/></p>
+      <div id="topics"></div>
+    </main>
+  </body>
+</html>
+<script>
+  let topics = [];
+  window.addEventListener("load", () => {
+    getTopics();
+  });
+  async function getTopics() {
+    document.getElementById("topics").innerHTML = "Fetching topics...";
+    let response = await fetch("https://unswx.github.io/topics/topics.json")
+    let ids = await response.json();
+    topics = await Promise.all(ids.map(id => topicDetails(id)));
+    topics.sort((a, b) => a.name > b.name ? 1 : a.name < b.name ? -1 : 0);
+    showTopics();
+    async function topicDetails(id) {
+      let response = await fetch(`https://unswx.github.io/topics/${id}/content.md`);
+      let text = await response.text()
+      text = text.trim();
+      name = text.startsWith("%%") ? text.split("%%", 2)[1].trim() : id;
+      return {id, name, text};
+    }
+  }
+  function showTopics() {
+    let text = document.getElementById("text").value;
+    let regex = new RegExp(text, "g");
+    document.getElementById("topics").innerHTML = "";
+    topics.forEach(topic => {
+      if (text) {
+        let numMatches = (topic.text.match(regex) || []).length;
+        if (numMatches > 0) {
+          document.getElementById("topics").innerHTML += `<a href="https://unswx.github.io/topics/${topic.id}?s=${text}" target="_blank">${topic.name} (${numMatches})</a>`;
+        }
+      }
+      else {
+        document.getElementById("topics").innerHTML += `<a href="https://unswx.github.io/topics/${topic.id}" target="_blank">${topic.name}</a>`;
+      }
+    });
+  }
+</script>
