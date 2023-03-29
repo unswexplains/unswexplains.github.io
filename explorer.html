@@ -29,7 +29,6 @@
   <body>
     <div id="left">
       <h1>UNSW Explains</h1>
-      <a href="https://unswx.github.io/thoreau" target="thoreau">Launch Thoreau</a>
       <p><input type="text" id="searchText" onkeypress="search()" placeholder="Search..." autofocus/><button onclick="unsearch()">&times;</button></p>
       <div id="topics"></div>
       <div id="results" class="hidden"></div>
@@ -58,7 +57,7 @@
       async function view(id) {
         document.querySelectorAll("a").forEach(x => x.classList.remove("selected"));
         document.querySelector(`a[id="${id}"]`).classList.add("selected");
-        getText(`https://unswx.github.io/${id}/content.md`).then(text => {
+        getText(`https://unswx.github.io/topics/${id}/content.md`).then(text => {
           editor.setValue(text);
           editor.navigateFileStart();
           editor.clearSelection();
@@ -72,12 +71,12 @@
             });
           }
         })
-        getText(`https://unswx.github.io/${id}/index.html`).then(text => {
+        getText(`https://unswx.github.io/topics/${id}/index.html`).then(text => {
           document.getElementById("html").value = text;
         });
-        document.getElementById("result").src = `https://unswx.github.io/${id}`;
+        document.getElementById("result").src = `https://unswx.github.io/topics/${id}`;
         /*
-        let url = `https://unswx.github.io/${id}/index.html`;
+        let url = `https://unswx.github.io/topics/${id}/index.html`;
         fetch(url)
           .then(response => response.text())
           .then(text => {
@@ -117,7 +116,7 @@
           document.getElementById("topics").innerHTML += `<a id="${id}" onclick="view('${id}')">${id}</a>`;
           getTopicName(id);
           async function getTopicName(id) {
-            let text = await getText(`https://unswx.github.io/${id}/content.md`);
+            let text = await getText(`https://unswx.github.io/topics/${id}/content.md`);
             text = text.trim();
             let name = id;
             if (text.startsWith("%%")) name = text.split("%%", 2)[1].trim();
@@ -150,7 +149,7 @@
           results.innerHTML = "No matches";
           for (id of ids) check(id);
           async function check(id) {
-            let text = await getText(`https://unswx.github.io/${id}/content.md`);
+            let text = await getText(`https://unswx.github.io/topics/${id}/content.md`);
             let indices = [...text.matchAll(new RegExp(searchText, 'gi'))].map(x => x.index);
             if (indices.length > 0) {
               if (results.textContent === "No matches") results.textContent = "";
