@@ -110,7 +110,7 @@
       }
       async function listTopics() {
         document.getElementById("topics").innerHTML = "";
-        let json = await getText("https://unswx.github.io/topics.json")
+        let json = await getText("https://unswx.github.io/topics/topics.json")
         ids = JSON.parse(json);
         for (id of ids) {
           topics.push({id: id});
